@@ -1,11 +1,16 @@
+/*
+My first program
+
+Author: @Arist Xu
+*/
+
 package unit1;
 
 import codehs.*;
 
-
-public class myProgram extends ConsoleProgram{
+public class myProgram extends ConsoleProgram {
 
     public void run() {
-        System.out.println("This is my first program!");
+        System.out.println("Mon premier programme.");
     }
 }
