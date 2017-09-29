@@ -3,27 +3,26 @@
 */
 
 package unit1;
-
 import codehs.*;
-
-import javax.print.attribute.standard.JobOriginatingUserName;
 
 
 public class UserInput extends ConsoleProgram{
 
     public void run() {
-        String userName = readLine("What is your name? ");
+        String userName = readLine("Enter your name: "); // get name
+        userName = readLine("Confirm your name: "); // confirm name name
 
-        int userAge = readInt("What is your age? ");
+        int userAge = readInt("Enter your age: "); // get age
 
-        double userCurrentMark = readDouble("What is your current mark? ");
+        double userCurrentMark = readDouble("Enter your current mark: "); // get current mark
 
-        boolean userLocker = readBoolean("Have you been assigned a locker?\n\n ");
+        boolean userLocker = readBoolean("Have you been assigned a locker? (true/false) "); // get locker assignment status
 
-        System.out.println("Name: " + userName);
+        // output info
+        System.out.println("\nName: " + userName);
         System.out.println("Age: " + userAge);
         System.out.println("Current Mark: " + userCurrentMark);
-        System.out.println("Has this person recieved a locker: " + userLocker);
+        System.out.println("Locker Assigned: " + userLocker);
     }
 }
 
