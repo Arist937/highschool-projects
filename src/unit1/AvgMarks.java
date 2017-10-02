@@ -30,7 +30,7 @@ public class AvgMarks extends ConsoleProgram{
                 System.out.println("... You need work");
             }
 
-            repeatProgram = readLine("Would you like to repeat the program? ");
+            repeatProgram = readLine("\n\nWould you like to repeat the program? ");
         }
     }
 }
