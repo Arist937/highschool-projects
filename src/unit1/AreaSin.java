@@ -9,9 +9,7 @@ public class AreaSin extends ConsoleProgram {
         double b = readDouble("Enter length of b: ");
         double C = readDouble("Enter measure of angle C: ");
 
-        double cToRadians = Math.toRadians(C);
-
-        double areaTriangle = ((a)*(b)*Math.sin(cToRadians)) / 2;
+        double areaTriangle = ((a)*(b)*Math.sin(Math.toRadians(C))) / 2;
 
 
         System.out.println(areaTriangle);
