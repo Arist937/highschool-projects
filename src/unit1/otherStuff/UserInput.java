@@ -9,7 +9,8 @@ import codehs.*;
 public class UserInput extends ConsoleProgram{
 
     public void run() {
-        String userName = readLine("Enter your name: "); // get name
+        //GET name
+        String userName = readLine("Enter your name: ");
 
         int userAge = readInt("Enter your age: "); // get age
 
