@@ -2,7 +2,7 @@
  @author: Arist
 */
 
-package unit1;
+package unit1.mathProblems;
 
 import codehs.*;
 import java.math.RoundingMode;

@@ -4,7 +4,7 @@ My first program
 Author: @Arist Xu
 */
 
-package unit1;
+package unit1.mathProblems;
 
 import codehs.*;
 

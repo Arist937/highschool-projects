@@ -2,7 +2,7 @@
  @author: Arist
 */
 
-package unit1;
+package unit1.otherStuff;
 import codehs.*;
 
 
@@ -10,7 +10,6 @@ public class UserInput extends ConsoleProgram{
 
     public void run() {
         String userName = readLine("Enter your name: "); // get name
-        userName = readLine("Confirm your name: "); // confirm name name
 
         int userAge = readInt("Enter your age: "); // get age
 
