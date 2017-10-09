@@ -45,7 +45,6 @@ public class TicTacToe{
             break;
         }
     }
-
     repeatProgram();
 }
 
