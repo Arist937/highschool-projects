@@ -3,7 +3,7 @@ import codehs.*;
 
 /**
  * A program LiveHackProblem1.java that lets you enter the length of side a of a regular,
- * tetrahedron and then prints and calculates the face area.
+ * tetrahedron and then calculates and prints the face area.
  * @author: A. Xu
  */
 
