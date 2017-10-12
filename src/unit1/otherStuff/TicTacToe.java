@@ -207,6 +207,7 @@ public class TicTacToe{
                 !obj.get(3).equalsIgnoreCase(" ") && !obj.get(4).equalsIgnoreCase(" ") && !obj.get(5).equalsIgnoreCase(" ") &&
                 !obj.get(6).equalsIgnoreCase(" ") && !obj.get(7).equalsIgnoreCase(" ") && !obj.get(8).equalsIgnoreCase(" ")){
 
+            drawGame();
             System.out.println("It's a draw!");
             victor = 1;
         }
