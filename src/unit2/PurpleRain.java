@@ -89,4 +89,5 @@ public class PurpleRain extends ConsoleProgram {
 
         System.out.println("There are " + vowelCount + " vowels in Purple Rain");
     }
+
 }
