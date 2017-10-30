@@ -20,6 +20,6 @@ public class TripCalculator extends ConsoleProgram {
 
         System.out.println(totalTravelled);
 
-        System.out.println("You spent " + costOfFuel * (totalTravelled / 100) * fuelEfficiency + " dollars");
+        System.out.println("You spent " + costOfFuel * (totalTravelled / 100) * fuelEfficiency + " dollars on gas");
     }
 }

@@ -5,8 +5,13 @@ import codehs.*;
 public class Div2 extends ConsoleProgram {
 
     public void run(){
+        int counter = 0;
         int number = readInt("Enter a number: ");
 
-        System.out.println("That number can be divided " + (int) number / 2 + " times by 2");
+        for (int i = number; i > 1; i -= 2){
+            counter++;
+        }
+
+        System.out.println("Your number can be divided " + counter + " times");
     }
 }
