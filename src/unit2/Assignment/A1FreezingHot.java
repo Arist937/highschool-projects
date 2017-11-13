@@ -15,7 +15,7 @@ public class A1FreezingHot extends ConsoleProgram {
         int temperatureTwo;
         boolean isFreezingHot;
 
-        // Get temperatureOne and temperatureTwo from user
+        // Get two temperatures temperatureOne and temperatureTwo from user
         temperatureOne = readInt("Enter the first temperature: ");
         temperatureTwo = readInt("Enter the second temperature: ");
 
