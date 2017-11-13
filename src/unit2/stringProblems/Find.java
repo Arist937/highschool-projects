@@ -2,7 +2,7 @@ package unit2.stringProblems;
 import codehs.*;
 
 public class Find extends ConsoleProgram {
-    public void run(){
+    public void run() {
         String word = readLine("Enter your word: ");
         int letterLocation = readInt("Which character would you like to find? ");
 
