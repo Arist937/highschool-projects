@@ -16,6 +16,15 @@ public class B2GuessingGame extends ConsoleProgram {
 
         for (int i = 0; i < 5; i++) {
             userGuess = readInt("Enter your guess: ");
+
+            if (userGuess < randomInt){
+                System.out.println("Too small");
+            } else if ( userGuess > randomInt) {
+                System.out.println("Too big");
+            } else if (userGuess == randomInt){
+                System.out.println("You got the right number!");
+                break;
+            }
         }
     }
 }
