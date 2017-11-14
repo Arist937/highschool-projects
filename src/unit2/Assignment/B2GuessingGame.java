@@ -9,7 +9,7 @@ public class B2GuessingGame extends ConsoleProgram {
         // Create a random object that will be used to generate a number from 1 - 100
         Random myRandom = new Random();
 
-        // Create a random number and variable to store user guess
+        // Create a random number and variable to store user guesses
         int randomInt = myRandom.nextInt(100);
         int userGuess;
     }
