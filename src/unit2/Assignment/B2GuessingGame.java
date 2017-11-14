@@ -12,5 +12,10 @@ public class B2GuessingGame extends ConsoleProgram {
         // Create a random number and variable to store user guesses
         int randomInt = myRandom.nextInt(100);
         int userGuess;
+
+
+        for (int i = 0; i < 5; i++) {
+            userGuess = readInt("Enter your guess: ");
+        }
     }
 }
