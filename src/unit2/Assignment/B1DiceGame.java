@@ -15,10 +15,10 @@ public class B1DiceGame extends ConsoleProgram {
 
         // For loop that runs 100 times
         for(int i = 0; i < 100; i++){
-            randomDiceRoll = myRandom.nextInt(7);
+            randomDiceRoll = myRandom.nextInt(6 + 1);
             diceRollOne = randomDiceRoll;
 
-            randomDiceRoll = myRandom.nextInt(7);
+            randomDiceRoll = myRandom.nextInt(6 + 1);
             diceRollTwo = randomDiceRoll;
 
             if((diceRollOne + diceRollTwo) == 2)  {
