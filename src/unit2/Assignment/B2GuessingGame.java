@@ -24,6 +24,9 @@ public class B2GuessingGame extends ConsoleProgram {
             } else if (userGuess == randomInt){
                 System.out.println("You got the right number!");
                 break;
+            } else if (i == 4){
+                System.out.println("Nice try!");
+                break;
             }
         }
     }
