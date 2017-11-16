@@ -1,4 +1,9 @@
 package unit2.Assignment;
 
-public class C2EveryNth {
+import codehs.*;
+
+public class C2EveryNth extends ConsoleProgram {
+    public void run() {
+        
+    }
 }
