@@ -18,5 +18,7 @@ public class C2EveryNth extends ConsoleProgram {
             // Add the valueNth char of userWord to newWord
             newWord = newWord + userWord.charAt(i);
         }
+
+        System.out.println(newWord);
     }
 }
