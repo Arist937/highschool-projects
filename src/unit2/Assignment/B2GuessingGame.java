@@ -10,13 +10,15 @@ public class B2GuessingGame extends ConsoleProgram {
         Random myRandom = new Random();
 
         // Create a random number and variable to store user guesses
-        int randomInt = myRandom.nextInt(100);
+        int randomInt = myRandom.nextInt(99) + 1;
         int userGuess;
 
-
+        // Loops 5 times
         for (int i = 0; i < 5; i++) {
+            // Get user guess
             userGuess = readInt("Enter your guess: ");
 
+            // If else structure to determine whether the number is too high or too low or right
             if (userGuess < randomInt){
                 System.out.println("Too small");
             } else if ( userGuess > randomInt) {
@@ -24,9 +26,11 @@ public class B2GuessingGame extends ConsoleProgram {
             } else if (userGuess == randomInt){
                 System.out.println("You got the right number!");
                 break;
-            } else if (i == 4){
+            }
+
+            // if after 5 tries and the user can't guess correctly, print nice try
+            if (i == 4){
                 System.out.println("Nice try!");
-                break;
             }
         }
     }
