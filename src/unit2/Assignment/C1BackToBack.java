@@ -13,5 +13,10 @@ public class C1BackToBack extends ConsoleProgram {
             // Get input from the user
             userWord = readLine("Enter a word: ");
         }
+
+        // Stores new word with user word with it's last letter on the back and front
+        newWord = userWord.substring(userWord.length() - 1) + userWord + userWord.substring(userWord.length() - 1);
+        // Print the new world
+        System.out.println(newWord);
     }
 }
