@@ -20,7 +20,7 @@ public class B1DiceGame extends ConsoleProgram {
         int diceRollTwo;
 
         // For loop that runs 100 times
-        for(int i = 0; i < 100; i++){
+        for (int i = 0; i < 100; i++){
             // Generate number from 1 - 6 and store it in diceRollOne
             randomDiceRoll = myRandom.nextInt(6) + 1;
             diceRollOne = randomDiceRoll;
@@ -30,10 +30,10 @@ public class B1DiceGame extends ConsoleProgram {
             diceRollTwo = randomDiceRoll;
 
             // Determine if the rolls create snake eyes or a lucky seven
-            if((diceRollOne + diceRollTwo) == 2)  {
+            if ((diceRollOne + diceRollTwo) == 2)  {
                 System.out.println("Snake Eyes");
             }
-            else if((diceRollOne + diceRollTwo) == 7) {
+            else if ((diceRollOne + diceRollTwo) == 7) {
                 System.out.println("Lucky Seven!");
             }
         }

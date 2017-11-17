@@ -24,7 +24,7 @@ public class A1FreezingHot extends ConsoleProgram {
         if (temperatureOne > 100 && temperatureTwo < 0){
             isFreezingHot = true;
         }
-        else if(temperatureOne < 0 && temperatureTwo > 100) {
+        else if (temperatureOne < 0 && temperatureTwo > 100) {
             isFreezingHot = true;
         }
         else {
