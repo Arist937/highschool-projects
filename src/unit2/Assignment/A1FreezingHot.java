@@ -1,9 +1,10 @@
 package unit2.Assignment;
+
 import codehs.*;
 
 /**
  * A program A1FreezingHot.java that lets a user enter two temperatures and it determines whether
- * the temperatures are considered freezing hot
+ * the temperatures are considered freezing hot (one higher than 100, one lower than 200)
  * @author: A. Xu
  */
 

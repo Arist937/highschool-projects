@@ -2,6 +2,12 @@ package unit2.Assignment;
 
 import codehs.*;
 
+/**
+ * A program C1BackToBack.java that lets a user enter a word and adds the last letter of that word
+ * to the front and back
+ * @author: A. Xu
+ */
+
 public class C1BackToBack extends ConsoleProgram {
     public void run() {
         // Variable userWord to get input and newWord that stores the final word
@@ -16,7 +22,8 @@ public class C1BackToBack extends ConsoleProgram {
 
         // Stores new word with user word with it's last letter on the back and front
         newWord = userWord.substring(userWord.length() - 1) + userWord + userWord.substring(userWord.length() - 1);
-        // Print the new world
+
+        // Print the new word
         System.out.println(newWord);
     }
 }

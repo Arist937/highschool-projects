@@ -2,6 +2,12 @@ package unit2.Assignment;
 
 import codehs.*;
 
+/**
+ * A program C2EveryNth.java that lets a user enter a word and the value of n. The program then
+ * finds every nth character in the word entered starting at 0
+ * @author: A. Xu
+ */
+
 public class C2EveryNth extends ConsoleProgram {
     public void run() {
         // Create variables userWord, newWord and valueN
@@ -19,6 +25,7 @@ public class C2EveryNth extends ConsoleProgram {
             newWord = newWord + userWord.charAt(i);
         }
 
+        // Print out newWord
         System.out.println(newWord);
     }
 }

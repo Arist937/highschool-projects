@@ -1,8 +1,13 @@
 package unit2.Assignment;
 
 import codehs.*;
-
 import java.util.Random;
+
+/**
+ * A program B2GuessingGame.java that generates a number from 1 - 100 and lets the user try to
+ * guess the number. The user has 5 tries.
+ * @author: A. Xu
+ */
 
 public class B2GuessingGame extends ConsoleProgram {
     public void run() {
