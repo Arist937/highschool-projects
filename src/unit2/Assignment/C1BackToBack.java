@@ -15,7 +15,7 @@ public class C1BackToBack extends ConsoleProgram {
         String newWord;
 
         // While loop to ensure that user cannot input nothing
-        while (userWord == "") {
+        while (userWord.equals("")) {
             // Get input from the user
             userWord = readLine("Enter a word: ");
         }
