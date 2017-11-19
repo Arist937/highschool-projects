@@ -18,24 +18,29 @@ public class B2GuessingGame extends ConsoleProgram {
         int randomInt = myRandom.nextInt(99) + 1;
         int userGuess;
 
+        System.out.println(randomInt);
+
         // Loops 5 times
         for (int i = 0; i < 5; i++) {
             // Get user guess
             userGuess = readInt("Enter your guess: ");
 
-            // If else structure to determine whether the number is too high or too low or right
-            if (userGuess < randomInt){
-                System.out.println("Too small");
-            } else if ( userGuess > randomInt) {
-                System.out.println("Too big");
-            } else if (userGuess == randomInt){
+            // if after 5 tries and the user can't guess correctly, print nice try
+            if (i == 4 && userGuess != randomInt){
+                System.out.println("Wrong number but nice try!");
+            }
+            // If guess is lower than the random number print too low
+            else if (userGuess < randomInt){
+                System.out.println("Too low, guess again.");
+            }
+            // If guess is higher than the random number print too high
+            else if ( userGuess > randomInt) {
+                System.out.println("Too high, guess again.");
+            }
+            // If guess is the random number tell user they got the right number
+            else if (userGuess == randomInt){
                 System.out.println("You got the right number!");
                 break;
-            }
-
-            // if after 5 tries and the user can't guess correctly, print nice try
-            if (i == 4){
-                System.out.println("Nice try!");
             }
         }
     }
