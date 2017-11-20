@@ -20,6 +20,8 @@ public class B2GuessingGame extends ConsoleProgram {
         int randomInt = myRandom.nextInt(100) + 1;
         int userGuess;
 
+        System.out.println(randomInt);
+
         // Loops 5 times
         for (int i = 0; i < 5; i++) {
             // Get user guess
