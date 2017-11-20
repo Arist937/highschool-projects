@@ -10,15 +10,15 @@ import java.util.Random;
  */
 
 public class B2GuessingGame extends ConsoleProgram {
+
     public void run() {
+
         // Create a random object that will be used to generate a number from 1 - 100
         Random myRandom = new Random();
 
         // Create a random number and variable to store user guesses
-        int randomInt = myRandom.nextInt(99) + 1;
+        int randomInt = myRandom.nextInt(100) + 1;
         int userGuess;
-
-        System.out.println(randomInt);
 
         // Loops 5 times
         for (int i = 0; i < 5; i++) {
@@ -43,5 +43,6 @@ public class B2GuessingGame extends ConsoleProgram {
                 break;
             }
         }
+
     }
 }

@@ -9,6 +9,7 @@ import codehs.*;
  */
 
 public class C2EveryNth extends ConsoleProgram {
+
     public void run() {
         // Create variables userWord, newWord and valueN
         String userWord;
@@ -27,5 +28,6 @@ public class C2EveryNth extends ConsoleProgram {
 
         // Print out newWord
         System.out.println(newWord);
+
     }
 }

@@ -1,18 +1,18 @@
 package unit2.otherStuff;
-import codehs.*;
 
+import codehs.*;
+import java.util.Random;
 
 public class Accumulator extends ConsoleProgram {
 
     public void run(){
+        Random myRandom = new Random();
+        int randomInt;
 
-        int sum = 0;
-        int n = readInt("Enter value of n: ");
-
-        for(int i = 1; i <= n; i++) {
-            sum += i;
+        for (int i = 0; i < 1000; i++) {
+            randomInt = myRandom.nextInt(100) + 1;
+            System.out.println(randomInt);
         }
 
-        System.out.println(sum);
     }
 }

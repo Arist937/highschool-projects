@@ -10,7 +10,9 @@ import java.util.Random;
  */
 
 public class B1DiceGame extends ConsoleProgram {
+
     public void run() {
+
         // Create a random object that will be used to generate a number from 1 - 6
         Random myRandom = new Random();
 
@@ -37,5 +39,6 @@ public class B1DiceGame extends ConsoleProgram {
                 System.out.println("Lucky Seven!");
             }
         }
+
     }
 }
