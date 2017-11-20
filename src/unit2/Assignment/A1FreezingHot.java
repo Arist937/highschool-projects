@@ -9,7 +9,6 @@ import codehs.*;
  */
 
 public class A1FreezingHot extends ConsoleProgram {
-
     public void run(){
         // Declare variables temperatureOne, temperatureTwo and isFreezingHot
         int temperatureOne;
