@@ -14,7 +14,7 @@ public class C2EveryNth extends ConsoleProgram {
 
         // Create variables userWord, newWord and valueN
         String userWord;
-        String newWord = "";
+        String nthCharacters = "";
         int valueN;
 
         // Get a word from the user and the value of n
@@ -24,11 +24,11 @@ public class C2EveryNth extends ConsoleProgram {
         // Loop that runs for the length of the word that the user entered divided by 3
         for (int i = 0; i < userWord.length(); i += valueN) {
             // Add the valueNth char of userWord to newWord
-            newWord = newWord + userWord.charAt(i);
+            nthCharacters = nthCharacters + userWord.charAt(i);
         }
 
         // Print out newWord
-        System.out.println(newWord);
+        System.out.println(nthCharacters);
 
     }
 }
