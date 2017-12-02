@@ -3,6 +3,7 @@ package unit3;
 public class MethodsAssignment {
     public static void main(String[] args) {
         lcmTest();
+        censorPlusTest();
     }
 
     public static int lcm(int val1, int val2) {
@@ -52,5 +53,12 @@ public class MethodsAssignment {
     }
 
     public static void censorPlusTest(){
+        System.out.println(censorPlus("12xy34", "xy"));
+        System.out.println(censorPlus("12xy34", "1"));
+        System.out.println(censorPlus("12xy34xyabcxy", "xy"));
+        System.out.println(censorPlus("1234f123rwqrvwqfverwqq5wte", "q"));
+        System.out.println(censorPlus("1234abchello worldpoi09@#$#$", "hello world"));
+        System.out.println(censorPlus("adsfsadfasdfasdf", "@"));
+        System.out.println(censorPlus("aaaaaaaaaaaaaaa", "a"));
     }
 }
