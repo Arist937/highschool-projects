@@ -35,7 +35,10 @@ public class MethodsAssignment {
         while (wordLocation != -1){
             // For loop will be used to scroll through all characters in phrase
             for(int i = 0; i < phrase.length(); i++){
-
+                // if the character at i in phrase is not the same as the first character in word, put a +
+                if(phrase.charAt(i) != word.charAt(0)){
+                    censoredWord = censoredWord + '+';
+                }
             }
         }
         return censoredWord;
