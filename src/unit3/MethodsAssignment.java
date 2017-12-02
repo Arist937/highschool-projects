@@ -2,7 +2,7 @@ package unit3;
 
 public class MethodsAssignment {
     public static void main(String[] args) {
-        System.out.println(lcm(123, 31));
+        System.out.println(lcm(44866, 23293));
     }
 
     public static int lcm(int val1, int val2) {
