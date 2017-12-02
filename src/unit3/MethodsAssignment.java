@@ -17,5 +17,8 @@ public class MethodsAssignment {
 
 
     public static void lcmTest(){
+        System.out.println(lcm(14396, 1923));
+        System.out.println(lcm(306, 21809));
+        System.out.println(lcm(11063, 17570));
     }
 }
