@@ -18,10 +18,13 @@ public class MethodsAssignment {
         // Declare variable lcmVal to store lcm
         int lcmVal = val1;
 
+        // while lcmVal is not divisible by val2, loop
         while (lcmVal % val2 != 0) {
+            // keep adding lcmVal by val1 until divisible by val2
             lcmVal += val1;
         }
 
+        // return lcm
         return lcmVal;
     }
 
@@ -69,23 +72,30 @@ public class MethodsAssignment {
         // Finds index of word within the phrase
         int wordLocation = phrase.indexOf(word);
 
-        // If wordLocation is -1, word does not exist within the phrase
+        // run this code
         do {
             // For loop will be used to scroll through all characters in phrase
             for(int i = 0; i < phrase.length(); i++){
+                // if location of i is same as wordLocation, run
                 if (i == wordLocation) {
+                    // add word to censored word
                     censoredWord = censoredWord + word;
 
+                    // move i forward by length of word
                     i += word.length() - 1;
 
+                    // get new wordLocation after the existing one
                     wordLocation = phrase.indexOf(word, wordLocation + 1);
 
                 } else {
+                    // add a plus to censoredWord
                     censoredWord = censoredWord + '+';
                 }
             }
+          // keep running code until wordLocation becomes -1
         } while (wordLocation != -1);
 
+        // return final censored word
         return censoredWord;
     }
 
