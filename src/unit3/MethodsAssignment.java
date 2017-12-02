@@ -24,4 +24,8 @@ public class MethodsAssignment {
         System.out.println(lcm(65, 10));
         System.out.println(lcm(192, 245));
     }
+
+    public static String censorPlus(String phrase, String word){
+        
+    }
 }
