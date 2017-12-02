@@ -41,6 +41,9 @@ public class MethodsAssignment {
                 } else {
                     censoredWord = censoredWord + word;
 
+                    // Increases i by the length of word to skip parts of phrase that include the word
+                    i += word.length() - 1;
+
                     // Try to find another occurrence of word
                     wordLocation = phrase.indexOf(word, wordLocation + 1);
                 }
