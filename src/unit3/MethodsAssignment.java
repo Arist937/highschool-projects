@@ -26,6 +26,11 @@ public class MethodsAssignment {
     }
 
     public static String censorPlus(String phrase, String word){
-        
+        // Stores final censored string
+        String censoredWord = "";
+        // Finds index of word within the phrase
+        int wordLocation = phrase.indexOf(word);
+
+        return censoredWord;
     }
 }
