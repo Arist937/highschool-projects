@@ -33,7 +33,7 @@ public class MethodsAssignment {
         int wordLocation = phrase.indexOf(word);
 
         // If wordLocation is -1, word does not exist within the phrase
-        while (wordLocation != -1){
+        do {
             // For loop will be used to scroll through all characters in phrase
             for(int i = 0; i < phrase.length(); i++){
                 if (i != wordLocation){
@@ -48,7 +48,8 @@ public class MethodsAssignment {
                     wordLocation = phrase.indexOf(word, wordLocation + 1);
                 }
             }
-        }
+        } while (wordLocation != -1);
+
         return censoredWord;
     }
 
