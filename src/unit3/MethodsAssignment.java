@@ -9,7 +9,7 @@ public class MethodsAssignment {
         // Declare variable lcmVal to store lcm
         int lcmVal = val1;
 
-        while (lcmVal % val2 != 0){
+        while (lcmVal % val2 != 0) {
             lcmVal += val1;
         }
 
@@ -17,7 +17,7 @@ public class MethodsAssignment {
     }
 
 
-    public static void lcmTest(){
+    public static void lcmTest() {
         System.out.println(lcm(14396, 1923));
         System.out.println(lcm(306, 21809));
         System.out.println(lcm(11063, 17570));
@@ -25,12 +25,19 @@ public class MethodsAssignment {
         System.out.println(lcm(192, 245));
     }
 
-    public static String censorPlus(String phrase, String word){
+    public static String censorPlus(String phrase, String word) {
         // Stores final censored string
         String censoredWord = "";
         // Finds index of word within the phrase
         int wordLocation = phrase.indexOf(word);
 
+        // If wordLocation is -1, word does not exist within the phrase
+        while (wordLocation != -1){
+            // For loop will be used to scroll through all characters in phrase
+            for(int i = 0; i < phrase.length(); i++){
+
+            }
+        }
         return censoredWord;
     }
 }
