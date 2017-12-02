@@ -3,6 +3,7 @@ package unit3;
 public class MethodsAssignment {
     public static void main(String[] args) {
         lcmTest();
+        System.out.println(censorPlus("12xy34", "xy"));
     }
 
     public static int lcm(int val1, int val2) {
@@ -37,6 +38,11 @@ public class MethodsAssignment {
             for(int i = 0; i < phrase.length(); i++){
                 if (i != wordLocation){
                     censoredWord = censoredWord + '+';
+                } else {
+                    censoredWord = censoredWord + word;
+
+                    // Try to find another occurrence of word
+                    wordLocation = phrase.indexOf(word, wordLocation + 1);
                 }
             }
         }
