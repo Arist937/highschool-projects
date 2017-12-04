@@ -15,6 +15,12 @@ public class MethodsAssignment {
      *
      */
     public static int lcm(int val1, int val2) {
+
+        if(val1 < 0 || val2 < 0){
+            System.out.println("Numbers need to be positive");
+            return -1;
+        }
+
         // Declare variable lcmVal to store lcm
         int lcmVal = val1;
 
@@ -54,8 +60,18 @@ public class MethodsAssignment {
 
         System.out.println("Test 5");
         System.out.println("lcm(192, 245)");
+        System.out.println("Expected Result: 47040");
+        System.out.println("Actual Result: " + lcm(192, 245));
+
+        System.out.println("Test 6");
+        System.out.println("lcm(192, -245)");
         System.out.println("Expected Result: ");
-        System.out.println("Actual Result: 47040" + lcm(192, 245));
+        System.out.println("Actual Result: " + lcm(192, -245));
+
+        System.out.println("Test 7");
+        System.out.println("lcm(0, 245)");
+        System.out.println("Expected Result: ");
+        System.out.println("Actual Result: " + lcm(0, 245));
     }
 
     /**
@@ -98,7 +114,7 @@ public class MethodsAssignment {
         // return final censored word
         return censoredWord;
     }
-
+    
     public static void censorPlusTest(){
         System.out.println("\ncensorPlus Test");
 
