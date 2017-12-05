@@ -142,9 +142,9 @@ public class MethodsAssignment {
         System.out.println("Expected Result: String phrase cannot be empty");
         try {
             System.out.println("Actual Result: " + censorPlus("", "1"));
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException censorError){
 
-            System.out.println("Actual Result: " + e.getMessage());
+            System.out.println("Actual Result: " + censorError.getMessage());
         }
 
         System.out.println("Test 3");
