@@ -40,32 +40,32 @@ public class MethodsAssignment {
     public static void lcmTest() {
         System.out.println("lcm Test");
 
-        System.out.println("Test 1");
+        System.out.println("\nTest 1");
         System.out.println("lcm(14396, 1923)");
         System.out.println("Expected Result: 27683508");
         System.out.println("Actual Result: " + lcm(14396, 1923));
 
-        System.out.println("Test 2");
+        System.out.println("\nTest 2");
         System.out.println("lcm(306, 21809)");
         System.out.println("Expected Result: 6673554");
         System.out.println("Actual Result: " + lcm(306, 21809));
 
-        System.out.println("Test 3");
+        System.out.println("\nTest 3");
         System.out.println("lcm(11063, 17570)");
         System.out.println("Expected Result: 194376910");
         System.out.println("Actual Result: " + lcm(11063, 17570));
 
-        System.out.println("Test 4");
+        System.out.println("\nTest 4");
         System.out.println("lcm(65, 10)");
         System.out.println("Expected Result: 130");
         System.out.println("Actual Result: " + lcm(65, 10));
 
-        System.out.println("Test 5");
+        System.out.println("\nTest 5");
         System.out.println("lcm(192, 245)");
         System.out.println("Expected Result: 47040");
         System.out.println("Actual Result: " + lcm(192, 245));
 
-        System.out.println("Test 6");
+        System.out.println("\nTest 6");
         System.out.println("lcm(192, -245)");
         System.out.println("Expected Result: Numbers need to be positive!");
         try {
@@ -73,7 +73,8 @@ public class MethodsAssignment {
         } catch (IllegalArgumentException lcmError){
             System.out.println("Actual Result: " + lcmError.getMessage());
         }
-        System.out.println("Test 7");
+
+        System.out.println("\nTest 7");
         System.out.println("lcm(0, 245)");
         System.out.println("Expected Result: ");
         System.out.println("Actual Result: " + lcm(0, 245));
@@ -132,12 +133,12 @@ public class MethodsAssignment {
     public static void censorPlusTest(){
         System.out.println("\ncensorPlus Test");
 
-        System.out.println("Test 1");
+        System.out.println("\nTest 1");
         System.out.println("censorPlus(\"12xy34\", \"xy\")");
         System.out.println("Expected Result: ++xy++");
         System.out.println("Actual Result: " + censorPlus("12xy34", "xy"));
 
-        System.out.println("Test 2");
+        System.out.println("\nTest 2");
         System.out.println("censorPlus(\"\", \"1\"");
         System.out.println("Expected Result: String phrase cannot be empty");
         try {
@@ -147,27 +148,27 @@ public class MethodsAssignment {
             System.out.println("Actual Result: " + censorError.getMessage());
         }
 
-        System.out.println("Test 3");
+        System.out.println("\nTest 3");
         System.out.println("\"12xy34xyabcxy\", \"xy\"");
         System.out.println("Expected Result: ++xy++xy+++xy");
         System.out.println("Actual Result: " + censorPlus("12xy34xyabcxy", "xy"));
 
-        System.out.println("Test 4");
+        System.out.println("\nTest 4");
         System.out.println("censorPlus(\"1234f123rwqrvwqfverwqq5wte\", \"q\"");
         System.out.println("Expected Result: ++++++++++q+++q+++++qq++++");
         System.out.println("Actual Result: " + censorPlus("1234f123rwqrvwqfverwqq5wte", "q"));
 
-        System.out.println("Test 5");
+        System.out.println("\nTest 5");
         System.out.println("censorPlus(\"1234abchello worldpoi09@#$#$\", \"hello world\"");
         System.out.println("Expected Result: +++++++hello world++++++++++");
         System.out.println("Actual Result: 47040" + censorPlus("1234abchello worldpoi09@#$#$", "hello world"));
 
-        System.out.println("Test 6");
+        System.out.println("\nTest 6");
         System.out.println("censorPlus(\"adsfsadfasdfasdf\", \"@\")");
         System.out.println("Expected Result: ++++++++++++++++");
         System.out.println("Actual Result: 47040" + censorPlus("adsfsadfasdfasdf", "@"));
 
-        System.out.println("Test 7");
+        System.out.println("\nTest 7");
         System.out.println("censorPlus(\"aaaaaaaaaaaaaaa\", \"a\"");
         System.out.println("Expected Result: aaaaaaaaaaaaaaa");
         System.out.println("Actual Result: 47040" + censorPlus("aaaaaaaaaaaaaaa", "a"));
