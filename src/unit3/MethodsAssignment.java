@@ -77,8 +77,8 @@ public class MethodsAssignment {
     /**
      * A method censorPlus that censors all characters with + unless specified by the word parameter
      *
-     * @param phrase
-     * @param word
+     * @param phrase given phrase to censor
+     * @param word word to not censor
      * @return word that has been censored
      *
      */
@@ -114,7 +114,7 @@ public class MethodsAssignment {
         // return final censored word
         return censoredWord;
     }
-    
+
     public static void censorPlusTest(){
         System.out.println("\ncensorPlus Test");
 
