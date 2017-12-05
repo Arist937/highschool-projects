@@ -16,7 +16,7 @@ public class MethodsAssignment {
      */
     public static int lcm(int val1, int val2) {
         // if values are negative, error
-        if(val1 < 0 || val2 < 0){
+        if (val1 < 0 || val2 < 0){
             throw new IllegalArgumentException("Numbers need to be positive!");
         }
 
@@ -89,7 +89,7 @@ public class MethodsAssignment {
      */
     public static String censorPlus(String phrase, String word) {
         // if string phrase is empty, error
-        if(phrase.length() == 0){
+        if (phrase.length() == 0){
             throw new IllegalArgumentException("String phrase cannot be empty");
         }
 
@@ -101,7 +101,7 @@ public class MethodsAssignment {
         // run this code
         do {
             // For loop will be used to scroll through all characters in phrase
-            for(int i = 0; i < phrase.length(); i++){
+            for (int i = 0; i < phrase.length(); i++){
                 // if location of i is same as wordLocation, run
                 if (i == wordLocation) {
                     // add word to censored word
