@@ -15,10 +15,9 @@ public class MethodsAssignment {
      *
      */
     public static int lcm(int val1, int val2) {
-
+        // if values are negative, error
         if(val1 < 0 || val2 < 0){
-            System.out.println("Numbers need to be positive");
-            return -1;
+            throw new IllegalArgumentException("Numbers need to be positive!");
         }
 
         // Declare variable lcmVal to store lcm
@@ -34,7 +33,10 @@ public class MethodsAssignment {
         return lcmVal;
     }
 
-
+    /**
+     * A method lcmTest that tests the method lcm
+     *
+     */
     public static void lcmTest() {
         System.out.println("lcm Test");
 
@@ -65,9 +67,12 @@ public class MethodsAssignment {
 
         System.out.println("Test 6");
         System.out.println("lcm(192, -245)");
-        System.out.println("Expected Result: ");
-        System.out.println("Actual Result: " + lcm(192, -245));
-
+        System.out.println("Expected Result: Numbers need to be positive!");
+        try {
+            System.out.println("Actual Result: " + lcm(192, -245));
+        } catch (IllegalArgumentException lcmError){
+            System.out.println("Actual Result: " + lcmError.getMessage());
+        }
         System.out.println("Test 7");
         System.out.println("lcm(0, 245)");
         System.out.println("Expected Result: ");
@@ -78,11 +83,16 @@ public class MethodsAssignment {
      * A method censorPlus that censors all characters with + unless specified by the word parameter
      *
      * @param phrase given phrase to censor
-     * @param word word to not censor
+     * @param word word to not censor within phrase
      * @return word that has been censored
      *
      */
     public static String censorPlus(String phrase, String word) {
+        // if string phrase is empty, error
+        if(phrase.length() == 0){
+            throw new IllegalArgumentException("String phrase cannot be empty");
+        }
+
         // Stores final censored string
         String censoredWord = "";
         // Finds index of word within the phrase
@@ -115,6 +125,10 @@ public class MethodsAssignment {
         return censoredWord;
     }
 
+    /**
+     * A method censorPlusTest
+     *
+     */
     public static void censorPlusTest(){
         System.out.println("\ncensorPlus Test");
 
@@ -124,9 +138,14 @@ public class MethodsAssignment {
         System.out.println("Actual Result: " + censorPlus("12xy34", "xy"));
 
         System.out.println("Test 2");
-        System.out.println("censorPlus(\"12xy34\", \"1\"");
-        System.out.println("Expected Result: 1+++++");
-        System.out.println("Actual Result: " + censorPlus("12xy34", "1"));
+        System.out.println("censorPlus(\"\", \"1\"");
+        System.out.println("Expected Result: String phrase cannot be empty");
+        try {
+            System.out.println("Actual Result: " + censorPlus("", "1"));
+        } catch (IllegalArgumentException e){
+
+            System.out.println("Actual Result: " + e.getMessage());
+        }
 
         System.out.println("Test 3");
         System.out.println("\"12xy34xyabcxy\", \"xy\"");
