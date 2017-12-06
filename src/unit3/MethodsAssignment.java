@@ -1,5 +1,10 @@
 package unit3;
 
+/**
+ * A program MethodAssignment.java that contains and tests two methods lcm and censorPlus
+ * @author: A. Xu
+ */
+
 public class MethodsAssignment {
     public static void main(String[] args) {
         lcmTest();
@@ -76,7 +81,7 @@ public class MethodsAssignment {
 
         System.out.println("\nTest 7");
         System.out.println("lcm(0, 245)");
-        System.out.println("Expected Result: ");
+        System.out.println("Expected Result: 0");
         System.out.println("Actual Result: " + lcm(0, 245));
     }
 
@@ -161,16 +166,16 @@ public class MethodsAssignment {
         System.out.println("\nTest 5");
         System.out.println("censorPlus(\"1234abchello worldpoi09@#$#$\", \"hello world\"");
         System.out.println("Expected Result: +++++++hello world++++++++++");
-        System.out.println("Actual Result: 47040" + censorPlus("1234abchello worldpoi09@#$#$", "hello world"));
+        System.out.println("Actual Result: " + censorPlus("1234abchello worldpoi09@#$#$", "hello world"));
 
         System.out.println("\nTest 6");
         System.out.println("censorPlus(\"adsfsadfasdfasdf\", \"@\")");
         System.out.println("Expected Result: ++++++++++++++++");
-        System.out.println("Actual Result: 47040" + censorPlus("adsfsadfasdfasdf", "@"));
+        System.out.println("Actual Result: " + censorPlus("adsfsadfasdfasdf", "@"));
 
         System.out.println("\nTest 7");
         System.out.println("censorPlus(\"aaaaaaaaaaaaaaa\", \"a\"");
         System.out.println("Expected Result: aaaaaaaaaaaaaaa");
-        System.out.println("Actual Result: 47040" + censorPlus("aaaaaaaaaaaaaaa", "a"));
+        System.out.println("Actual Result: " + censorPlus("aaaaaaaaaaaaaaa", "a"));
     }
 }
