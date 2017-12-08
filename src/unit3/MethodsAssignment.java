@@ -83,6 +83,15 @@ public class MethodsAssignment {
         System.out.println("lcm(0, 245)");
         System.out.println("Expected Result: 0");
         System.out.println("Actual Result: " + lcm(0, 245));
+
+        System.out.println("\nTest 8");
+        System.out.println("lcm(-51, 309)");
+        System.out.println("Expected Result: Numbers need to be positive!");
+        try {
+            System.out.println("Actual Result: " + lcm(-51, 309));
+        } catch (IllegalArgumentException lcmError){
+            System.out.println("Actual Result: " + lcmError.getMessage());
+        }
     }
 
     /**
@@ -132,7 +141,7 @@ public class MethodsAssignment {
     }
 
     /**
-     * A method censorPlusTest
+     * A method censorPlusTest that tests the method censorPlus
      *
      */
     public static void censorPlusTest(){
@@ -144,7 +153,7 @@ public class MethodsAssignment {
         System.out.println("Actual Result: " + censorPlus("12xy34", "xy"));
 
         System.out.println("\nTest 2");
-        System.out.println("censorPlus(\"\", \"1\"");
+        System.out.println("censorPlus(\"\", \"1\")");
         System.out.println("Expected Result: String phrase cannot be empty");
         try {
             System.out.println("Actual Result: " + censorPlus("", "1"));
@@ -177,5 +186,15 @@ public class MethodsAssignment {
         System.out.println("censorPlus(\"aaaaaaaaaaaaaaa\", \"a\"");
         System.out.println("Expected Result: aaaaaaaaaaaaaaa");
         System.out.println("Actual Result: " + censorPlus("aaaaaaaaaaaaaaa", "a"));
+
+        System.out.println("\nTest 8");
+        System.out.println("censorPlus(\"\", \"hello\")");
+        System.out.println("Expected Result: String phrase cannot be empty");
+        try {
+            System.out.println("Actual Result: " + censorPlus("", "hello"));
+        } catch (IllegalArgumentException censorError){
+
+            System.out.println("Actual Result: " + censorError.getMessage());
+        }
     }
 }
