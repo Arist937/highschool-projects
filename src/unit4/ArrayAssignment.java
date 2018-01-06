@@ -14,7 +14,7 @@ public class ArrayAssignment {
         for (int i = 0; i < after4(testArrayTwo).length; i++){
             System.out.print(after4(testArrayTwo)[i] + ", ");
         }
-        
+
         int[] testArrayThree = {1, 2, 3};
         int[] testArrayFour = {2, 3, 10};
         System.out.println(closeBy2(testArrayThree, testArrayFour));
@@ -83,5 +83,8 @@ public class ArrayAssignment {
         }
 
         return numOfCloseBy;
+    }
+
+    public static int[][] diagonal(int n){
     }
 }
