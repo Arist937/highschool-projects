@@ -10,5 +10,13 @@ public class ArrayAssignment {
     }
 
     public static boolean unluckyOne(int[] numArray) {
+        // declare boolean isUnluckyOne
+        boolean isUnluckyOne;
+
+        // if the first 2 values of an array are 1 followed by a 3, set isUnluckyOne to true
+        if(numArray[0] == 1 && numArray[1] == 3) {
+            isUnluckyOne = true;
+
+        }
     }
 }
