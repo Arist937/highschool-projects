@@ -86,5 +86,24 @@ public class ArrayAssignment {
     }
 
     public static int[][] diagonal(int n){
+        // create new 2d array to store square with diagonal
+        int[][] diagonalGenerator = new int[n][n];
+
+        // loop for the length of n
+        for (int i = 0; i < n; i++) {
+            // loop for the length of n
+            for (int x = 0; x < n; x++) {
+                // put a diagonal of 1s starting from the top right
+                if(x == (n - (i + 1))){
+                    diagonalGenerator[i][x] = 1;
+                }
+                // fill everything else with zeroes
+                else {
+                    diagonalGenerator[i][x] = 0;
+                }
+            }
+        }
+
+        return diagonalGenerator;
     }
 }
