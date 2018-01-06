@@ -9,6 +9,11 @@ public class ArrayAssignment {
     public static void main(String[] args) {
         int[] testArrayOne = {1, 3, 4, 5, 6, 2, 3};
         System.out.println(unluckyOne(testArrayOne));
+        
+        int[] testArrayFour = {2, 4, 5, 2};
+        for (int i = 0; i < after4(testArrayFour).length; i++){
+            System.out.print(after4(testArrayFour)[i] + ", ");
+        }
     }
 
     public static boolean unluckyOne(int[] numArray) {
