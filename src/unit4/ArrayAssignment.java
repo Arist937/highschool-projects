@@ -31,4 +31,7 @@ public class ArrayAssignment {
 
         return isUnluckyOne;
     }
+
+    public static int[] after4(int[] numArray){
+    }
 }
