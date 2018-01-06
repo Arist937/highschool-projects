@@ -6,7 +6,8 @@ package unit4;
  */
 
 public class ArrayAssignment {
-    public static void main(String[] args) {
+    public static void main(String[] args){
+
         System.out.println("unluckyOne Tests:");
 
         int[] testArrayOne = {1, 3, 4, 5, 6, 2, 3};
@@ -80,7 +81,14 @@ public class ArrayAssignment {
         }
     }
 
-    public static boolean unluckyOne(int[] numArray) {
+    /**
+     * A method unluckyOne that tries to find a 1 followed by a 3 within an array at the start and the end, displaying
+     * true or false depending on whether the method found one or not
+     *
+     * @param numArray Array that the method looks in
+     * @return isUnluckyOne boolean that returns whether the method found an unlucky one or not
+     */
+    public static boolean unluckyOne(int[] numArray){
         // declare boolean isUnluckyOne
         boolean isUnluckyOne;
 
@@ -101,6 +109,12 @@ public class ArrayAssignment {
         return isUnluckyOne;
     }
 
+    /**
+     * A method after4 that examines an array and returns all the values within the array after the last 4
+     *
+     * @param numArray the Array that the method examines
+     * @return after4Array the final array with the values that show up after 4
+     */
     public static int[] after4(int[] numArray){
         // declare last4Location
         int last4Location = -1;
@@ -135,6 +149,15 @@ public class ArrayAssignment {
         }
     }
 
+
+    /**
+     * A method closeBy2 that examines two arrays and finds the number of times the two arrays at the same index
+     * differ by 1 or 2
+     *
+     * @param nums1 first array of numbers
+     * @param nums2 secpmd array of numbers
+     * @return
+     */
     public static int closeBy2(int[] nums1, int[] nums2){
         // declare integer variable numOfCloseBy
         int numOfCloseBy = 0;
@@ -150,6 +173,13 @@ public class ArrayAssignment {
         return numOfCloseBy;
     }
 
+    /**
+     * A method diagonalGenerator that takes in a size n and forms a square with a diagonal from the top right
+     * to the bottom left with 1's
+     *
+     * @param n side length of the square that the method creates
+     * @return diagonalGenerator the 2d Array that holds the square with a diagonal
+     */
     public static int[][] diagonal(int n){
         // create new 2d array to store square with diagonal
         int[][] diagonalGenerator = new int[n][n];
@@ -175,4 +205,5 @@ public class ArrayAssignment {
 
         return diagonalGenerator;
     }
+
 }
