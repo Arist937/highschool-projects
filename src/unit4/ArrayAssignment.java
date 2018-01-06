@@ -33,5 +33,15 @@ public class ArrayAssignment {
     }
 
     public static int[] after4(int[] numArray){
+        // declare variable last4Location
+        int last4Location;
+
+        // loop for the length of numArray
+        for(int i = 0; i < numArray.length; i++){
+            // if numArray at index i is equal to 4, set i to last4Location
+            if(numArray[i] == 4){
+                last4Location = i;
+            }
+        }
     }
 }
