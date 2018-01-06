@@ -10,10 +10,15 @@ public class ArrayAssignment {
         int[] testArrayOne = {1, 3, 4, 5, 6, 2, 3};
         System.out.println(unluckyOne(testArrayOne));
 
-        int[] testArrayFour = {2, 4, 5, 2};
-        for (int i = 0; i < after4(testArrayFour).length; i++){
-            System.out.print(after4(testArrayFour)[i] + ", ");
+        int[] testArrayTwo = {2, 4, 5, 2};
+        for (int i = 0; i < after4(testArrayTwo).length; i++){
+            System.out.print(after4(testArrayTwo)[i] + ", ");
         }
+        
+        int[] testArrayThree = {1, 2, 3};
+        int[] testArrayFour = {2, 3, 10};
+        System.out.println(closeBy2(testArrayThree, testArrayFour));
+
     }
 
     public static boolean unluckyOne(int[] numArray) {
@@ -76,5 +81,7 @@ public class ArrayAssignment {
                 numOfCloseBy++;
             }
         }
+
+        return numOfCloseBy;
     }
 }
