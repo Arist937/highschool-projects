@@ -142,7 +142,7 @@ public class ArrayAssignment {
         // loop for the length of array nums1
         for(int i = 0; i < nums1.length; i++){
             // if nums1 and nums2 at index i differ by 2 or 1, increment numOfCloseBy
-            if(nums1[i] - nums2[i] <= 2 && nums1[i] - nums2[i] >= -2){
+            if(nums1[i] - nums2[i] != 0 && (nums1[i] - nums2[i] <= 2 && nums1[i] - nums2[i] >= -2)){
                 numOfCloseBy++;
             }
         }
