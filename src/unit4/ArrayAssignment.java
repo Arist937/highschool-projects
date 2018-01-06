@@ -7,17 +7,52 @@ package unit4;
 
 public class ArrayAssignment {
     public static void main(String[] args) {
+        System.out.println("unluckyOne Tests:");
+
         int[] testArrayOne = {1, 3, 4, 5, 6, 2, 3};
         System.out.println(unluckyOne(testArrayOne));
 
-        int[] testArrayTwo = {2, 4, 5, 2};
-        for (int i = 0; i < after4(testArrayTwo).length; i++){
-            System.out.print(after4(testArrayTwo)[i] + ", ");
-        }
+        int[] testArrayTwo = {103, 3, 4, 5, 6, 1, 4};
+        System.out.println(unluckyOne(testArrayTwo));
 
-        int[] testArrayThree = {1, 2, 3};
-        int[] testArrayFour = {2, 3, 10};
-        System.out.println(closeBy2(testArrayThree, testArrayFour));
+        int[] testArrayThree = {2, 3, 4, 1, 3, 2, 5, 7};
+        System.out.println(unluckyOne(testArrayThree));
+
+        System.out.println("\nafter4 Tests:");
+
+        int[] testArrayFour = {2, 4, 5, 2};
+        for (int i = 0; i < after4(testArrayFour).length; i++){
+            System.out.print(after4(testArrayFour)[i] + ", ");
+        }
+        System.out.println();
+
+        int[] testArrayFive = {4, 4, 1, 2, 3};
+        for (int i = 0; i < after4(testArrayFive).length; i++){
+            System.out.print(after4(testArrayFive)[i] + ", ");
+        }
+        System.out.println();
+
+        int[] testArraySix = {1, 2, 3, 5, 6, 7, 8};
+        for (int i = 0; i < after4(testArraySix).length; i++){
+            System.out.print(after4(testArraySix)[i] + ", ");
+        }
+        System.out.println();
+
+        System.out.println("\ncloseBy2 Tests:");
+
+        int[] testArraySeven = {1, 2, 3};
+        int[] testArrayEight = {2, 3, 10};
+        System.out.println(closeBy2(testArraySeven, testArrayEight));
+
+        int[] testArrayNine = {1, 2, 3, 9};
+        int[] testArrayTen = {10, 30, 10, 50};
+        System.out.println(closeBy2(testArrayNine, testArrayTen));
+
+        int[] testArrayEleven = {1, 2, 3};
+        int[] testArrayTwelve = {1, 2, 4};
+        System.out.println(closeBy2(testArrayEleven, testArrayTwelve));
+
+        System.out.println("\ndiagonal tests:");
 
         for (int i = 0; i < diagonal(5).length; i++) {
             for (int j = 0; j < diagonal(5)[i].length; j++) {
@@ -26,6 +61,23 @@ public class ArrayAssignment {
             System.out.println();
         }
 
+        System.out.println();
+
+        for (int i = 0; i < diagonal(10).length; i++) {
+            for (int j = 0; j < diagonal(10)[i].length; j++) {
+                System.out.print(diagonal(10)[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+
+        for (int i = 0; i < diagonal(7).length; i++) {
+            for (int j = 0; j < diagonal(7)[i].length; j++) {
+                System.out.print(diagonal(7)[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
     public static boolean unluckyOne(int[] numArray) {
