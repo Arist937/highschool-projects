@@ -19,6 +19,13 @@ public class ArrayAssignment {
         int[] testArrayFour = {2, 3, 10};
         System.out.println(closeBy2(testArrayThree, testArrayFour));
 
+        for (int i = 0; i < diagonal(5).length; i++) {
+            for (int j = 0; j < diagonal(5)[i].length; j++) {
+                System.out.print(diagonal(5)[i][j] + " ");
+            }
+            System.out.println();
+        }
+
     }
 
     public static boolean unluckyOne(int[] numArray) {
