@@ -34,7 +34,7 @@ public class ArrayAssignment {
 
     public static int[] after4(int[] numArray){
         // declare variable last4Location
-        int last4Location;
+        int last4Location = -1;
 
         // loop for the length of numArray
         for(int i = 0; i < numArray.length; i++){
@@ -56,5 +56,7 @@ public class ArrayAssignment {
             // increment counter to go to the next index in after4Array
             counter++;
         }
+
+        return after4Array;
     }
 }
