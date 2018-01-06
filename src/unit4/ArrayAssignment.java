@@ -13,7 +13,7 @@ public class ArrayAssignment {
 
     public static boolean unluckyOne(int[] numArray) {
         // declare boolean isUnluckyOne
-        boolean isUnluckyOne = false;
+        boolean isUnluckyOne;
 
         // if the first 2 values of an array are 1 followed by a 3, set isUnluckyOne to true
         if(numArray[0] == 1 && numArray[1] == 3) {
@@ -23,6 +23,10 @@ public class ArrayAssignment {
         // if the last two values of an array are 1 followed by a 3, set isUnluckyOne to true
         else if (numArray[numArray.length - 2] == 1 && numArray[numArray.length - 1] == 3){
             isUnluckyOne = true;
+        }
+        // if other two statements are not met, set isUnluckyOne to false
+        else {
+            isUnluckyOne = false;
         }
 
         return isUnluckyOne;
