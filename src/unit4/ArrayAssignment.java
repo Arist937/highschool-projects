@@ -102,7 +102,7 @@ public class ArrayAssignment {
     }
 
     public static int[] after4(int[] numArray){
-        // declare variable last4Location
+        // declare last4Location
         int last4Location = -1;
 
         // loop for the length of numArray
@@ -113,20 +113,26 @@ public class ArrayAssignment {
             }
         }
 
-        // create new array after4Array with the size of numArray minus last4Location plus 1
-        int[] after4Array = new int[numArray.length - (last4Location + 1)];
-        // declare counter and set it to 0
-        int counter = 0;
+        // if the array has no indexes that contain 4 output empty array
+        if(last4Location == -1){
+            int[] emptyArray = new int[0];
+            return emptyArray;
+        } else {
+            // create new array after4Array with the size of numArray minus last4Location plus 1
+            int[] after4Array = new int[numArray.length - (last4Location + 1)];
+            // declare counter and set it to 0
+            int counter = 0;
 
-        // loop starting after last4Location to the end of the array
-        for (int x = last4Location + 1; x < numArray.length; x++) {
-            // set after4Array to the values after 4
-            after4Array[counter] = numArray[x];
-            // increment counter to go to the next index in after4Array
-            counter++;
+            // loop starting after last4Location to the end of the array
+            for (int x = last4Location + 1; x < numArray.length; x++) {
+                // set after4Array to the values after 4
+                after4Array[counter] = numArray[x];
+                // increment counter to
+                counter++;
+            }
+
+            return after4Array;
         }
-
-        return after4Array;
     }
 
     public static int closeBy2(int[] nums1, int[] nums2){
