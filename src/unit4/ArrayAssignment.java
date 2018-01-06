@@ -104,9 +104,13 @@ public class ArrayAssignment {
                 if(x == (n - (i + 1))){
                     diagonalGenerator[i][x] = 1;
                 }
-                // fill everything else with zeroes
-                else {
+                // put 0s above the diagonal of 1s
+                else if (x < (n - (i + 1))){
                     diagonalGenerator[i][x] = 0;
+                }
+                // put 2s below the diagonal of 1s
+                else if (x > (n - (i + 1))){
+                    diagonalGenerator[i][x] = 2;
                 }
             }
         }
