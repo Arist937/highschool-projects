@@ -144,7 +144,7 @@ public class ArrayAssignment {
             for (int x = last4Location + 1; x < numArray.length; x++) {
                 // set after4Array to the values after 4
                 after4Array[counter] = numArray[x];
-                // increment counter to
+                // increment counter to increase the index that is modified in after4Array
                 counter++;
             }
 
@@ -187,9 +187,9 @@ public class ArrayAssignment {
         // create new 2d array to store square with diagonal
         int[][] diagonalGenerator = new int[n][n];
 
-        // loop for the length of n
+        // represents the row in the square
         for (int i = 0; i < n; i++) {
-            // loop for the length of n
+            // represents the columns in the square
             for (int x = 0; x < n; x++) {
                 // put a diagonal of 1s starting from the top right
                 if(x == (n - (i + 1))){
