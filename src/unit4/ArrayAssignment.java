@@ -10,10 +10,13 @@ public class ArrayAssignment {
 
         System.out.println("unluckyOne Tests:");
 
+        int[] testArray = {5, 9, 2, 3, 7, 1, 3};
+        System.out.println(unluckyOne(testArray));
+
         int[] testArrayOne = {1, 3, 4, 5, 6, 2, 3};
         System.out.println(unluckyOne(testArrayOne));
 
-        int[] testArrayTwo = {103, 3, 4, 5, 6, 1, 4};
+        int[] testArrayTwo = {103, 1, 3, 5, 6, 1, 4};
         System.out.println(unluckyOne(testArrayTwo));
 
         int[] testArrayThree = {2, 3, 4, 1, 3, 2, 5, 7};
@@ -92,8 +95,8 @@ public class ArrayAssignment {
         // declare boolean isUnluckyOne
         boolean isUnluckyOne;
 
-        // if the first 2 values of an array are 1 followed by a 3, set isUnluckyOne to true
-        if(numArray[0] == 1 && numArray[1] == 3) {
+        // if the first 2 values of an array contain unlucky one's
+        if(numArray[0] == 1 && numArray[1] == 3 || numArray[1] == 1 && numArray[2] == 3) {
             isUnluckyOne = true;
 
         }
