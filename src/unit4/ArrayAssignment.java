@@ -96,7 +96,7 @@ public class ArrayAssignment {
         boolean isUnluckyOne;
 
         // if the first 2 values of an array contain unlucky one's
-        if(numArray[0] == 1 && numArray[1] == 3 || numArray[1] == 1 && numArray[2] == 3) {
+        if (numArray[0] == 1 && numArray[1] == 3 || numArray[1] == 1 && numArray[2] == 3) {
             isUnluckyOne = true;
 
         }
@@ -123,7 +123,7 @@ public class ArrayAssignment {
         int last4Location = -1;
 
         // loop for the length of numArray
-        for(int i = 0; i < numArray.length; i++){
+        for (int i = 0; i < numArray.length; i++){
             // if numArray at index i is equal to 4, set i to last4Location
             if(numArray[i] == 4){
                 last4Location = i;
@@ -131,21 +131,21 @@ public class ArrayAssignment {
         }
 
         // if the array has no indexes that contain 4 output empty array
-        if(last4Location == -1){
+        if (last4Location == -1){
             int[] emptyArray = new int[0];
             return emptyArray;
         } else {
             // create new array after4Array with the size of numArray minus last4Location plus 1
             int[] after4Array = new int[numArray.length - (last4Location + 1)];
-            // declare counter and set it to 0
-            int counter = 0;
 
+            // declare counter and set it to 0
+            int index = 0;
             // loop starting after last4Location to the end of the array
             for (int x = last4Location + 1; x < numArray.length; x++) {
                 // set after4Array to the values after 4
-                after4Array[counter] = numArray[x];
+                after4Array[index] = numArray[x];
                 // increment counter to increase the index that is modified in after4Array
-                counter++;
+                index++;
             }
 
             return after4Array;
@@ -166,9 +166,9 @@ public class ArrayAssignment {
         int numOfCloseBy = 0;
 
         // loop for the length of array nums1
-        for(int i = 0; i < nums1.length; i++){
+        for (int i = 0; i < nums1.length; i++){
             // if nums1 and nums2 at index i differ by 2 or 1, increment numOfCloseBy
-            if(nums1[i] - nums2[i] != 0 && (nums1[i] - nums2[i] <= 2 && nums1[i] - nums2[i] >= -2)){
+            if (nums1[i] - nums2[i] != 0 && (nums1[i] - nums2[i] <= 2 && nums1[i] - nums2[i] >= -2)){
                 numOfCloseBy++;
             }
         }
@@ -192,7 +192,7 @@ public class ArrayAssignment {
             // represents the columns in the square
             for (int x = 0; x < n; x++) {
                 // put a diagonal of 1s starting from the top right
-                if(x == (n - (i + 1))){
+                if (x == (n - (i + 1))){
                     diagonalGenerator[i][x] = 1;
                 }
                 // put 0s above the diagonal of 1s
