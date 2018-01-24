@@ -379,7 +379,7 @@ public class CPTAssignment {
                     } else {
                         System.out.println("There are no stairs...");
                     }
-                }  else if(userSelectedRoomStr.equalsIgnoreCase("Examine")){
+                } else if(userSelectedRoomStr.equalsIgnoreCase("Examine")){
                     if (currentRoom == 0) {
                         userAction = "";
 
