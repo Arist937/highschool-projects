@@ -1,13 +1,14 @@
 package unit2.otherStuff;
+
 import codehs.*;
 
 
 public class DataValidation3 extends ConsoleProgram {
 
-    public void run(){
+    public void run() {
         int mark = readInt("Enter mark: ");
 
-        while(mark < 0 || mark > 100){
+        while (mark < 0 || mark > 100) {
             mark = readInt("Invalid mark, please enter valid mark: ");
         }
 

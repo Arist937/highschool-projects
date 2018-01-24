@@ -1,8 +1,9 @@
 package unit2.stringProblems;
+
 import codehs.*;
 
 public class Find_FullName extends ConsoleProgram {
-    public void run(){
+    public void run() {
         String fullName = readLine("Enter your full name: ");
         int endOfFirstName = fullName.indexOf(" ");
 

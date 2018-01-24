@@ -5,6 +5,7 @@ import codehs.*;
 /**
  * A program C2EveryNth.java that lets a user enter a word and the value of n. The program then
  * finds every nth character in the word entered starting at 0
+ *
  * @author: A. Xu
  */
 

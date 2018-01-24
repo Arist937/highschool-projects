@@ -3,17 +3,18 @@
 */
 
 package unit1.otherStuff;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class TicTacToe{
+public class TicTacToe {
 
     public static ArrayList<String> obj = new ArrayList<String>();
     public static Scanner read = new Scanner(System.in);
     public static int victor = 0;
 
-    public static void main(String []args) {
+    public static void main(String[] args) {
         int x = 0;
 
 
@@ -22,33 +23,33 @@ public class TicTacToe{
     }
 
     public static void game() {
-    resetBoard();
-    victor = 0;
+        resetBoard();
+        victor = 0;
 
-    while (victor == 0) {
         while (victor == 0) {
+            while (victor == 0) {
 
-            drawGame();
+                drawGame();
 
-            playerOne();
+                playerOne();
 
-            result();
-            break;
+                result();
+                break;
+            }
+            while (victor == 0) {
+
+                drawGame();
+
+                playerTwo();
+
+                result();
+                break;
+            }
         }
-        while (victor == 0) {
-
-            drawGame();
-
-            playerTwo();
-
-            result();
-            break;
-        }
+        repeatProgram();
     }
-    repeatProgram();
-}
 
-    public static void drawGame(){
+    public static void drawGame() {
         System.out.println("----------------");
         System.out.println("a | " + obj.get(0) + " | " + obj.get(1) + " | " + obj.get(2) + " |");
         System.out.println("----------------");
@@ -59,12 +60,12 @@ public class TicTacToe{
         System.out.println("    1   2   3");
     }
 
-    public static void playerOne(){
+    public static void playerOne() {
 
         System.out.print("Player X, which square would you like to modify? ");
         String playerOneDecision = read.nextLine();
 
-        while(true) {
+        while (true) {
             if (playerOneDecision.equalsIgnoreCase("a1") && obj.get(0).equalsIgnoreCase(" ")) {
                 obj.set(0, "X");
                 break;
@@ -99,11 +100,11 @@ public class TicTacToe{
         }
     }
 
-    public static void playerTwo(){
+    public static void playerTwo() {
         System.out.print("Player O, which square would you like to modify? ");
         String playerTwoDecision = read.nextLine();
 
-        while(true) {
+        while (true) {
             if (playerTwoDecision.equalsIgnoreCase("a1") && obj.get(0).equalsIgnoreCase(" ")) {
                 obj.set(0, "O");
                 break;
@@ -138,7 +139,7 @@ public class TicTacToe{
         }
     }
 
-    public static void resetBoard(){
+    public static void resetBoard() {
         obj.set(0, " ");
         obj.set(1, " ");
         obj.set(2, " ");
@@ -150,7 +151,7 @@ public class TicTacToe{
         obj.set(8, " ");
     }
 
-    public static void firstSetUp(){
+    public static void firstSetUp() {
         obj.add(" ");
         obj.add(" ");
         obj.add(" ");
@@ -162,50 +163,42 @@ public class TicTacToe{
         obj.add(" ");
     }
 
-    public static void result(){
-        if (obj.get(0).equalsIgnoreCase(obj.get(1)) && obj.get(0).equalsIgnoreCase(obj.get(2)) && !obj.get(0).equals(" ")){
+    public static void result() {
+        if (obj.get(0).equalsIgnoreCase(obj.get(1)) && obj.get(0).equalsIgnoreCase(obj.get(2)) && !obj.get(0).equals(" ")) {
             drawGame();
             System.out.println("Player " + obj.get(0) + " Wins!");
             victor = 1;
-        }
-        else if(obj.get(3).equalsIgnoreCase(obj.get(4)) && obj.get(3).equalsIgnoreCase(obj.get(5)) && !obj.get(3).equals(" ")){
+        } else if (obj.get(3).equalsIgnoreCase(obj.get(4)) && obj.get(3).equalsIgnoreCase(obj.get(5)) && !obj.get(3).equals(" ")) {
             drawGame();
             System.out.println("Player " + obj.get(3) + " Wins!");
             victor = 1;
-        }
-        else if(obj.get(6).equalsIgnoreCase(obj.get(7)) && obj.get(6).equalsIgnoreCase(obj.get(8)) && !obj.get(6).equals(" ")){
+        } else if (obj.get(6).equalsIgnoreCase(obj.get(7)) && obj.get(6).equalsIgnoreCase(obj.get(8)) && !obj.get(6).equals(" ")) {
             drawGame();
             System.out.println("Player " + obj.get(6) + " Wins!");
             victor = 1;
-        }
-        else if(obj.get(0).equalsIgnoreCase(obj.get(3)) && obj.get(0).equalsIgnoreCase(obj.get(6)) && !obj.get(0).equals(" ")){
+        } else if (obj.get(0).equalsIgnoreCase(obj.get(3)) && obj.get(0).equalsIgnoreCase(obj.get(6)) && !obj.get(0).equals(" ")) {
             drawGame();
             System.out.println("Player " + obj.get(0) + " Wins!");
             victor = 1;
-        }
-        else if(obj.get(1).equalsIgnoreCase(obj.get(4)) && obj.get(1).equalsIgnoreCase(obj.get(7)) && !obj.get(1).equals(" ")){
+        } else if (obj.get(1).equalsIgnoreCase(obj.get(4)) && obj.get(1).equalsIgnoreCase(obj.get(7)) && !obj.get(1).equals(" ")) {
             drawGame();
             System.out.println("Player " + obj.get(1) + " Wins!");
             victor = 1;
-        }
-        else if(obj.get(2).equalsIgnoreCase(obj.get(5)) && obj.get(2).equalsIgnoreCase(obj.get(8)) && !obj.get(2).equals(" ")){
+        } else if (obj.get(2).equalsIgnoreCase(obj.get(5)) && obj.get(2).equalsIgnoreCase(obj.get(8)) && !obj.get(2).equals(" ")) {
             drawGame();
             System.out.println("Player " + obj.get(2) + " Wins!");
             victor = 1;
-        }
-        else if(obj.get(0).equalsIgnoreCase(obj.get(4)) && obj.get(0).equalsIgnoreCase(obj.get(8)) && !obj.get(0).equals(" ")){
+        } else if (obj.get(0).equalsIgnoreCase(obj.get(4)) && obj.get(0).equalsIgnoreCase(obj.get(8)) && !obj.get(0).equals(" ")) {
             drawGame();
             System.out.println("Player " + obj.get(0) + " Wins!");
             victor = 1;
-        }
-        else if(obj.get(2).equalsIgnoreCase(obj.get(4)) && obj.get(2).equalsIgnoreCase(obj.get(6)) && !obj.get(2).equals(" ")){
+        } else if (obj.get(2).equalsIgnoreCase(obj.get(4)) && obj.get(2).equalsIgnoreCase(obj.get(6)) && !obj.get(2).equals(" ")) {
             drawGame();
             System.out.println("Player " + obj.get(2) + " Wins!");
             victor = 1;
-        }
-        else if(!obj.get(0).equalsIgnoreCase(" ") && !obj.get(1).equalsIgnoreCase(" ") && !obj.get(2).equalsIgnoreCase(" ") &&
+        } else if (!obj.get(0).equalsIgnoreCase(" ") && !obj.get(1).equalsIgnoreCase(" ") && !obj.get(2).equalsIgnoreCase(" ") &&
                 !obj.get(3).equalsIgnoreCase(" ") && !obj.get(4).equalsIgnoreCase(" ") && !obj.get(5).equalsIgnoreCase(" ") &&
-                !obj.get(6).equalsIgnoreCase(" ") && !obj.get(7).equalsIgnoreCase(" ") && !obj.get(8).equalsIgnoreCase(" ")){
+                !obj.get(6).equalsIgnoreCase(" ") && !obj.get(7).equalsIgnoreCase(" ") && !obj.get(8).equalsIgnoreCase(" ")) {
 
             drawGame();
             System.out.println("It's a draw!");
@@ -213,8 +206,8 @@ public class TicTacToe{
         }
     }
 
-    public static void repeatProgram(){
-        while(true) {
+    public static void repeatProgram() {
+        while (true) {
             System.out.println("Would you like to play again?");
             String repeatProgram = read.nextLine();
 

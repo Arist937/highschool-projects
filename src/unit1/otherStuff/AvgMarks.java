@@ -1,14 +1,15 @@
 package unit1.otherStuff;
+
 import codehs.*;
 
 
-public class AvgMarks extends ConsoleProgram{
+public class AvgMarks extends ConsoleProgram {
 
     public void run() {
 
         String repeatProgram = "Yes";
 
-        while(repeatProgram.equalsIgnoreCase("Yes")) {
+        while (repeatProgram.equalsIgnoreCase("Yes")) {
             double mark1 = readDouble("Enter first mark: ");
             double mark2 = readDouble("Enter second mark: ");
             double mark3 = readDouble("Enter third mark: ");

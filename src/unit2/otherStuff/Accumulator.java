@@ -1,11 +1,12 @@
 package unit2.otherStuff;
 
 import codehs.*;
+
 import java.util.Random;
 
 public class Accumulator extends ConsoleProgram {
 
-    public void run(){
+    public void run() {
         Random myRandom = new Random();
         int randomInt;
 

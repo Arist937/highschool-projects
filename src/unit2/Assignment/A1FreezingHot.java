@@ -5,12 +5,13 @@ import codehs.*;
 /**
  * A program A1FreezingHot.java that lets a user enter two temperatures and it determines whether
  * the temperatures are considered freezing hot (one higher than 100, one lower than 0)
+ *
  * @author: A. Xu
  */
 
 public class A1FreezingHot extends ConsoleProgram {
 
-    public void run(){
+    public void run() {
 
         // Declare variables temperatureOne, temperatureTwo and isFreezingHot
         int temperatureOne;
@@ -22,13 +23,11 @@ public class A1FreezingHot extends ConsoleProgram {
         temperatureTwo = readInt("Enter the second temperature: ");
 
         // Determine if the temperatures inputted by the user are Freezing Hot
-        if (temperatureOne > 100 && temperatureTwo < 0){
+        if (temperatureOne > 100 && temperatureTwo < 0) {
             isFreezingHot = true;
-        }
-        else if (temperatureOne < 0 && temperatureTwo > 100) {
+        } else if (temperatureOne < 0 && temperatureTwo > 100) {
             isFreezingHot = true;
-        }
-        else {
+        } else {
             isFreezingHot = false;
         }
 

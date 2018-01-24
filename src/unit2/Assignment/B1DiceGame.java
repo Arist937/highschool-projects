@@ -1,11 +1,13 @@
 package unit2.Assignment;
 
 import codehs.*;
+
 import java.util.Random;
 
 /**
  * A program B1DiceGame.java that simulates 100 double dice rolls and determines if the two die
  * add up to 2 (snake eyes) or 7 (lucky seven)
+ *
  * @author: A. Xu
  */
 
@@ -22,7 +24,7 @@ public class B1DiceGame extends ConsoleProgram {
         int diceRollTwo;
 
         // For loop that runs 100 times
-        for (int i = 0; i < 100; i++){
+        for (int i = 0; i < 100; i++) {
             // Generate number from 1 - 6 and store it in diceRollOne
             randomDiceRoll = myRandom.nextInt(6) + 1;
             diceRollOne = randomDiceRoll;
@@ -32,10 +34,9 @@ public class B1DiceGame extends ConsoleProgram {
             diceRollTwo = randomDiceRoll;
 
             // Determine if the rolls create snake eyes or a lucky seven
-            if ((diceRollOne + diceRollTwo) == 2)  {
+            if ((diceRollOne + diceRollTwo) == 2) {
                 System.out.println("Snake Eyes");
-            }
-            else if ((diceRollOne + diceRollTwo) == 7) {
+            } else if ((diceRollOne + diceRollTwo) == 7) {
                 System.out.println("Lucky Seven!");
             }
         }

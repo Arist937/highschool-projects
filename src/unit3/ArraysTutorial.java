@@ -3,11 +3,11 @@ package unit3;
 import java.util.Scanner;
 
 public class ArraysTutorial {
-    public static void main(String []args){
+    public static void main(String[] args) {
         bestStudent();
     }
 
-    public static void examples(){
+    public static void examples() {
         int[] canCounts;
         canCounts = new int[5];
 
@@ -43,7 +43,7 @@ public class ArraysTutorial {
         System.out.println(menuItems[4]);
     }
 
-    public static void bestStudent(){
+    public static void bestStudent() {
         int[] marks;
         marks = new int[10];
 
@@ -54,7 +54,7 @@ public class ArraysTutorial {
         int mark;
         String name;
 
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             System.out.println("Enter a mark: ");
             mark = read.nextInt();
             marks[i] = mark;

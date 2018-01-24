@@ -1,10 +1,11 @@
 package unit2.otherStuff;
+
 import codehs.*;
 
 
 public class DataValidation4 extends ConsoleProgram {
 
-    public void run(){
+    public void run() {
         char beverageSelection;
 
         System.out.println("Beverage Menu");
@@ -14,7 +15,7 @@ public class DataValidation4 extends ConsoleProgram {
 
         beverageSelection = readLine("Which beverage would you like? ").charAt(0);
 
-        while(beverageSelection!= 'a' && beverageSelection != 'b' && beverageSelection != 'c'){
+        while (beverageSelection != 'a' && beverageSelection != 'b' && beverageSelection != 'c') {
 
             beverageSelection = readLine("Invalid beverage, please enter valid beverage: ").charAt(0);
 

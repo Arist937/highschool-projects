@@ -3,10 +3,11 @@
 */
 
 package unit1.otherStuff;
+
 import codehs.*;
 
 
-public class UserInput extends ConsoleProgram{
+public class UserInput extends ConsoleProgram {
 
     public void run() {
         //GET name

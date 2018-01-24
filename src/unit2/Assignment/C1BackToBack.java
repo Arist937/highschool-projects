@@ -5,6 +5,7 @@ import codehs.*;
 /**
  * A program C1BackToBack.java that lets a user enter a word and adds the last letter of that word
  * to the front and back
+ *
  * @author: A. Xu
  */
 

@@ -1,9 +1,11 @@
 package unit1.livehack1;
+
 import codehs.*;
 
 /**
  * A program LiveHackProblem2.java that lets you enter the temperature in celsius, and then converts and prints the
  * temperature in fahrenheit.
+ *
  * @author: A. Xu
  */
 

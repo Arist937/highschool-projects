@@ -1,10 +1,11 @@
 package unit2.forLoopProblems;
+
 import codehs.*;
 
 
 public class CashMeOutside extends ConsoleProgram {
 
-    public void run(){
+    public void run() {
         int quantity = 0;
         int numOfProducts;
 
@@ -14,7 +15,7 @@ public class CashMeOutside extends ConsoleProgram {
 
         numOfProducts = readInt("How many products do you want to buy? ");
 
-        for (int i = 1; i <= numOfProducts; i++){
+        for (int i = 1; i <= numOfProducts; i++) {
             quantity = readInt("Enter quantity of product " + i + ": ");
             price = readDouble("Enter the price of product " + i + ": ");
 

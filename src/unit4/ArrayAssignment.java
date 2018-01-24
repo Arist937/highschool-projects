@@ -2,11 +2,12 @@ package unit4;
 
 /**
  * A program ArrayAssignment.java that contains and tests four methods unluckyOne, after4, closeBy2 and diagonal
+ *
  * @author: A. Xu
  */
 
 public class ArrayAssignment {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         System.out.println("unluckyOne Tests:");
 
@@ -25,19 +26,19 @@ public class ArrayAssignment {
         System.out.println("\nafter4 Tests:");
 
         int[] testArrayFour = {2, 4, 5, 2};
-        for (int i = 0; i < after4(testArrayFour).length; i++){
+        for (int i = 0; i < after4(testArrayFour).length; i++) {
             System.out.print(after4(testArrayFour)[i] + ", ");
         }
         System.out.println();
 
         int[] testArrayFive = {4, 4, 1, 2, 3};
-        for (int i = 0; i < after4(testArrayFive).length; i++){
+        for (int i = 0; i < after4(testArrayFive).length; i++) {
             System.out.print(after4(testArrayFive)[i] + ", ");
         }
         System.out.println();
 
         int[] testArraySix = {1, 2, 3, 5, 6, 7, 8};
-        for (int i = 0; i < after4(testArraySix).length; i++){
+        for (int i = 0; i < after4(testArraySix).length; i++) {
             System.out.print(after4(testArraySix)[i] + ", ");
         }
         System.out.println();
@@ -91,7 +92,7 @@ public class ArrayAssignment {
      * @param numArray Array that the method looks in
      * @return isUnluckyOne boolean that returns whether the method found an unlucky one or not
      */
-    public static boolean unluckyOne(int[] numArray){
+    public static boolean unluckyOne(int[] numArray) {
         // declare boolean isUnluckyOne
         boolean isUnluckyOne;
 
@@ -101,7 +102,7 @@ public class ArrayAssignment {
 
         }
         // if the last two values of an array are 1 followed by a 3, set isUnluckyOne to true
-        else if (numArray[numArray.length - 2] == 1 && numArray[numArray.length - 1] == 3){
+        else if (numArray[numArray.length - 2] == 1 && numArray[numArray.length - 1] == 3) {
             isUnluckyOne = true;
         }
         // if other two statements are not met, set isUnluckyOne to false
@@ -118,20 +119,20 @@ public class ArrayAssignment {
      * @param numArray the Array that the method examines
      * @return after4Array the final array with the values that show up after 4
      */
-    public static int[] after4(int[] numArray){
+    public static int[] after4(int[] numArray) {
         // declare last4Location
         int last4Location = -1;
 
         // loop for the length of numArray
-        for (int i = 0; i < numArray.length; i++){
+        for (int i = 0; i < numArray.length; i++) {
             // if numArray at index i is equal to 4, set i to last4Location
-            if(numArray[i] == 4){
+            if (numArray[i] == 4) {
                 last4Location = i;
             }
         }
 
         // if the array has no indexes that contain 4 output empty array
-        if (last4Location == -1){
+        if (last4Location == -1) {
             int[] emptyArray = new int[0];
             return emptyArray;
         } else {
@@ -161,14 +162,14 @@ public class ArrayAssignment {
      * @param nums2 secpmd array of numbers
      * @return
      */
-    public static int closeBy2(int[] nums1, int[] nums2){
+    public static int closeBy2(int[] nums1, int[] nums2) {
         // declare integer variable numOfCloseBy
         int numOfCloseBy = 0;
 
         // loop for the length of array nums1
-        for (int i = 0; i < nums1.length; i++){
+        for (int i = 0; i < nums1.length; i++) {
             // if nums1 and nums2 at index i differ by 2 or 1, increment numOfCloseBy
-            if (nums1[i] - nums2[i] != 0 && (nums1[i] - nums2[i] <= 2 && nums1[i] - nums2[i] >= -2)){
+            if (nums1[i] - nums2[i] != 0 && (nums1[i] - nums2[i] <= 2 && nums1[i] - nums2[i] >= -2)) {
                 numOfCloseBy++;
             }
         }
@@ -183,7 +184,7 @@ public class ArrayAssignment {
      * @param n side length of the square that the method creates
      * @return diagonalGenerator the 2d Array that holds the square with a diagonal
      */
-    public static int[][] diagonal(int n){
+    public static int[][] diagonal(int n) {
         // create new 2d array to store square with diagonal
         int[][] diagonalGenerator = new int[n][n];
 
@@ -192,15 +193,15 @@ public class ArrayAssignment {
             // represents the columns in the square
             for (int x = 0; x < n; x++) {
                 // put a diagonal of 1s starting from the top right
-                if (x == (n - (i + 1))){
+                if (x == (n - (i + 1))) {
                     diagonalGenerator[i][x] = 1;
                 }
                 // put 0s above the diagonal of 1s
-                else if (x < (n - (i + 1))){
+                else if (x < (n - (i + 1))) {
                     diagonalGenerator[i][x] = 0;
                 }
                 // put 2s below the diagonal of 1s
-                else if (x > (n - (i + 1))){
+                else if (x > (n - (i + 1))) {
                     diagonalGenerator[i][x] = 2;
                 }
             }

@@ -2,6 +2,7 @@ package unit3;
 
 /**
  * A program MethodAssignment.java that contains and tests two methods lcm and censorPlus
+ *
  * @author: A. Xu
  */
 
@@ -17,11 +18,10 @@ public class MethodsAssignment {
      * @param val1 the first value
      * @param val2 the second value
      * @return the lcm of the two values
-     *
      */
     public static int lcm(int val1, int val2) {
         // if values are negative, error
-        if (val1 < 0 || val2 < 0){
+        if (val1 < 0 || val2 < 0) {
             throw new IllegalArgumentException("Numbers need to be positive!");
         }
 
@@ -40,7 +40,6 @@ public class MethodsAssignment {
 
     /**
      * A method lcmTest that tests the method lcm
-     *
      */
     public static void lcmTest() {
         System.out.println("lcm Test");
@@ -75,7 +74,7 @@ public class MethodsAssignment {
         System.out.println("Expected Result: Numbers need to be positive!");
         try {
             System.out.println("Actual Result: " + lcm(192, -245));
-        } catch (IllegalArgumentException lcmError){
+        } catch (IllegalArgumentException lcmError) {
             System.out.println("Actual Result: " + lcmError.getMessage());
         }
 
@@ -89,7 +88,7 @@ public class MethodsAssignment {
         System.out.println("Expected Result: Numbers need to be positive!");
         try {
             System.out.println("Actual Result: " + lcm(-51, 309));
-        } catch (IllegalArgumentException lcmError){
+        } catch (IllegalArgumentException lcmError) {
             System.out.println("Actual Result: " + lcmError.getMessage());
         }
     }
@@ -98,13 +97,12 @@ public class MethodsAssignment {
      * A method censorPlus that censors all characters with + unless specified by the word parameter
      *
      * @param phrase given phrase to censor
-     * @param word word to not censor within phrase
+     * @param word   word to not censor within phrase
      * @return word that has been censored
-     *
      */
     public static String censorPlus(String phrase, String word) {
         // if string phrase is empty, error
-        if (phrase.length() == 0){
+        if (phrase.length() == 0) {
             throw new IllegalArgumentException("String phrase cannot be empty");
         }
 
@@ -116,7 +114,7 @@ public class MethodsAssignment {
         // run this code
         do {
             // For loop will be used to scroll through all characters in phrase
-            for (int i = 0; i < phrase.length(); i++){
+            for (int i = 0; i < phrase.length(); i++) {
                 // if location of i is same as wordLocation, run
                 if (i == wordLocation) {
                     // add word to censored word
@@ -133,7 +131,7 @@ public class MethodsAssignment {
                     censoredWord = censoredWord + '+';
                 }
             }
-          // keep running code until wordLocation becomes -1
+            // keep running code until wordLocation becomes -1
         } while (wordLocation != -1);
 
         // return final censored word
@@ -142,9 +140,8 @@ public class MethodsAssignment {
 
     /**
      * A method censorPlusTest that tests the method censorPlus
-     *
      */
-    public static void censorPlusTest(){
+    public static void censorPlusTest() {
         System.out.println("\ncensorPlus Test");
 
         System.out.println("\nTest 1");
@@ -157,7 +154,7 @@ public class MethodsAssignment {
         System.out.println("Expected Result: String phrase cannot be empty");
         try {
             System.out.println("Actual Result: " + censorPlus("", "1"));
-        } catch (IllegalArgumentException censorError){
+        } catch (IllegalArgumentException censorError) {
 
             System.out.println("Actual Result: " + censorError.getMessage());
         }
@@ -192,7 +189,7 @@ public class MethodsAssignment {
         System.out.println("Expected Result: String phrase cannot be empty");
         try {
             System.out.println("Actual Result: " + censorPlus("", "hello"));
-        } catch (IllegalArgumentException censorError){
+        } catch (IllegalArgumentException censorError) {
 
             System.out.println("Actual Result: " + censorError.getMessage());
         }
