@@ -379,6 +379,140 @@ public class CPTAssignment {
                     } else {
                         System.out.println("There are no stairs...");
                     }
+                }  else if(userSelectedRoomStr.equalsIgnoreCase("Examine")){
+                    if (currentRoom == 0) {
+                        userAction = "";
+
+                        while (!userAction.equalsIgnoreCase("finish")) {
+                            System.out.println("What would you like to examine?");
+                            System.out.println("The Ghost");
+
+                            userAction = scanner.nextLine();
+
+                            if (userAction.equalsIgnoreCase("The Ghost")) {
+                                System.out.println("A ghastly looking ghost that resembles a person. You can barely make it out. It speaks to you: \n");
+
+                                if(roomState2[0][1] == false) {
+                                    System.out.println("Hello traveller. If you want my help, solve this riddle for me: From the trunk of a willow and the scraped hide of a cow I am made. Suffering the fierce savagery of war I, with my own body, always save my bearer's body, Unless death takes the man's life. What fierce soldier endures such a fate Or receives so many deadly wounds in war?\n" +
+                                            "Castle   House   Shield   Armor   Stone");
+
+                                    userAction = scanner.nextLine();
+
+                                    if (userAction.equalsIgnoreCase("Shield")) {
+                                        System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this shield. It will aid you with your fight with the knight in the central tower. I recommend heading to the other towers where you may find valuable information.");
+                                        roomState2[0][0] = true;
+                                        roomState2[0][1] = true;
+                                    } else {
+                                        System.out.println("That is incorrect. Unfortunately I cannot aid you on this journey.");
+                                        roomState2[0][1] = true;
+                                    }
+                                } else if(roomState2[0][0] == true && roomState2[0][1] == true){
+                                    System.out.println("Congratulations on solving my riddle. May that shield serve you well!");
+                                } else {
+                                    System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Try the other towers, you may find valuable information.");
+                                }
+                            }
+                        }
+                    }
+                } else if (currentRoom == 1) {
+                    userAction = "";
+
+                    while (!userAction.equalsIgnoreCase("finish")) {
+                        System.out.println("What would you like to examine?");
+                        System.out.println("The Ghost");
+
+                        userAction = scanner.nextLine();
+
+                        if (userAction.equalsIgnoreCase("The Ghost")) {
+                            System.out.println("A ghastly looking ghost that resembles a person. You can barely make it out. It speaks to you: \n");
+
+                            if(roomState2[0][1] == false) {
+                                System.out.println("No one can see me or catch me in their palms. I spread the noisy sound of my voice quickly through the world; I can break to pieces the oak with my loud, crashing strength, As I beat against the high poles of the sky and traverse the fields.\n" +
+                                        "Wind   Music   Sunshine   Sword   Fire");
+
+                                userAction = scanner.nextLine();
+
+                                if (userAction.equalsIgnoreCase("Wind")) {
+                                    System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this sword. It will aid you with your fight with the knight in the central tower. I recommend heading to the other towers where you may find valuable information.");
+                                    roomState2[1][0] = true;
+                                    roomState2[1][1] = true;
+                                } else {
+                                    System.out.println("That is incorrect. Unfortunately I cannot aid you on this journey.");
+                                    roomState2[1][1] = true;
+                                }
+                            } else if(roomState2[1][0] == true && roomState2[1][1] == true){
+                                System.out.println("Congratulations on solving my riddle. May that sword serve you well!");
+                            } else {
+                                System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Try the other towers, you may find valuable information.");
+                            }
+                        }
+                    }
+                }  else if (currentRoom == 2) {
+                    userAction = "";
+
+                    while (!userAction.equalsIgnoreCase("finish")) {
+                        System.out.println("What would you like to examine?");
+                        System.out.println("The Ghost");
+
+                        userAction = scanner.nextLine();
+
+                        if (userAction.equalsIgnoreCase("The Ghost")) {
+                            System.out.println("A ghastly looking ghost that resembles a person. You can barely make it out. It speaks to you: \n");
+
+                            if(roomState2[0][1] == false) {
+                                System.out.println("I share a common fate with the sea, spinning the months around in alternate cycles. When the glory of my light-flowing form wanes so, too, the sea loses its swollen flood tides.\n" +
+                                        "Sun   River   Calendar   Armor   Moon");
+
+                                userAction = scanner.nextLine();
+
+                                if (userAction.equalsIgnoreCase("Moon")) {
+                                    System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this helmet. It will aid you with your fight with the knight in the central tower. I recommend heading to the other towers where you may find valuable information.");
+                                    roomState2[2][0] = true;
+                                    roomState2[2][1] = true;
+                                } else {
+                                    System.out.println("That is incorrect. Unfortunately I cannot aid you on this journey.");
+                                    roomState2[2][1] = true;
+                                }
+                            } else if(roomState2[2][0] == true && roomState2[2][1] == true){
+                                System.out.println("Congratulations on solving my riddle. May that helmet serve you well!");
+                            } else {
+                                System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Try the other towers, you may find valuable information.");
+                            }
+                        }
+                    }
+                }  else if (currentRoom == 3) {
+                    userAction = "";
+
+                    while (!userAction.equalsIgnoreCase("finish")) {
+                        System.out.println("What would you like to examine?");
+                        System.out.println("The Ghost");
+
+                        userAction = scanner.nextLine();
+
+                        if (userAction.equalsIgnoreCase("The Ghost")) {
+                            System.out.println("A ghastly looking ghost that resembles a person. You can barely make it out. It speaks to you: \n");
+
+                            if(roomState2[0][1] == false) {
+                                System.out.println("Hello traveller. If you want my help, solve this riddle for me: From the trunk of a willow and the scraped hide of a cow I am made. Suffering the fierce savagery of war I, with my own body, always save my bearer's body, Unless death takes the man's life. What fierce soldier endures such a fate Or receives so many deadly wounds in war?\n" +
+                                        "Castle   House   Shield   Armor   Stone");
+
+                                userAction = scanner.nextLine();
+
+                                if (userAction.equalsIgnoreCase("Shield")) {
+                                    System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this shield. It will aid you with your fight with the knight in the central tower. I recommend heading to the other towers where you may find valuable information.");
+                                    roomState2[0][0] = true;
+                                    roomState2[0][1] = true;
+                                } else {
+                                    System.out.println("That is incorrect. Unfortunately I cannot aid you on this journey.");
+                                    roomState2[0][1] = true;
+                                }
+                            } else if(roomState2[0][0] == true && roomState2[0][1] == true){
+                                System.out.println("Congratulations on solving my riddle. May that shield serve you well!");
+                            } else {
+                                System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Try the other towers, you may find valuable information.");
+                            }
+                        }
+                    }
                 } else {
                     System.out.println("Invalid Direction");
                 }
