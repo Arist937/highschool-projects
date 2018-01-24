@@ -245,6 +245,17 @@ public class CPTAssignment {
                 } else {
                     System.out.println("There are no stairs...");
                 }
+            } else if(userSelectedRoomStr.equalsIgnoreCase("door")){
+                if(currentRoom == 1){
+                    if (roomState2[4][0] == true){
+                        System.out.println("You unlock the door and finally leave the castle. You take a step outside only to notice destruction everywhere. The entire world has become a wasteland and it seems that there is nothing left in this world for you");
+                        done = true;
+                    } else {
+                        System.out.println("It's locked.");
+                    }
+                } else {
+                    System.out.println("There is no door...");
+                }
             } else if (userSelectedRoomStr.equalsIgnoreCase("Examine")) {
                 examineFunctionFloor2(currentRoom, roomState1, roomState2);
             } else if (userSelectedRoomStr.equalsIgnoreCase("Fight")) {
@@ -281,13 +292,15 @@ public class CPTAssignment {
         roomState2[2] = new boolean[]{false, false};
         // hasMetGhost, hasArmor, hasDrunkSpicyStew, hasAngeredGhost
         roomState2[3] = new boolean[]{false, false, false, false};
+        // hasKey
+        roomState2[4] = new boolean[]{false};
 
         roomNames1 = new String[]{"Southwest Tower", "Foyer", "Enchanting Room", "Southeast Tower", "Alchemy Room",
                 "Courtyard", "Central Tower", "Hallway A", "Dining Room", "Kitchen", "Northwest Tower", "Library",
                 "Hallway B", "Chapel", "Northeast Tower"};
         roomDescriptions1 = new String[]
                 {"You make your way into the southwestern tower. The Dining room lies north.",
-                        "You find yourself in the Foyer of a castle. There is set of stairs that bring you to the second floor of the castle. In the north, there is a Hallway and to the east lies the enchanting room",
+                        "You find yourself in the Foyer of a castle. In the north, there is a Hallway and to the east lies the enchanting room",
                         "You find yourself in the enchanting room. To the north, there is an alchemy room, to the south, there is the southeastern tower and to the west, there is the foyer of the castle",
                         "You find yourself in the southeastern tower of the castle. To the north, there is an enchanting room.",
                         "You make your way into the alchemy room. To the west lies a hallway and the enchanting room is south of here.",
