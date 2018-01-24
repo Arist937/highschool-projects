@@ -1,11 +1,15 @@
 package unit4;
 
+import java.util.Scanner;
+
 public class CPTAssignment {
     static String[] roomNames;
     static String[] roomDescriptions;
     static int[][] roomDirections;
 
     public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+
         roomNames = new String[]{"Starting Position", "Hallway A1", "Hallway A2", "Hallway B1", "Hallway B2", "Kitchen",
                 "Dining Room", "Hallway C2", "Hallway C1"};
         roomDescriptions = new String[]{"You find yourself in the middle of a hallway. It leads east and west",
@@ -40,7 +44,44 @@ public class CPTAssignment {
         boolean done = false;
 
         while(done == false){
-                
+            System.out.println(roomDescriptions[currentRoom]);
+            userSelectedRoomStr = scanner.nextLine();
+
+            if (userSelectedRoomStr.equalsIgnoreCase("n")) {
+                nextRoom = roomDirections[currentRoom][0];
+
+                if (nextRoom != -1) {
+                    currentRoom = nextRoom;
+                } else {
+                    System.out.println("You cannot go there");
+                }
+            } else if (userSelectedRoomStr.equalsIgnoreCase("e")) {
+                nextRoom = roomDirections[currentRoom][1];
+
+                if (nextRoom != -1) {
+                    currentRoom = nextRoom;
+                } else {
+                    System.out.println("You cannot go there");
+                }
+            } else if (userSelectedRoomStr.equalsIgnoreCase("s")) {
+                nextRoom = roomDirections[currentRoom][2];
+
+                if (nextRoom != -1) {
+                    currentRoom = nextRoom;
+                } else {
+                    System.out.println("You cannot go there");
+                }
+            } else if (userSelectedRoomStr.equalsIgnoreCase("w")) {
+                nextRoom = roomDirections[currentRoom][3];
+
+                if (nextRoom != -1) {
+                    currentRoom = nextRoom;
+                } else {
+                    System.out.println("You cannot go there");
+                }
+            } else {
+                System.out.println("Invalid Direction");
+            }
         }
     }
 }
