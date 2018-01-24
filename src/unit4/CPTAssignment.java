@@ -139,15 +139,57 @@ public class CPTAssignment {
                         System.out.println("Skeleton");
 
                         userAction = scanner.nextLine();
+                        while (!userAction.equalsIgnoreCase("finish")) {
+                            if (userAction.equalsIgnoreCase("Skeleton")) {
+                                skeletonExamined = true;
+                                System.out.println("You examine the skeleton and find a journal next to it. Would you like to read it?");
 
-                        if (userAction.equalsIgnoreCase("Skeleton")) {
-                            skeletonExamined = true;
-                            System.out.println("You examine the skeleton and find a journal next to it. Would you like to read it?");
+                                userAction = scanner.nextLine();
+
+                                if (userAction.equalsIgnoreCase("yes")) {
+                                    System.out.println("You take the journal from the skeleton. It reads: \n\nTo leave this castle, I have to defeat the knight in the central tower. I'm a pretty big guy, I can take on anyone no problem! Time to get out of this hellhole castle.");
+                                }
+                            }
+                        }
+                    } else if (currentRoom == 4) {
+                        userAction = "";
+
+                        while (!userAction.equalsIgnoreCase("finish")) {
+                            System.out.println("What would you like to examine?");
+                            System.out.println("Alchemy Table   Alchemy Ingredients");
 
                             userAction = scanner.nextLine();
 
-                            if (userAction.equalsIgnoreCase("yes")) {
-                                System.out.println("You take the journal from the skeleton. It reads: \n\nTo leave this castle, I have to defeat the knight in the central tower. I'm a pretty big guy, I can take on anyone no problem! Time to get out of this hellhole castle.");
+                            if (userAction.equalsIgnoreCase("Alchemy Table")) {
+                                System.out.println("An Alchemy Table, would you like to craft a potion?");
+
+                                userAction = scanner.nextLine();
+
+                                if (userAction.equalsIgnoreCase("yes")) {
+                                    if (roomState[4][1] == true) {
+                                        if (roomState[11][3] == true) {
+                                            System.out.println("You craft a health potion and a strength potion");
+                                            roomState[4][0] = true;
+                                        } else {
+                                            System.out.println("You don't have the knowledge to craft any potions. Perhaps you should try the library");
+                                        }
+                                    } else {
+                                        System.out.println("You don't have any ingredients to work with");
+                                    }
+                                } else {
+                                    System.out.println("You leave the alchemy table alone");
+                                }
+                            } else if (userAction.equalsIgnoreCase("Alchemy Ingredients")) {
+                                System.out.println("A bunch of alchemy ingredients. Would you like to take them?");
+
+                                userAction = scanner.nextLine();
+
+                                if (userAction.equalsIgnoreCase("yes")) {
+                                    roomState[4][1] = true;
+                                    System.out.println("You take the alchemy ingredients");
+                                } else {
+                                    System.out.println("You leave the alchemy ingredients alone");
+                                }
                             }
                         }
                     } else {
