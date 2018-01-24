@@ -16,17 +16,27 @@ public class CPTAssignment {
     public static void main(String[] args) {
         int booksRead = 0;
 
-        boolean[][] roomState = new boolean[15][4];
+        boolean[][] roomState1 = new boolean[15][4];
         // hasPotions, Alchemy ingredients
-        roomState[4] = new boolean[]{false, false};
+        roomState1[4] = new boolean[]{false, false};
         // isSkeletonExamined, Skeleton's Journal
-        roomState[5] = new boolean[]{false, false};
+        roomState1[5] = new boolean[]{false, false};
         // hasEaten plate of food
-        roomState[8] = new boolean[]{false};
+        roomState1[8] = new boolean[]{false};
         // hasSwordUpgrade, hasArmorUpgrade, hasEnchantingKnowledge, hasAlchemyKnowledge
-        roomState[11] = new boolean[]{false, false, false, false};
+        roomState1[11] = new boolean[]{false, false, false, false};
         // hasReceivedBlessing
-        roomState[13] = new boolean[]{false};
+        roomState1[13] = new boolean[]{false};
+
+        boolean[][] roomState2 = new boolean[4][4];
+        //hasShield, hasAttemptedRiddle
+        roomState2[0] = new boolean[]{false, false};
+        //hasSword, hasAttemptedRiddle
+        roomState2[1] = new boolean[]{false, false};
+        //hasArmor, hasAttemptedRiddle
+        roomState2[2] = new boolean[]{false, false};
+        //hasHelmet, hasAttemptedRiddle
+        roomState2[3] = new boolean[]{false, false};
 
         roomNames1 = new String[]{"Southwest Tower", "Foyer", "Enchanting Room", "Southeast Tower", "Alchemy Room",
                 "Courtyard", "Central Tower", "Hallway A", "Dining Room", "Kitchen", "Northwest Tower", "Library",
@@ -48,7 +58,7 @@ public class CPTAssignment {
                         "You are in the chapel. To the west is the library and to the north is the Northeastern Tower",
                         "You find yourself in the northeastern tower of the castle. To the south lies the chapel."};
 
-        if (roomState[5][0] == true) {
+        if (roomState1[5][0] == true) {
             roomDescriptions1[6] = "You make your way into the courtyard. To the east lies the central tower and you can return into the castle through the west. Near the entrance of the central tower, there remains the skeleton that you examined";
         }
 
@@ -70,17 +80,15 @@ public class CPTAssignment {
 
         roomNames2 = new String[]{"Hallway D1", "Hallway D2", "Bedroom A", "Bedroom B"};
         roomDescriptions2 = new String[]
-                {"You find yourself in a hallway, it extends to the east and a bedroom lies" +
-                        "south. There is a set of stairs on the western end.",
-                        "You find yourself in a hallway, extending west and a bedroom lies south. " +
-                                "There is a set of stairs on the eastern end.",
-                        "You find yourself in a bedroom. To the north there is a hallway.",
-                        "You find yourself in a bedroom, to the north there is a hallway."};
+                {"You are on the second floor of the southwestern tower. You see a ghost in front of you.",
+                        "You are on the second floor of the southeastern tower",
+                        "You are on the second floor of the northeastern tower",
+                        "You are on the second floor of the northwestern tower"};
 
-        roomDirections2[0] = new int[]{-1, 1, 3, -1};
-        roomDirections2[1] = new int[]{-1, -1, 2, 0};
-        roomDirections2[2] = new int[]{1, -1, -1, -1};
-        roomDirections2[3] = new int[]{0, -1, -1, -1};
+        roomDirections2[0] = new int[]{-1, -1, -1, -1};
+        roomDirections2[1] = new int[]{-1, -1, -1, -1};
+        roomDirections2[2] = new int[]{-1, -1, -1, -1};
+        roomDirections2[3] = new int[]{-1, -1, -1, -1};
 
         int currentFloor = 1;
         int currentRoom = 1;
@@ -136,18 +144,18 @@ public class CPTAssignment {
                         System.out.println("You go up the stairs");
                         currentFloor = 2;
                         currentRoom = 0;
-                    } else if(currentRoom == 3){
+                    } else if (currentRoom == 3) {
                         System.out.println("You go up the stairs");
                         currentFloor = 2;
-                        currentRoom = 0;
-                    } else if(currentRoom == 10){
+                        currentRoom = 1;
+                    } else if (currentRoom == 10) {
                         System.out.println("You go up the stairs");
                         currentFloor = 2;
-                        currentRoom = 0;
-                    } else if(currentRoom == 14){
+                        currentRoom = 3;
+                    } else if (currentRoom == 14) {
                         System.out.println("You go up the stairs");
                         currentFloor = 2;
-                        currentRoom = 0;
+                        currentRoom = 2;
                     } else {
                         System.out.println("There are no stairs...");
                     }
@@ -162,13 +170,13 @@ public class CPTAssignment {
                             userAction = scanner.nextLine();
 
                             if (userAction.equalsIgnoreCase("Skeleton")) {
-                                roomState[5][0] = true;
+                                roomState1[5][0] = true;
                                 System.out.println("You examine the skeleton and find a journal next to it. Would you like to read it and take it?");
 
                                 userAction = scanner.nextLine();
 
                                 if (userAction.equalsIgnoreCase("yes")) {
-                                    roomState[5][1] = true;
+                                    roomState1[5][1] = true;
                                     System.out.println("You take the journal from the skeleton. It reads: \n\nTo leave this castle, I have to defeat the knight in the central tower. I'm a pretty big guy, I can take on anyone no problem! Time to get out of this hellhole castle.");
                                 }
                             } else if (userAction.equalsIgnoreCase("Flowers")) {
@@ -194,10 +202,10 @@ public class CPTAssignment {
                                 userAction = scanner.nextLine();
 
                                 if (userAction.equalsIgnoreCase("yes")) {
-                                    if (roomState[4][1] == true) {
-                                        if (roomState[11][3] == true) {
+                                    if (roomState1[4][1] == true) {
+                                        if (roomState1[11][3] == true) {
                                             System.out.println("You craft a health potion and a strength potion");
-                                            roomState[4][0] = true;
+                                            roomState1[4][0] = true;
                                         } else {
                                             System.out.println("You don't have the knowledge to craft any potions. Perhaps you should try the library");
                                         }
@@ -213,7 +221,7 @@ public class CPTAssignment {
                                 userAction = scanner.nextLine();
 
                                 if (userAction.equalsIgnoreCase("yes")) {
-                                    roomState[4][1] = true;
+                                    roomState1[4][1] = true;
                                     System.out.println("You take the alchemy ingredients");
                                 } else {
                                     System.out.println("You leave the alchemy ingredients alone");
@@ -236,86 +244,86 @@ public class CPTAssignment {
 
                             if (userAction.equalsIgnoreCase("A Game at Dinner")) {
                                 System.out.println("You gain the knowledge of alchemy");
-                                roomState[11][3] = true;
+                                roomState1[11][3] = true;
                                 booksRead++;
                             } else if (userAction.equalsIgnoreCase("Fire and darkness")) {
                                 System.out.println("You feel that you have become better with swords");
-                                roomState[11][0] = true;
+                                roomState1[11][0] = true;
                                 booksRead++;
                             } else if (userAction.equalsIgnoreCase("Hallgerd's Tale")) {
                                 System.out.println("The book teaches you how to efficiently use armor");
-                                roomState[11][1] = true;
+                                roomState1[11][1] = true;
                                 booksRead++;
                             } else if (userAction.equalsIgnoreCase("Twin Secrets")) {
                                 System.out.println("You have gained the knowledge of Enchantment");
-                                roomState[11][2] = true;
+                                roomState1[11][2] = true;
                                 booksRead++;
                             } else {
                                 System.out.println("Reading the book was a waste of time. You fail to learn anything of importance.");
                                 booksRead++;
                             }
                         }
-                    } else if (currentRoom == 13){
+                    } else if (currentRoom == 13) {
                         userAction = "";
 
-                        while(!userAction.equalsIgnoreCase("finish")){
+                        while (!userAction.equalsIgnoreCase("finish")) {
                             System.out.println("What would you like to examine?");
                             System.out.println("The Altar");
 
                             userAction = scanner.nextLine();
 
-                            if(userAction.equalsIgnoreCase("the altar")){
+                            if (userAction.equalsIgnoreCase("the altar")) {
                                 System.out.println("An altar to God, made of Oak. Would you like to pray?");
 
                                 userAction = scanner.nextLine();
 
-                                if(userAction.equalsIgnoreCase("yes")){
+                                if (userAction.equalsIgnoreCase("yes")) {
                                     System.out.println("You pray at the altar and receive a blessing. You feel invigorated and stronger");
-                                    roomState[13][0] = true;
+                                    roomState1[13][0] = true;
                                 } else {
                                     System.out.println("You don't pray.");
                                 }
                             }
                         }
-                    } else if (currentRoom == 2){
+                    } else if (currentRoom == 2) {
                         userAction = "";
 
-                        while(!userAction.equalsIgnoreCase("finish")){
+                        while (!userAction.equalsIgnoreCase("finish")) {
                             System.out.println("What would you like to examine?");
                             System.out.println("Enchanting Table");
 
                             userAction = scanner.nextLine();
 
-                            if(userAction.equalsIgnoreCase("Enchanting Table")){
+                            if (userAction.equalsIgnoreCase("Enchanting Table")) {
                                 System.out.println("An enchanting table, what would you like to enchant?");
 
                                 userAction = scanner.nextLine();
 
-                                if(userAction.equalsIgnoreCase("yes")){
+                                if (userAction.equalsIgnoreCase("yes")) {
                                     System.out.println("You pray at the altar and receive a blessing. You feel invigorated and stronger");
-                                    roomState[13][0] = true;
+                                    roomState1[13][0] = true;
                                 } else {
                                     System.out.println("You don't pray.");
                                 }
                             }
                         }
-                    }  else if (currentRoom == 8){
+                    } else if (currentRoom == 8) {
                         userAction = "";
 
-                        while(!userAction.equalsIgnoreCase("finish")){
+                        while (!userAction.equalsIgnoreCase("finish")) {
                             System.out.println("What would you like to examine?");
                             System.out.println("Plate of Food");
 
                             userAction = scanner.nextLine();
 
-                            if(userAction.equalsIgnoreCase("Plate of Food")){
+                            if (userAction.equalsIgnoreCase("Plate of Food")) {
                                 System.out.println("A plate of delicious looking food. Would you like to eat it?");
 
                                 userAction = scanner.nextLine();
 
-                                if(userAction.equalsIgnoreCase("yes")){
+                                if (userAction.equalsIgnoreCase("yes")) {
                                     System.out.println("You eat the plate of food. Something in it makes you feel sick.");
-                                    roomState[8][0] = true;
+                                    roomState1[8][0] = true;
                                 } else {
                                     System.out.println("You don't eat the food");
                                 }
@@ -367,7 +375,7 @@ public class CPTAssignment {
                     if (currentRoom == 0) {
                         System.out.println("You go down the stairs");
                         currentFloor = 1;
-                        currentRoom = 1;
+                        currentRoom = 0;
                     } else {
                         System.out.println("There are no stairs...");
                     }
