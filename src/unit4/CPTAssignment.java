@@ -9,7 +9,7 @@ public class CPTAssignment {
 
     static String[] roomNames2;
     static String[] roomDescriptions2;
-    static int[][] roomDirections2 = new int[4][4];
+    static int[][] roomDirections2 = new int[5][4];
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -91,6 +91,7 @@ public class CPTAssignment {
         roomDirections2[1] = new int[]{-1, -1, -1, -1};
         roomDirections2[2] = new int[]{-1, -1, -1, -1};
         roomDirections2[3] = new int[]{-1, -1, -1, -1};
+        roomDirections2[4] = new int[]{-1, -1, -1, -1};
 
         int currentFloor = 1;
         int currentRoom = 1;
@@ -159,6 +160,10 @@ public class CPTAssignment {
                         System.out.println("You go up the stairs");
                         currentFloor = 2;
                         currentRoom = 2;
+                    } else if (currentRoom == 6) {
+                        System.out.println("You go up the stairs");
+                        currentFloor = 2;
+                        currentRoom = 4;
                     } else {
                         System.out.println("There are no stairs...");
                     }
@@ -612,7 +617,8 @@ public class CPTAssignment {
                                             }
                                         }
                                     }
-                                } if (roomState2[3][0] == true) {
+                                }
+                                if (roomState2[3][0] == true) {
                                     System.out.println("Welcome back! Do you have my stew?\n");
                                     if (roomState1[9][1] == true) {
                                         System.out.println("1. Yes! It's right here!\n" + "2. You know what, I'm actually gonna eat this myself\n" + "3. Like I would give you this. *Pours Stew On the Ground");
