@@ -13,9 +13,7 @@ public class CPTAssignment {
 
     public static void main(String[] args) {
         int booksRead = 0;
-
-        boolean skeletonExamined = false;
-
+        
         Scanner scanner = new Scanner(System.in);
 
         boolean[][] roomState = new boolean[15][4];
@@ -143,7 +141,6 @@ public class CPTAssignment {
                         userAction = scanner.nextLine();
                         while (!userAction.equalsIgnoreCase("finish")) {
                             if (userAction.equalsIgnoreCase("Skeleton")) {
-                                skeletonExamined = true;
                                 System.out.println("You examine the skeleton and find a journal next to it. Would you like to read it?");
 
                                 userAction = scanner.nextLine();
@@ -227,6 +224,50 @@ public class CPTAssignment {
                             } else {
                                 System.out.println("Reading the book was a waste of time. You fail to learn anything of importance.");
                                 booksRead++;
+                            }
+                        }
+                    }  else if (currentRoom == 13){
+                        userAction = "";
+
+                        while(!userAction.equalsIgnoreCase("finish")){
+                            System.out.println("What would you like to examine?");
+                            System.out.println("The Altar");
+
+                            userAction = scanner.nextLine();
+
+                            if(userAction.equalsIgnoreCase("the altar")){
+                                System.out.println("An altar to God, made of Oak. Would you like to pray?");
+
+                                userAction = scanner.nextLine();
+
+                                if(userAction.equalsIgnoreCase("yes")){
+                                    System.out.println("You pray at the altar and receive a blessing. You feel invigorated and stronger");
+                                    roomState[13][0] = true;
+                                } else {
+                                    System.out.println("You don't pray.");
+                                }
+                            }
+                        }
+                    } else if (currentRoom == 2){
+                        userAction = "";
+
+                        while(!userAction.equalsIgnoreCase("finish")){
+                            System.out.println("What would you like to examine?");
+                            System.out.println("Enchanting Table");
+
+                            userAction = scanner.nextLine();
+
+                            if(userAction.equalsIgnoreCase("Enchanting Table")){
+                                System.out.println("An enchanting table, what would you like to enchant?");
+
+                                userAction = scanner.nextLine();
+
+                                if(userAction.equalsIgnoreCase("yes")){
+                                    System.out.println("You pray at the altar and receive a blessing. You feel invigorated and stronger");
+                                    roomState[13][0] = true;
+                                } else {
+                                    System.out.println("You don't pray.");
+                                }
                             }
                         }
                     } else if (currentRoom == 8){
