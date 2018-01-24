@@ -270,8 +270,6 @@ public class CPTAssignment {
                                 } else if (userDialogueChooser == 3) {
                                     System.out.println("You cook some curry");
                                     roomState1[9][1] = true;
-                                } else if (userDialogueChooser == 4) {
-                                    System.out.println("You don't cook anything");
                                 }
                             } else if (userAction.equalsIgnoreCase("Cooking Ingredients")) {
                                 System.out.println("A bunch of cooking ingredients. Would you like to take them?");
@@ -653,10 +651,27 @@ public class CPTAssignment {
                                 }
                             }
                         }
+                    } else {
+                        System.out.println("There is nothing to examine");
                     }
+                } else if (userAction.equalsIgnoreCase("fight")) {
+                    if (currentRoom == 4) {
+                        if (roomState2[1][0] == true && roomState2[0][0] == true) {
+                            System.out.println("You draw your sword and shield in preparation to fight. ");
+                        } else if (roomState2[1][0] == true) {
+                            System.out.println("You draw your sword in preparation to fight. ");
+                        } else if (roomState2[0][0] == true) {
+                            System.out.println("You draw your shield in preparation to fight. ");
+                        } else {
+                            System.out.println("You ready your fists against the knight, ready to beat him to a pulp. ");
+                        }
+
+                        System.out.println("The knight charges at you with his sword, aiming for your head but u rek him. gg ez no re.");
+                        done = true;
+                    }
+                } else {
+                    System.out.println("Invalid Direction");
                 }
-            } else {
-                System.out.println("Invalid Direction");
             }
         }
     }
