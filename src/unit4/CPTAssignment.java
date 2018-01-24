@@ -12,6 +12,8 @@ public class CPTAssignment {
     static int[][] roomDirections2 = new int[4][4];
 
     public static void main(String[] args) {
+        int booksRead = 0;
+
         boolean skeletonExamined = false;
 
         Scanner scanner = new Scanner(System.in);
@@ -189,6 +191,63 @@ public class CPTAssignment {
                                     System.out.println("You take the alchemy ingredients");
                                 } else {
                                     System.out.println("You leave the alchemy ingredients alone");
+                                }
+                            }
+                        }
+                    }  else if (currentRoom == 11) {
+                        userAction = "";
+
+                        while (!userAction.equalsIgnoreCase("finish")) {
+                            if (booksRead >= 3) {
+                                System.out.println("You've read too many books, your head is starting to hurt.");
+                                break;
+                            }
+
+                            System.out.println("What would you like to examine?");
+                            System.out.println("Twin Secrets   The Book of Fate   A Game at Dinner   The Posting of the Hunt   Touching the Sky   Fire and Darkness   Hallgerd's Tale   The Betrayed");
+
+                            userAction = scanner.nextLine();
+
+                            if (userAction.equalsIgnoreCase("A Game at Dinner")) {
+                                System.out.println("You gain the knowledge of alchemy");
+                                roomState[11][3] = true;
+                                booksRead++;
+                            } else if (userAction.equalsIgnoreCase("Fire and darkness")) {
+                                System.out.println("You feel that you have become better with swords");
+                                roomState[11][0] = true;
+                                booksRead++;
+                            } else if (userAction.equalsIgnoreCase("Hallgerd's Tale")) {
+                                System.out.println("The book teaches you how to efficiently use armor");
+                                roomState[11][1] = true;
+                                booksRead++;
+                            } else if (userAction.equalsIgnoreCase("Twin Secrets")) {
+                                System.out.println("You have gained the knowledge of Enchantment");
+                                roomState[11][2] = true;
+                                booksRead++;
+                            } else {
+                                System.out.println("Reading the book was a waste of time. You fail to learn anything of importance.");
+                                booksRead++;
+                            }
+                        }
+                    } else if (currentRoom == 8){
+                        userAction = "";
+
+                        while(!userAction.equalsIgnoreCase("finish")){
+                            System.out.println("What would you like to examine?");
+                            System.out.println("Plate of Food");
+
+                            userAction = scanner.nextLine();
+
+                            if(userAction.equalsIgnoreCase("Plate of Food")){
+                                System.out.println("A plate of delicious looking food. Would you like to eat it?");
+
+                                userAction = scanner.nextLine();
+
+                                if(userAction.equalsIgnoreCase("yes")){
+                                    System.out.println("You eat the plate of food. Something in it makes you feel sick.");
+                                    roomState[8][0] = true;
+                                } else {
+                                    System.out.println("You don't eat the food");
                                 }
                             }
                         }
