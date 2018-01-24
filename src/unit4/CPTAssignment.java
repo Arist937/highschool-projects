@@ -23,6 +23,8 @@ public class CPTAssignment {
         roomState1[5] = new boolean[]{false, false};
         // hasEaten plate of food
         roomState1[8] = new boolean[]{false};
+        // Cooking Ingredients, hasCookedMeal, hasStew
+        roomState1[9] = new boolean[]{false, false, false};
         // hasSwordUpgrade, hasArmorUpgrade, hasEnchantingKnowledge, hasAlchemyKnowledge
         roomState1[11] = new boolean[]{false, false, false, false};
         // hasReceivedBlessing
@@ -35,8 +37,8 @@ public class CPTAssignment {
         roomState2[1] = new boolean[]{false, false};
         //hasArmor, hasAttemptedRiddle
         roomState2[2] = new boolean[]{false, false};
-        //hasHelmet, hasAttemptedRiddle
-        roomState2[3] = new boolean[]{false, false};
+        // hasMetGhost, hasArmor, hasDrunkSpicyStew, hasAngeredGhost
+        roomState2[3] = new boolean[]{false, false, false, false};
 
         roomNames1 = new String[]{"Southwest Tower", "Foyer", "Enchanting Room", "Southeast Tower", "Alchemy Room",
                 "Courtyard", "Central Tower", "Hallway A", "Dining Room", "Kitchen", "Northwest Tower", "Library",
