@@ -85,7 +85,8 @@ public class CPTAssignment {
                 {"You are on the top floor of the southwestern tower. You see a ghost in front of you.",
                         "You are on the top floor of the southeastern tower. You see a ghost in front of you.",
                         "You are on the top floor of the northeastern tower. You see a ghost in front of you.",
-                        "You are on the top floor of the northwestern tower. You see a ghost in front of you."};
+                        "You are on the top floor of the northwestern tower. You see a ghost in front of you.",
+                        "You make your way onto the top floor of the Central Tower. A dormant knight stands there. His eyes suddenly open and he raises his sword, ready to strike you down."};
 
         roomDirections2[0] = new int[]{-1, -1, -1, -1};
         roomDirections2[1] = new int[]{-1, -1, -1, -1};
