@@ -11,10 +11,10 @@ public class CPTAssignment {
     static String[] roomDescriptions2;
     static int[][] roomDirections2 = new int[4][4];
 
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         int booksRead = 0;
-        
-        Scanner scanner = new Scanner(System.in);
 
         boolean[][] roomState = new boolean[15][4];
         // hasPotions, Alchemy ingredients
@@ -48,11 +48,15 @@ public class CPTAssignment {
                         "You are in the chapel. To the west is the library and to the north is the Northeastern Tower",
                         "You find yourself in the northeastern tower of the castle. To the south lies the chapel."};
 
+        if (roomState[5][0] == true) {
+            roomDescriptions1[6] = "You make your way into the courtyard. To the east lies the central tower and you can return into the castle through the west. Near the entrance of the central tower, there remains the skeleton that you examined";
+        }
+
         roomDirections1[0] = new int[]{8, -1, -1, -1};
         roomDirections1[1] = new int[]{7, 2, -1, -1};
         roomDirections1[2] = new int[]{4, -1, 3, 1};
         roomDirections1[3] = new int[]{2, -1, -1, -1};
-        roomDirections1[4] = new int[]{-1, 12, 2, -1};
+        roomDirections1[4] = new int[]{-1, -1, 2, 12};
         roomDirections1[5] = new int[]{-1, 6, -1, 7};
         roomDirections1[6] = new int[]{-1, -1, -1, 5};
         roomDirections1[7] = new int[]{12, 5, 1, 8};
@@ -65,12 +69,13 @@ public class CPTAssignment {
         roomDirections1[14] = new int[]{-1, -1, 13, -1};
 
         roomNames2 = new String[]{"Hallway D1", "Hallway D2", "Bedroom A", "Bedroom B"};
-        roomDescriptions2 = new String[]{"You find yourself in a hallway, it extends to the east and a bedroom lies" +
-                "south. There is a set of stairs on the western end.",
-                "You find yourself in a hallway, extending west and a bedroom lies south. " +
-                        "There is a set of stairs on the eastern end.",
-                "You find yourself in a bedroom. To the north there is a hallway.",
-                "You find yourself in a bedroom, to the north there is a hallway."};
+        roomDescriptions2 = new String[]
+                {"You find yourself in a hallway, it extends to the east and a bedroom lies" +
+                        "south. There is a set of stairs on the western end.",
+                        "You find yourself in a hallway, extending west and a bedroom lies south. " +
+                                "There is a set of stairs on the eastern end.",
+                        "You find yourself in a bedroom. To the north there is a hallway.",
+                        "You find yourself in a bedroom, to the north there is a hallway."};
 
         roomDirections2[0] = new int[]{-1, 1, 3, -1};
         roomDirections2[1] = new int[]{-1, -1, 2, 0};
@@ -92,6 +97,7 @@ public class CPTAssignment {
             if (currentFloor == 1) {
                 System.out.println(roomDescriptions1[currentRoom]);
                 userSelectedRoomStr = scanner.nextLine();
+
 
                 if (userSelectedRoomStr.equalsIgnoreCase("n")) {
                     nextRoom = roomDirections1[currentRoom][0];
@@ -126,7 +132,19 @@ public class CPTAssignment {
                         System.out.println("You cannot go there");
                     }
                 } else if (userSelectedRoomStr.equalsIgnoreCase("stairs")) {
-                    if (currentRoom == 1) {
+                    if (currentRoom == 0) {
+                        System.out.println("You go up the stairs");
+                        currentFloor = 2;
+                        currentRoom = 0;
+                    } else if(currentRoom == 3){
+                        System.out.println("You go up the stairs");
+                        currentFloor = 2;
+                        currentRoom = 0;
+                    } else if(currentRoom == 10){
+                        System.out.println("You go up the stairs");
+                        currentFloor = 2;
+                        currentRoom = 0;
+                    } else if(currentRoom == 14){
                         System.out.println("You go up the stairs");
                         currentFloor = 2;
                         currentRoom = 0;
@@ -135,19 +153,30 @@ public class CPTAssignment {
                     }
                 } else if (userSelectedRoomStr.equalsIgnoreCase("Examine")) {
                     if (currentRoom == 5) {
-                        System.out.println("What would you like to examine?");
-                        System.out.println("Skeleton");
+                        userAction = "";
 
-                        userAction = scanner.nextLine();
                         while (!userAction.equalsIgnoreCase("finish")) {
+                            System.out.println("What would you like to examine?");
+                            System.out.println("Skeleton   Flowers   Grass   Sky");
+
+                            userAction = scanner.nextLine();
+
                             if (userAction.equalsIgnoreCase("Skeleton")) {
-                                System.out.println("You examine the skeleton and find a journal next to it. Would you like to read it?");
+                                roomState[5][0] = true;
+                                System.out.println("You examine the skeleton and find a journal next to it. Would you like to read it and take it?");
 
                                 userAction = scanner.nextLine();
 
                                 if (userAction.equalsIgnoreCase("yes")) {
+                                    roomState[5][1] = true;
                                     System.out.println("You take the journal from the skeleton. It reads: \n\nTo leave this castle, I have to defeat the knight in the central tower. I'm a pretty big guy, I can take on anyone no problem! Time to get out of this hellhole castle.");
                                 }
+                            } else if (userAction.equalsIgnoreCase("Flowers")) {
+                                System.out.println("Beautiful Flowers");
+                            } else if (userAction.equalsIgnoreCase("Grass")) {
+                                System.out.println("Green Grass");
+                            } else if (userAction.equalsIgnoreCase("Sky")) {
+                                System.out.println("You see the beautiful blue sky.");
                             }
                         }
                     } else if (currentRoom == 4) {
@@ -191,7 +220,7 @@ public class CPTAssignment {
                                 }
                             }
                         }
-                    }  else if (currentRoom == 11) {
+                    } else if (currentRoom == 11) {
                         userAction = "";
 
                         while (!userAction.equalsIgnoreCase("finish")) {
@@ -226,7 +255,7 @@ public class CPTAssignment {
                                 booksRead++;
                             }
                         }
-                    }  else if (currentRoom == 13){
+                    } else if (currentRoom == 13){
                         userAction = "";
 
                         while(!userAction.equalsIgnoreCase("finish")){
@@ -270,7 +299,7 @@ public class CPTAssignment {
                                 }
                             }
                         }
-                    } else if (currentRoom == 8){
+                    }  else if (currentRoom == 8){
                         userAction = "";
 
                         while(!userAction.equalsIgnoreCase("finish")){
@@ -338,11 +367,7 @@ public class CPTAssignment {
                     if (currentRoom == 0) {
                         System.out.println("You go down the stairs");
                         currentFloor = 1;
-                        currentRoom = 4;
-                    } else if (currentRoom == 1) {
-                        System.out.println("You go down the stairs");
-                        currentFloor = 1;
-                        currentRoom = 7;
+                        currentRoom = 1;
                     } else {
                         System.out.println("There are no stairs...");
                     }
