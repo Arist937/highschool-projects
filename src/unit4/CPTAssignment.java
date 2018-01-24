@@ -253,8 +253,11 @@ public class CPTAssignment {
                                         "4. Nevermind");
 
                                 userDialogueChooser = scanner.nextInt();
+                                scanner.nextLine();
 
-                                if (roomState1[9][0] == false) {
+                                if (userDialogueChooser == 4) {
+                                    System.out.println("You don't cook anything");
+                                } else if (roomState1[9][0] == false) {
                                     System.out.println("You have not yet made the necessary preparations to start cooking");
                                 } else if (userDialogueChooser == 1) {
                                     System.out.println("You cook a spicy stew");
