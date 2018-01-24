@@ -12,21 +12,20 @@ public class CPTAssignment {
     static String[] roomNames2;
     static String[] roomDescriptions2;
     static int[][] roomDirections2 = new int[5][4];
-    static boolean[][] roomState2 = new boolean[4][4];
+    static boolean[][] roomState2 = new boolean[5][4];
 
     static int currentFloor = 1;
     static int currentRoom = 1;
     static int nextRoom = -1;
     static String userSelectedRoomStr = "";
+    static boolean done = false;
+
 
     static Scanner scanner = new Scanner(System.in);
 
 
     public static void main(String[] args) {
-
         initializeArrays();
-
-        boolean done = false;
 
         System.out.println("You find yourself in a castle, unaware of your past and without any memory of who you are. " +
                 "Behind you lies the doors to leave, but they are locked, unable to be opened. " +
@@ -97,7 +96,7 @@ public class CPTAssignment {
 
         // if player drank spicy stew, +5 health
         if (roomState2[3][2] = true) {
-            playerStats[0] = playerStats[0] + 50000;
+            playerStats[0] = playerStats[0] + 5;
         }
 
         System.out.println("You and the knight engage in combat...");
@@ -107,11 +106,21 @@ public class CPTAssignment {
             playerStats[0] = playerStats[0] - bossStats[1];
 
             if (playerStats[0] <= 0) {
-                System.out.println("The knight emerges victorious");
+                System.out.println("The knight emerges victorious\n\n GAME OVER");
                 isPlayerDead = true;
+                done = true;
             } else if (bossStats[0] <= 0) {
                 System.out.println("After a rough battle, you defeat the knight.");
                 isBossDead = true;
+                System.out.println("You stand on the second floor of the central tower with the dead knight in front of your feet. A spirit Ghost appears out of thin air and speaks to you:\n\n" +
+                        "Thank you adventurer, your efforts have freed the spirits of all those that perished in this castle. I am beyond thankful for your aid and we wish you good luck in your future endeavours. \n\n" +
+                        "The spirit disappears after thanking you. After taking a moment to recount recent events and take in what happened, you search the knight's body. You find a key that hopefully will unlock " +
+                        "the door in the foyer. You begin making your way down the central tower and back into the main castle to get back to the foyer.");
+
+                roomState2[4][0] = true;
+
+                currentRoom = 1;
+                currentFloor = 1;
             }
         }
     }
