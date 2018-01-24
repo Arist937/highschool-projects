@@ -99,73 +99,73 @@ public class CPTAssignment {
                     }
                 } else if (userSelectedRoomStr.equalsIgnoreCase("Examine")) {
                     examineFunction1();
-                } else if (currentFloor == 2) {
-                    System.out.println(roomDescriptions2[currentRoom]);
-                    userSelectedRoomStr = scanner.nextLine();
+                }
+            } else if (currentFloor == 2) {
+                System.out.println(roomDescriptions2[currentRoom]);
+                userSelectedRoomStr = scanner.nextLine();
 
-                    if (userSelectedRoomStr.equalsIgnoreCase("n")) {
-                        nextRoom = roomDirections2[currentRoom][0];
+                if (userSelectedRoomStr.equalsIgnoreCase("n")) {
+                    nextRoom = roomDirections2[currentRoom][0];
 
-                        if (nextRoom != -1) {
-                            currentRoom = nextRoom;
-                        } else {
-                            System.out.println("You cannot go there");
-                        }
-                    } else if (userSelectedRoomStr.equalsIgnoreCase("e")) {
-                        nextRoom = roomDirections2[currentRoom][1];
-
-                        if (nextRoom != -1) {
-                            currentRoom = nextRoom;
-                        } else {
-                            System.out.println("You cannot go there");
-                        }
-                    } else if (userSelectedRoomStr.equalsIgnoreCase("s")) {
-                        nextRoom = roomDirections2[currentRoom][2];
-
-                        if (nextRoom != -1) {
-                            currentRoom = nextRoom;
-                        } else {
-                            System.out.println("You cannot go there");
-                        }
-                    } else if (userSelectedRoomStr.equalsIgnoreCase("w")) {
-                        nextRoom = roomDirections2[currentRoom][3];
-
-                        if (nextRoom != -1) {
-                            currentRoom = nextRoom;
-                        } else {
-                            System.out.println("You cannot go there");
-                        }
-                    } else if (userSelectedRoomStr.equalsIgnoreCase("stairs")) {
-                        if (currentRoom == 0) {
-                            System.out.println("You go down the stairs");
-                            currentFloor = 1;
-                            currentRoom = 0;
-                        } else if (currentRoom == 1) {
-                            System.out.println("You go down the stairs");
-                            currentFloor = 1;
-                            currentRoom = 3;
-                        } else if (currentRoom == 2) {
-                            System.out.println("You go down the stairs");
-                            currentFloor = 1;
-                            currentRoom = 14;
-                        } else if (currentRoom == 3) {
-                            System.out.println("You go down the stairs");
-                            currentFloor = 1;
-                            currentRoom = 10;
-                        } else {
-                            System.out.println("There are no stairs...");
-                        }
-                    } else if (userSelectedRoomStr.equalsIgnoreCase("Examine")) {
-                        examineFunction2();
+                    if (nextRoom != -1) {
+                        currentRoom = nextRoom;
                     } else {
-                        System.out.println("Invalid Direction");
+                        System.out.println("You cannot go there");
                     }
+                } else if (userSelectedRoomStr.equalsIgnoreCase("e")) {
+                    nextRoom = roomDirections2[currentRoom][1];
+
+                    if (nextRoom != -1) {
+                        currentRoom = nextRoom;
+                    } else {
+                        System.out.println("You cannot go there");
+                    }
+                } else if (userSelectedRoomStr.equalsIgnoreCase("s")) {
+                    nextRoom = roomDirections2[currentRoom][2];
+
+                    if (nextRoom != -1) {
+                        currentRoom = nextRoom;
+                    } else {
+                        System.out.println("You cannot go there");
+                    }
+                } else if (userSelectedRoomStr.equalsIgnoreCase("w")) {
+                    nextRoom = roomDirections2[currentRoom][3];
+
+                    if (nextRoom != -1) {
+                        currentRoom = nextRoom;
+                    } else {
+                        System.out.println("You cannot go there");
+                    }
+                } else if (userSelectedRoomStr.equalsIgnoreCase("stairs")) {
+                    if (currentRoom == 0) {
+                        System.out.println("You go down the stairs");
+                        currentFloor = 1;
+                        currentRoom = 0;
+                    } else if (currentRoom == 1) {
+                        System.out.println("You go down the stairs");
+                        currentFloor = 1;
+                        currentRoom = 3;
+                    } else if (currentRoom == 2) {
+                        System.out.println("You go down the stairs");
+                        currentFloor = 1;
+                        currentRoom = 14;
+                    } else if (currentRoom == 3) {
+                        System.out.println("You go down the stairs");
+                        currentFloor = 1;
+                        currentRoom = 10;
+                    } else {
+                        System.out.println("There are no stairs...");
+                    }
+                } else if (userSelectedRoomStr.equalsIgnoreCase("Examine")) {
+                    examineFunction2();
+                } else {
+                    System.out.println("Invalid Direction");
                 }
             }
         }
     }
 
-    public static void examineFunction1(){
+    public static void examineFunction1() {
         if (currentRoom == 5) {
             userAction = "";
 
@@ -387,7 +387,7 @@ public class CPTAssignment {
         }
     }
 
-    public static void examineFunction2(){
+    public static void examineFunction2() {
         if (currentRoom == 0) {
             userAction = "";
 
