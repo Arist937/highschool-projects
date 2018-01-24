@@ -425,10 +425,23 @@ public class CPTAssignment {
                         System.out.println("You go down the stairs");
                         currentFloor = 1;
                         currentRoom = 0;
+                    } else if (currentRoom == 1) {
+                        System.out.println("You go down the stairs");
+                        currentFloor = 1;
+                        currentRoom = 3;
+                    } else if (currentRoom == 2) {
+                        System.out.println("You go down the stairs");
+                        currentFloor = 1;
+                        currentRoom = 14;
+                    } else if (currentRoom == 3) {
+                        System.out.println("You go down the stairs");
+                        currentFloor = 1;
+                        currentRoom = 10;
                     } else {
                         System.out.println("There are no stairs...");
+
                     }
-                } else if(userSelectedRoomStr.equalsIgnoreCase("Examine")){
+                } else if (userSelectedRoomStr.equalsIgnoreCase("Examine")){
                     if (currentRoom == 0) {
                         userAction = "";
 
@@ -441,7 +454,7 @@ public class CPTAssignment {
                             if (userAction.equalsIgnoreCase("The Ghost")) {
                                 System.out.println("A ghastly looking ghost that resembles a person. You can barely make it out. It speaks to you: \n");
 
-                                if(roomState2[0][1] == false) {
+                                if(roomState2[1][1] == false) {
                                     System.out.println("Hello traveller. If you want my help, solve this riddle for me: From the trunk of a willow and the scraped hide of a cow I am made. Suffering the fierce savagery of war I, with my own body, always save my bearer's body, Unless death takes the man's life. What fierce soldier endures such a fate Or receives so many deadly wounds in war?\n" +
                                             "Castle   House   Shield   Armor   Stone");
 
