@@ -14,17 +14,17 @@ public class CPTAssignment {
     static int[][] roomDirections2 = new int[5][4];
     static boolean[][] roomState2 = new boolean[5][4];
 
+    static boolean done = false;
     static int currentFloor = 1;
     static int currentRoom = 1;
     static int nextRoom = -1;
     static String userSelectedRoomStr = "";
-    static boolean done = false;
-
 
     static Scanner scanner = new Scanner(System.in);
 
 
     public static void main(String[] args) {
+
         initializeArrays();
 
         System.out.println("You find yourself in a castle, unaware of your past and without any memory of who you are. " +
@@ -91,7 +91,7 @@ public class CPTAssignment {
 
         // if player receives blessing, +5 health
         if (roomState1[13][0] = true) {
-            playerStats[0] = playerStats[0] + 5;
+            playerStats[0] = playerStats[0] + 5000;
         }
 
         // if player drank spicy stew, +5 health
@@ -186,6 +186,17 @@ public class CPTAssignment {
                 } else {
                     System.out.println("There are no stairs...");
                 }
+            } else if(userSelectedRoomStr.equalsIgnoreCase("door")){
+                if(currentRoom == 1){
+                    if (roomState2[4][0] == true){
+                        System.out.println("You unlock the door and finally leave the castle. You take a step outside only to notice destruction everywhere. The entire world has become a wasteland and it seems that there is nothing left in this world for you");
+                        done = true;
+                    } else {
+                        System.out.println("It's locked.");
+                    }
+                } else {
+                    System.out.println("There is no door...");
+                }
             } else if (userSelectedRoomStr.equalsIgnoreCase("Examine")) {
                 examineFunctionFloor1(currentRoom, roomState1);
             }
@@ -244,17 +255,6 @@ public class CPTAssignment {
                     currentRoom = 10;
                 } else {
                     System.out.println("There are no stairs...");
-                }
-            } else if(userSelectedRoomStr.equalsIgnoreCase("door")){
-                if(currentRoom == 1){
-                    if (roomState2[4][0] == true){
-                        System.out.println("You unlock the door and finally leave the castle. You take a step outside only to notice destruction everywhere. The entire world has become a wasteland and it seems that there is nothing left in this world for you");
-                        done = true;
-                    } else {
-                        System.out.println("It's locked.");
-                    }
-                } else {
-                    System.out.println("There is no door...");
                 }
             } else if (userSelectedRoomStr.equalsIgnoreCase("Examine")) {
                 examineFunctionFloor2(currentRoom, roomState1, roomState2);
@@ -376,6 +376,8 @@ public class CPTAssignment {
                     System.out.println("Green Grass");
                 } else if (userAction.equalsIgnoreCase("Sky")) {
                     System.out.println("You see the beautiful blue sky.");
+                } else if (!userAction.equalsIgnoreCase("finish")) {
+                    System.out.println("You can't examine that");
                 }
             }
         } else if (currentRoom == 4) {
@@ -384,7 +386,7 @@ public class CPTAssignment {
             while (!userAction.equalsIgnoreCase("finish")) {
                 System.out.println("What would you like to examine?");
 
-                if (roomState1[4][1] == true){
+                if (roomState1[4][1] == true) {
                     System.out.println("Alchemy Table");
                 } else {
                     System.out.println("Alchemy Table   Alchemy Ingredients");
@@ -399,7 +401,7 @@ public class CPTAssignment {
 
                     if (userAction.equalsIgnoreCase("yes")) {
 
-                        if(roomState1[4][0] == true){
+                        if (roomState1[4][0] == true) {
                             System.out.println("You already crafted potions");
                         } else if (roomState1[4][1] == true) {
                             if (roomState1[11][3] == true) {
@@ -415,7 +417,7 @@ public class CPTAssignment {
                         System.out.println("You leave the alchemy table alone");
                     }
                 } else if (userAction.equalsIgnoreCase("Alchemy Ingredients")) {
-                    if(roomState1[4][1] == true){
+                    if (roomState1[4][1] == true) {
                         System.out.println("You have already taken the alchemy ingredients");
                     } else {
                         System.out.println("A bunch of alchemy ingredients. Would you like to take them?");
@@ -429,6 +431,8 @@ public class CPTAssignment {
                             System.out.println("You leave the alchemy ingredients alone");
                         }
                     }
+                } else if (!userAction.equalsIgnoreCase("finish")) {
+                    System.out.println("You can't examine that");
                 }
             }
         } else if (currentRoom == 9) {
@@ -437,7 +441,7 @@ public class CPTAssignment {
             while (!userAction.equalsIgnoreCase("finish")) {
                 System.out.println("What would you like to examine?");
 
-                if(roomState1[9][0] == true){
+                if (roomState1[9][0] == true) {
                     System.out.println("The Pot   Fire");
                 } else {
                     System.out.println("The Pot   Cooking Ingredients   Fire");
@@ -454,7 +458,7 @@ public class CPTAssignment {
 
                     userDialogueChooser = scanner.nextInt();
                     scanner.nextLine();
-                    if(roomState1[9][1] == true){
+                    if (roomState1[9][1] == true) {
                         System.out.println("You've already cooked before. You no longer have the ingredients to cook anymore.");
                     } else if (userDialogueChooser == 4) {
                         System.out.println("You don't cook anything");
@@ -472,7 +476,7 @@ public class CPTAssignment {
                         roomState1[9][1] = true;
                     }
                 } else if (userAction.equalsIgnoreCase("Cooking Ingredients")) {
-                    if(roomState1[9][0] == true){
+                    if (roomState1[9][0] == true) {
                         System.out.println("There are no more cooking ingredients");
                     } else {
 
@@ -489,6 +493,8 @@ public class CPTAssignment {
                     }
                 } else if (userAction.equalsIgnoreCase("Fire")) {
                     System.out.println("There is a roaring fire ready for you to cook with.");
+                } else if (!userAction.equalsIgnoreCase("finish")) {
+                    System.out.println("You can't examine that");
                 }
             }
         } else if (currentRoom == 11) {
@@ -521,9 +527,11 @@ public class CPTAssignment {
                     System.out.println("You have gained the knowledge of Enchantment");
                     roomState1[11][2] = true;
                     booksRead++;
-                } else if (!userAction.equalsIgnoreCase("finish")) {
+                } else if (userAction.equalsIgnoreCase("The book of fate") || userAction.equalsIgnoreCase("The Posting of the Hunt") || userAction.equalsIgnoreCase("Touching the Sky") || userAction.equalsIgnoreCase("The Betrayed")) {
                     System.out.println("Reading the book was a waste of time. You fail to learn anything of importance.");
                     booksRead++;
+                } else if (!userAction.equalsIgnoreCase("finish")) {
+                    System.out.println("You can't examine that");
                 }
             }
         } else if (currentRoom == 13) {
@@ -546,6 +554,8 @@ public class CPTAssignment {
                     } else {
                         System.out.println("You don't pray.");
                     }
+                } else if (!userAction.equalsIgnoreCase("finish")) {
+                    System.out.println("You can't examine that");
                 }
             }
         } else if (currentRoom == 2) {
@@ -563,11 +573,10 @@ public class CPTAssignment {
                     userAction = scanner.nextLine();
 
                     if (userAction.equalsIgnoreCase("yes")) {
-                        System.out.println("You pray at the altar and receive a blessing. You feel invigorated and stronger");
-                        roomState1[13][0] = true;
-                    } else {
-                        System.out.println("You don't pray.");
+
                     }
+                } else if (!userAction.equalsIgnoreCase("finish")) {
+                    System.out.println("You can't examine that");
                 }
             }
         } else if (currentRoom == 8) {
@@ -575,7 +584,7 @@ public class CPTAssignment {
 
             while (!userAction.equalsIgnoreCase("finish")) {
                 System.out.println("What would you like to examine?");
-                if (roomState1[8][0] == true){
+                if (roomState1[8][0] == true) {
                     System.out.println("Oak Table   Oak Chair");
                 } else {
                     System.out.println("Plate of Food   Oak Table   Oak Chair");
@@ -584,7 +593,7 @@ public class CPTAssignment {
                 userAction = scanner.nextLine();
 
                 if (userAction.equalsIgnoreCase("Plate of Food")) {
-                    if(roomState1[8][0] == true){
+                    if (roomState1[8][0] == true) {
                         System.out.println("You have already eaten the plate of food");
                     } else {
                         System.out.println("A plate of delicious looking food. Would you like to eat it?");
@@ -598,8 +607,16 @@ public class CPTAssignment {
                             System.out.println("You don't eat the food");
                         }
                     }
+                } else if (userAction.equalsIgnoreCase("Oak Table")) {
+                    System.out.println("Beautiful oak table.");
+                } else if (userAction.equalsIgnoreCase("Oak Chair")) {
+                    System.out.println("Beautiful oak chair.");
+                } else if (!userAction.equalsIgnoreCase("finish")) {
+                    System.out.println("You can't examine that");
                 }
             }
+        } else {
+            System.out.println("There is nothing to examine");
         }
     }
 
@@ -649,6 +666,8 @@ public class CPTAssignment {
                     } else {
                         System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Try the other towers, you may find valuable information.");
                     }
+                } else if (!userAction.equalsIgnoreCase("finish")) {
+                    System.out.println("You can't examine that");
                 }
             }
         } else if (currentRoom == 1) {
@@ -684,7 +703,7 @@ public class CPTAssignment {
                                 System.out.println("That is incorrect. Unfortunately I cannot aid you on this journey.");
                                 roomState2[1][1] = true;
                             }
-                        } catch (InputMismatchException e){
+                        } catch (InputMismatchException e) {
                             System.out.println("That is not a valid dialogue option");
                             scanner.nextLine();
                         }
@@ -693,6 +712,8 @@ public class CPTAssignment {
                     } else {
                         System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Try the other towers, you may find valuable information.");
                     }
+                } else if (!userAction.equalsIgnoreCase("finish")) {
+                    System.out.println("You can't examine that");
                 }
             }
         } else if (currentRoom == 2) {
@@ -728,7 +749,7 @@ public class CPTAssignment {
                                 System.out.println("That is incorrect. Unfortunately I cannot aid you on this journey.");
                                 roomState2[2][1] = true;
                             }
-                        } catch (InputMismatchException e){
+                        } catch (InputMismatchException e) {
                             System.out.println("That is not a valid dialogue option");
                             scanner.nextLine();
                         }
@@ -737,6 +758,8 @@ public class CPTAssignment {
                     } else {
                         System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Try the other towers, you may find valuable information.");
                     }
+                } else if (!userAction.equalsIgnoreCase("finish")) {
+                    System.out.println("You can't examine that");
                 }
             }
         } else if (currentRoom == 3) {
@@ -780,7 +803,7 @@ public class CPTAssignment {
                                 } else {
                                     System.out.println("What..?");
                                 }
-                            } catch (InputMismatchException e){
+                            } catch (InputMismatchException e) {
                                 System.out.println("That is not a valid dialogue option");
                                 scanner.nextLine();
                             }
@@ -827,7 +850,7 @@ public class CPTAssignment {
                                 } else {
                                     System.out.println("What..?");
                                 }
-                            } catch (InputMismatchException e){
+                            } catch (InputMismatchException e) {
                                 System.out.println("That is not a valid dialogue option");
                                 scanner.nextLine();
                             }
@@ -836,7 +859,7 @@ public class CPTAssignment {
                         System.out.println("Welcome back! Do you have my stew?\n");
 
                         if (roomState1[9][1] == true) {
-                            System.out.println("1. Yes! It's right here!\n" + "2. You know what, I'm actually gonna eat this myself\n" + "3. Like I would give you this. *Pours Stew On the Ground");
+                            System.out.println("1. Yes! It's right here!\n" + "2. You know what, I'm actually gonna eat this myself\n" + "3. Like I would give you this. *Pours Stew On the Ground*");
 
                             try {
                                 userDialogueChooser = scanner.nextInt();
@@ -861,8 +884,11 @@ public class CPTAssignment {
                                         System.out.println("The stew doesn't do anything.");
                                     }
                                     roomState2[3][3] = true;
+                                }  else if (userDialogueChooser == 3) {
+                                    System.out.println("You're scum!");
+                                    roomState2[3][3] = true;
                                 }
-                            } catch (InputMismatchException e){
+                            } catch (InputMismatchException e) {
                                 System.out.println("That is not a valid dialogue option");
                                 scanner.nextLine();
                             }
@@ -870,6 +896,8 @@ public class CPTAssignment {
                             System.out.println("Oh, you don't have the stew yet. Be Quick!");
                         }
                     }
+                } else if (!userAction.equalsIgnoreCase("finish")) {
+                    System.out.println("You can't examine that");
                 }
             }
         } else {
