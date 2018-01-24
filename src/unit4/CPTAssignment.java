@@ -5,13 +5,15 @@ import java.util.Scanner;
 public class CPTAssignment {
     static String[] roomNames1;
     static String[] roomDescriptions1;
-    static int[][] roomDirections1 = new int[9][4];
+    static int[][] roomDirections1 = new int[15][4];
 
     static String[] roomNames2;
     static String[] roomDescriptions2;
     static int[][] roomDirections2 = new int[4][4];
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        boolean skeletonExamined = false;
+
         Scanner scanner = new Scanner(System.in);
 
         roomNames1 = new String[]{"Southwest Tower", "Foyer", "Enchanting Room", "Southeast Tower", "Alchemy Room",
@@ -64,13 +66,14 @@ public class CPTAssignment {
         roomDirections2[3] = new int[]{0, -1, -1, -1};
 
         int currentFloor = 1;
-        int currentRoom = 0;
+        int currentRoom = 1;
         int nextRoom = -1;
         String userSelectedRoomStr;
+        String userAction = "";
         boolean done = false;
 
-        while(done == false) {
-            if(currentFloor == 1) {
+        while (done == false) {
+            if (currentFloor == 1) {
                 System.out.println(roomDescriptions1[currentRoom]);
                 userSelectedRoomStr = scanner.nextLine();
 
@@ -107,28 +110,42 @@ public class CPTAssignment {
                         System.out.println("You cannot go there");
                     }
                 } else if (userSelectedRoomStr.equalsIgnoreCase("stairs")) {
-                    if (currentRoom == 4) {
+                    if (currentRoom == 1) {
                         System.out.println("You go up the stairs");
                         currentFloor = 2;
                         currentRoom = 0;
-                    }
-                    else if(currentRoom == 7) {
-                        System.out.println("You go up the stairs");
-                        currentFloor = 2;
-                        currentRoom = 1;
-                    }
-                    else {
+                    } else {
                         System.out.println("There are no stairs...");
+                    }
+                } else if (userSelectedRoomStr.equalsIgnoreCase("Examine")) {
+                    if (currentRoom == 5) {
+                        System.out.println("What would you like to examine?");
+                        System.out.println("Skeleton");
+
+                        userAction = scanner.nextLine();
+
+                        if (userAction.equalsIgnoreCase("Skeleton")) {
+                            skeletonExamined = true;
+                            System.out.println("You examine the skeleton and find a journal next to it. Would you like to read it?");
+
+                            userAction = scanner.nextLine();
+
+                            if (userAction.equalsIgnoreCase("yes")) {
+                                System.out.println("You take the journal from the skeleton. It reads: \n\nTo leave this castle, I have to defeat the knight in the central tower. I'm a pretty big guy, I can take on anyone no problem! Time to get out of this hellhole castle.");
+                            }
+                        }
+                    } else {
+                        System.out.println("There is nothing to examine");
                     }
                 } else {
                     System.out.println("Invalid Direction");
                 }
-            } else if (currentFloor == 2){
+            } else if (currentFloor == 2) {
                 System.out.println(roomDescriptions2[currentRoom]);
                 userSelectedRoomStr = scanner.nextLine();
 
                 if (userSelectedRoomStr.equalsIgnoreCase("n")) {
-                    nextRoom = roomDirections1[currentRoom][0];
+                    nextRoom = roomDirections2[currentRoom][0];
 
                     if (nextRoom != -1) {
                         currentRoom = nextRoom;
@@ -136,7 +153,7 @@ public class CPTAssignment {
                         System.out.println("You cannot go there");
                     }
                 } else if (userSelectedRoomStr.equalsIgnoreCase("e")) {
-                    nextRoom = roomDirections1[currentRoom][1];
+                    nextRoom = roomDirections2[currentRoom][1];
 
                     if (nextRoom != -1) {
                         currentRoom = nextRoom;
@@ -144,7 +161,7 @@ public class CPTAssignment {
                         System.out.println("You cannot go there");
                     }
                 } else if (userSelectedRoomStr.equalsIgnoreCase("s")) {
-                    nextRoom = roomDirections1[currentRoom][2];
+                    nextRoom = roomDirections2[currentRoom][2];
 
                     if (nextRoom != -1) {
                         currentRoom = nextRoom;
@@ -152,7 +169,7 @@ public class CPTAssignment {
                         System.out.println("You cannot go there");
                     }
                 } else if (userSelectedRoomStr.equalsIgnoreCase("w")) {
-                    nextRoom = roomDirections1[currentRoom][3];
+                    nextRoom = roomDirections2[currentRoom][3];
 
                     if (nextRoom != -1) {
                         currentRoom = nextRoom;
@@ -160,8 +177,14 @@ public class CPTAssignment {
                         System.out.println("You cannot go there");
                     }
                 } else if (userSelectedRoomStr.equalsIgnoreCase("stairs")) {
-                    if (currentRoom == 4 || currentRoom == 7) {
-                        currentFloor = 2;
+                    if (currentRoom == 0) {
+                        System.out.println("You go down the stairs");
+                        currentFloor = 1;
+                        currentRoom = 4;
+                    } else if (currentRoom == 1) {
+                        System.out.println("You go down the stairs");
+                        currentFloor = 1;
+                        currentRoom = 7;
                     } else {
                         System.out.println("There are no stairs...");
                     }
