@@ -72,6 +72,10 @@ public class CPTAssignment {
         String userAction = "";
         boolean done = false;
 
+        System.out.println("You find yourself in a castle, unaware of your past and without any memory of who you are. " +
+                "Behind you lies the doors to leave, but they are locked, unable to be opened. " +
+                "Perhaps the answers that you seek lie within the castle.\n");
+
         while (done == false) {
             if (currentFloor == 1) {
                 System.out.println(roomDescriptions1[currentRoom]);
