@@ -16,6 +16,18 @@ public class CPTAssignment {
 
         Scanner scanner = new Scanner(System.in);
 
+        boolean[][] roomState = new boolean[15][4];
+        // hasPotions, Alchemy ingredients
+        roomState[4] = new boolean[]{false, false};
+        // isSkeletonExamined, Skeleton's Journal
+        roomState[5] = new boolean[]{false, false};
+        // hasEaten plate of food
+        roomState[8] = new boolean[]{false};
+        // hasSwordUpgrade, hasArmorUpgrade, hasEnchantingKnowledge, hasAlchemyKnowledge
+        roomState[11] = new boolean[]{false, false, false, false};
+        // hasReceivedBlessing
+        roomState[13] = new boolean[]{false};
+
         roomNames1 = new String[]{"Southwest Tower", "Foyer", "Enchanting Room", "Southeast Tower", "Alchemy Room",
                 "Courtyard", "Central Tower", "Hallway A", "Dining Room", "Kitchen", "Northwest Tower", "Library",
                 "Hallway B", "Chapel", "Northeast Tower"};
