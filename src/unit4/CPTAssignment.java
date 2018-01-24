@@ -94,6 +94,7 @@ public class CPTAssignment {
         int currentRoom = 1;
         int nextRoom = -1;
         String userSelectedRoomStr;
+        int userDialogueChooser;
         String userAction = "";
         boolean done = false;
 
@@ -226,6 +227,54 @@ public class CPTAssignment {
                                 } else {
                                     System.out.println("You leave the alchemy ingredients alone");
                                 }
+                            }
+                        }
+                    } else if (currentRoom == 9) {
+                        userAction = "";
+
+                        while (!userAction.equalsIgnoreCase("finish")) {
+                            System.out.println("What would you like to examine?");
+                            System.out.println("The Pot   Cooking Ingredients   Fire");
+
+                            userAction = scanner.nextLine();
+
+                            if (userAction.equalsIgnoreCase("The Pot")) {
+                                System.out.println("A cooking table, what would you like to cook?\n\n" +
+                                        "1. Spicy Stew\n" +
+                                        "2. Stew\n" +
+                                        "3. Curry\n" +
+                                        "4. Nevermind");
+
+                                userDialogueChooser = scanner.nextInt();
+
+                                if (roomState1[9][0] == false) {
+                                    System.out.println("You have not yet made the necessary preparations to start cooking");
+                                } else if (userDialogueChooser == 1) {
+                                    System.out.println("You cook a spicy stew");
+                                    roomState1[9][1] = true;
+                                    roomState1[9][2] = true;
+                                } else if (userDialogueChooser == 2) {
+                                    System.out.println("You cook a stew");
+                                    roomState1[9][1] = true;
+                                } else if (userDialogueChooser == 3) {
+                                    System.out.println("You cook some curry");
+                                    roomState1[9][1] = true;
+                                } else if (userDialogueChooser == 4) {
+                                    System.out.println("You don't cook anything");
+                                }
+                            } else if (userAction.equalsIgnoreCase("Cooking Ingredients")) {
+                                System.out.println("A bunch of cooking ingredients. Would you like to take them?");
+
+                                userAction = scanner.nextLine();
+
+                                if (userAction.equalsIgnoreCase("yes")) {
+                                    roomState1[9][0] = true;
+                                    System.out.println("You take the cooking ingredients");
+                                } else {
+                                    System.out.println("You leave the cooking ingredients alone");
+                                }
+                            } else if (userAction.equalsIgnoreCase("Fire")) {
+                                System.out.println("There is a roaring fire ready for you to cook with.");
                             }
                         }
                     } else if (currentRoom == 11) {
