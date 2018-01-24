@@ -554,29 +554,98 @@ public class CPTAssignment {
                         if (userAction.equalsIgnoreCase("The Ghost")) {
                             System.out.println("A ghastly looking ghost that resembles a person. You can barely make it out. It speaks to you: \n");
 
-                            if(roomState2[0][1] == false) {
-                                System.out.println("Hello traveller. If you want my help, solve this riddle for me: From the trunk of a willow and the scraped hide of a cow I am made. Suffering the fierce savagery of war I, with my own body, always save my bearer's body, Unless death takes the man's life. What fierce soldier endures such a fate Or receives so many deadly wounds in war?\n" +
-                                        "Castle   House   Shield   Armor   Stone");
+                            while (true) {
+                                if (roomState2[3][3] == true) {
+                                    System.out.println("You failed my test. Get out of my face");
+                                    break;
+                                } else if (roomState2[3][0] == false) {
+                                    if (roomState1[9][1] == false) {
+                                        System.out.println("Hello traveller. If you want my help, cook a meal for me in the kitchen down below. I would really like a spicy stew right now.\n\n" +
+                                                "1. Can you even eat the stew? You're a Ghost!\n" +
+                                                "2. Okay, I'll go make that stew for you\n" +
+                                                "3. I'm not your servant. I'm not making anything for you.");
 
-                                userAction = scanner.nextLine();
+                                        userDialogueChooser = scanner.nextInt();
+                                        roomState2[3][0] = true;
 
-                                if (userAction.equalsIgnoreCase("Shield")) {
-                                    System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this shield. It will aid you with your fight with the knight in the central tower. I recommend heading to the other towers where you may find valuable information.");
-                                    roomState2[0][0] = true;
-                                    roomState2[0][1] = true;
-                                } else {
-                                    System.out.println("That is incorrect. Unfortunately I cannot aid you on this journey.");
-                                    roomState2[0][1] = true;
+                                        if (userDialogueChooser == 1) {
+                                            System.out.println("Why do you care? Just go make the damn stew!");
+                                            break;
+                                        } else if (userDialogueChooser == 2) {
+                                            System.out.println("Thank you!");
+                                            break;
+                                        } else if (userDialogueChooser == 3) {
+                                            System.out.println("Suit yourself idiot");
+                                            roomState2[3][3] = true;
+                                            break;
+                                        } else {
+                                            System.out.println("What..?");
+                                        }
+
+                                    } else if (roomState1[9][1] == true) {
+                                        System.out.println("Hello traveller. If you want my help, cook a meal for me in the kitchen down below. I would really like a spicy stew right now.\n\n" +
+                                                "1. Can you even eat the stew? You're a Ghost!\n" +
+                                                "2. Actually, I already have a stew right here\n" +
+                                                "3. I'm not your servant. I'm not making anything for you.");
+
+                                        roomState2[3][0] = true;
+                                        userDialogueChooser = scanner.nextInt();
+
+                                        if (userDialogueChooser == 1) {
+                                            System.out.println("Why do you care? Just go make the damn stew!");
+                                            break;
+                                        } else if (userDialogueChooser == 2) {
+                                            if (roomState2[9][2] == true) {
+                                                System.out.println("This is exactly what I wanted! Thanks! Here is a set of armor to aid you on your journey.");
+                                                roomState2[3][2] = true;
+                                            } else {
+                                                System.out.println("Bah! This isn't what I wanted! Get out of here, I'm not gonna help you.");
+                                                roomState2[3][3] = true;
+                                            }
+                                            break;
+                                        } else if (userDialogueChooser == 3) {
+                                            System.out.println("Suit yourself idiot");
+                                            roomState2[3][3] = true;
+                                            break;
+                                        } else {
+                                            System.out.println("What..?");
+                                        }
+                                    }
                                 }
-                            } else if(roomState2[0][0] == true && roomState2[0][1] == true){
-                                System.out.println("Congratulations on solving my riddle. May that shield serve you well!");
-                            } else {
-                                System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Try the other towers, you may find valuable information.");
+                            }
+                            if (roomState2[3][0] == true) {
+                                System.out.println("Welcome back! Do you have my stew?\n");
+                                if (roomState1[9][1] == true) {
+                                    System.out.println("1. Yes! It's right here!\n" + "2. You know what, I'm actually gonna eat this myself\n" + "3. Like I would give you this. *Pours Stew On the Ground");
+
+                                    userDialogueChooser = scanner.nextInt();
+
+                                    if (userDialogueChooser == 1) {
+                                        if (roomState1[9][2] == true) {
+                                            System.out.println("Ahhh. This is exactly what I wanted. Here you go! A set of armor to aid you on your journey");
+                                            roomState2[3][2] = true;
+                                        } else {
+                                            System.out.println("Bah! This isn't what I wanted! Get out of here, I'm not gonna help you.");
+                                            roomState2[3][3] = true;
+                                        }
+                                    } else if (userDialogueChooser == 2) {
+                                        System.out.println("How dare you...\n\n" +
+                                                "You eat the stew... ");
+
+                                        if (roomState2[9][2] == true) {
+                                            System.out.println("The Stew invigorates you and makes you stronger!");
+                                            roomState2[3][2] = true;
+                                        } else {
+                                            System.out.println("The stew doesn't do anything.");
+                                        }
+                                        roomState2[3][3] = true;
+                                    }
+                                }
                             }
                         }
                     }
                 } else {
-                    System.out.println("Invalid Direction");
+                    System.out.println("You cannot examine that!");
                 }
             }
         }
