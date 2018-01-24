@@ -23,5 +23,24 @@ public class CPTAssignment {
                         "to the west",
                 "You find yourself in another hallway. It extends south.",
                 "You find yourself in a hallway that extends north"};
+
+        roomDirections[0] = new int[]{-1, 1, -1, 2};
+        roomDirections[1] = new int[]{6, 8, -1, 2};
+        roomDirections[2] = new int[]{-1, 1, -1, 3};
+        roomDirections[3] = new int[]{4, 2, -1, -1};
+        roomDirections[4] = new int[]{-1, 5, 3, -1};
+        roomDirections[5] = new int[]{-1, 6, -1, 4};
+        roomDirections[6] = new int[]{-1, 7, 1, 5};
+        roomDirections[7] = new int[]{-1, -1, 8, 6};
+        roomDirections[8] = new int[]{7, -1, -1, 1};
+
+        int currentRoom = 0;
+        int nextRoom = -1;
+        String userSelectedRoomStr;
+        boolean done = false;
+
+        while(done == false){
+                
+        }
     }
 }
