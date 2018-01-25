@@ -4,37 +4,48 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CPTAssignment {
+    // global arrays for the first floor
     static String[] roomNames1;
     static String[] roomDescriptions1;
     static int[][] roomDirections1 = new int[15][4];
     static boolean[][] roomState1 = new boolean[15][4];
 
+    // global arrays for the second floor
     static String[] roomNames2;
     static String[] roomDescriptions2;
     static int[][] roomDirections2 = new int[5][4];
     static boolean[][] roomState2 = new boolean[5][4];
 
+    // global variables
     static int currentFloor = 1;
     static int currentRoom = 1;
     static int nextRoom = -1;
-    static String userSelectedRoomStr = "";
-    static boolean done = false;
     static int booksRead = 0;
 
+    // create a scanner object
     static Scanner scanner = new Scanner(System.in);
 
 
     public static void main(String[] args) {
+        boolean done = false;
+
+        // call method to initialize arrays
         initializeArrays();
+
 
         while(!welcomeScreen());
 
+        // Starting dialogue to begin game
         System.out.println("You find yourself in a castle, unaware of your past and without any memory of who you are. " +
-                "Behind you lies the doors to leave, but they are locked, unable to be opened. " +
-                "Perhaps the answers that you seek lie within the castle.\n");
+                "Behind you lies the doors to leave, but they are locked, unable to be opened. Suddenly, a spirit appears and speaks to you:\n\n" +
+                "Traveller, please free us from this castle. By defeating the knight in the top floor of the central tower, you can unchain us " +
+                "from this place. The knight also has the key with him that unlocks the door to leave the castle. I recommend visiting each of " +
+                "the towers in the corners of the castle. On the top floors, there are Ghosts that will aid you on your Journey. Save us...\n\n" +
+                "The Ghost disappears into thin air.");
 
+        // play the game until the player reaches the end
         while (done == false) {
-            movement();
+            playGame(done);
         }
     }
 
@@ -58,13 +69,16 @@ public class CPTAssignment {
         return isGameStarted;
     }
 
-    public static void finalBoss() {
+    /**
+     *
+     *
+     */
+    public static boolean finalBoss() {
         // playerHealth, playerDamage, damageResistance
         double[] playerStats = {20, 0.5, 0};
         // bossHealth, bossDamage
-        double[] bossStats = {30, 7};
+        double[] bossStats = {25, 6};
 
-        boolean isPlayerDead = false;
         boolean isBossDead = false;
 
         // if player got sword, set damage to 3
@@ -107,84 +121,97 @@ public class CPTAssignment {
         }
 
         // if player ate the plate of food on the dining table, -10 health
-        if (roomState1[8][0] = true) {
+        if (roomState1[8][0] == true) {
             playerStats[0] = playerStats[0] - 10;
         }
 
         // if player receives blessing, +5 health
-        if (roomState1[13][0] = true) {
-            playerStats[0] = playerStats[0] + 5000;
+        if (roomState1[13][0] == true) {
+            playerStats[0] = playerStats[0] + 5;
         }
 
         // if player drank spicy stew, +5 health
-        if (roomState2[3][2] = true) {
+        if (roomState2[3][2] == true) {
             playerStats[0] = playerStats[0] + 5;
         }
 
         System.out.println("You and the knight engage in combat...");
 
-        while (isPlayerDead == false && isBossDead == false) {
+        while (isBossDead == false) {
             bossStats[0] = bossStats[0] - playerStats[1];
             playerStats[0] = playerStats[0] - bossStats[1];
 
-            if (playerStats[0] <= 0) {
-                System.out.println("The knight emerges victorious\n\n GAME OVER");
-                isPlayerDead = true;
-                done = true;
-            } else if (bossStats[0] <= 0) {
-                System.out.println("After a rough battle, you defeat the knight.");
+            if (bossStats[0] <= 0) {
                 isBossDead = true;
-                System.out.println("You stand on the second floor of the central tower with the dead knight in front of your feet. A spirit Ghost appears out of thin air and speaks to you:\n\n" +
-                        "Thank you adventurer, your efforts have freed the spirits of all those that perished in this castle. I am beyond thankful for your aid and we wish you good luck in your future endeavours. \n\n" +
-                        "The spirit disappears after thanking you. After taking a moment to recount recent events and take in what happened, you search the knight's body. You find a key that hopefully will unlock " +
-                        "the door in the foyer. You begin making your way down the central tower and back into the main castle to get back to the foyer.");
-
-                roomState2[4][0] = true;
-
-                currentRoom = 1;
-                currentFloor = 1;
+            } else if (playerStats[0] <= 0){
+                break;
             }
+        }
+
+        return isBossDead;
+    }
+
+    /**
+     *
+     */
+    public static void playGame(boolean isGameDone) {
+        String userSelectedRoomStr = "";
+        boolean done = isGameDone;
+
+        if(currentFloor == 1) {
+            System.out.println(roomDescriptions1[currentRoom]);
+        } else if(currentFloor == 2){
+            System.out.println(roomDescriptions2[currentRoom]);
+        }
+
+        userSelectedRoomStr = scanner.nextLine();
+
+        if (userSelectedRoomStr.equalsIgnoreCase("n")) {
+            nextRoom = roomDirections1[currentRoom][0];
+
+            if (nextRoom != -1) {
+                currentRoom = nextRoom;
+            } else {
+                System.out.println("You cannot go there");
+            }
+        } else if (userSelectedRoomStr.equalsIgnoreCase("e")) {
+            nextRoom = roomDirections1[currentRoom][1];
+
+            if (nextRoom != -1) {
+                currentRoom = nextRoom;
+            } else {
+                System.out.println("You cannot go there");
+            }
+        } else if (userSelectedRoomStr.equalsIgnoreCase("s")) {
+            nextRoom = roomDirections1[currentRoom][2];
+
+            if (nextRoom != -1) {
+                currentRoom = nextRoom;
+            } else {
+                System.out.println("You cannot go there");
+            }
+        } else if (userSelectedRoomStr.equalsIgnoreCase("w")) {
+            nextRoom = roomDirections1[currentRoom][3];
+
+            if (nextRoom != -1) {
+                currentRoom = nextRoom;
+            } else {
+                System.out.println("You cannot go there");
+            }
+        } else {
+            otherActions(userSelectedRoomStr, done);
         }
     }
 
-    public static void movement() {
-        if (currentFloor == 1) {
-            System.out.println(roomDescriptions1[currentRoom]);
-            userSelectedRoomStr = scanner.nextLine();
+    /**
+     *
+     */
+    public static boolean otherActions(String userChoice, boolean isGameDone) {
 
-            if (userSelectedRoomStr.equalsIgnoreCase("n")) {
-                nextRoom = roomDirections1[currentRoom][0];
+        boolean done = isGameDone;
 
-                if (nextRoom != -1) {
-                    currentRoom = nextRoom;
-                } else {
-                    System.out.println("You cannot go there");
-                }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("e")) {
-                nextRoom = roomDirections1[currentRoom][1];
-
-                if (nextRoom != -1) {
-                    currentRoom = nextRoom;
-                } else {
-                    System.out.println("You cannot go there");
-                }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("s")) {
-                nextRoom = roomDirections1[currentRoom][2];
-
-                if (nextRoom != -1) {
-                    currentRoom = nextRoom;
-                } else {
-                    System.out.println("You cannot go there");
-                }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("w")) {
-                nextRoom = roomDirections1[currentRoom][3];
-
-                if (nextRoom != -1) {
-                    currentRoom = nextRoom;
-                } else {
-                    System.out.println("You cannot go there");
-                }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("stairs")) {
+        if(currentFloor == 1) {
+            if (userChoice.equalsIgnoreCase("stairs")) {
                 if (currentRoom == 0) {
                     System.out.println("You go up the stairs");
                     currentFloor = 2;
@@ -208,9 +235,9 @@ public class CPTAssignment {
                 } else {
                     System.out.println("There are no stairs...");
                 }
-            } else if(userSelectedRoomStr.equalsIgnoreCase("door")){
-                if(currentRoom == 1){
-                    if (roomState2[4][0] == true){
+            } else if (userChoice.equalsIgnoreCase("door")) {
+                if (currentRoom == 1) {
+                    if (roomState2[4][0] == true) {
                         System.out.println("You unlock the door and finally leave the castle. You take a step outside only to notice destruction everywhere. The entire world has become a wasteland and it seems that there is nothing left in this world for you");
                         done = true;
                     } else {
@@ -219,46 +246,11 @@ public class CPTAssignment {
                 } else {
                     System.out.println("There is no door...");
                 }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("Examine")) {
+            } else if (userChoice.equalsIgnoreCase("Examine")) {
                 examineFunction();
             }
         } else if (currentFloor == 2) {
-            System.out.println(roomDescriptions2[currentRoom]);
-            userSelectedRoomStr = scanner.nextLine();
-
-            if (userSelectedRoomStr.equalsIgnoreCase("n")) {
-                nextRoom = roomDirections2[currentRoom][0];
-
-                if (nextRoom != -1) {
-                    currentRoom = nextRoom;
-                } else {
-                    System.out.println("You cannot go there");
-                }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("e")) {
-                nextRoom = roomDirections2[currentRoom][1];
-
-                if (nextRoom != -1) {
-                    currentRoom = nextRoom;
-                } else {
-                    System.out.println("You cannot go there");
-                }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("s")) {
-                nextRoom = roomDirections2[currentRoom][2];
-
-                if (nextRoom != -1) {
-                    currentRoom = nextRoom;
-                } else {
-                    System.out.println("You cannot go there");
-                }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("w")) {
-                nextRoom = roomDirections2[currentRoom][3];
-
-                if (nextRoom != -1) {
-                    currentRoom = nextRoom;
-                } else {
-                    System.out.println("You cannot go there");
-                }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("stairs")) {
+            if (userChoice.equalsIgnoreCase("stairs")) {
                 if (currentRoom == 0) {
                     System.out.println("You go down the stairs");
                     currentFloor = 1;
@@ -278,11 +270,25 @@ public class CPTAssignment {
                 } else {
                     System.out.println("There are no stairs...");
                 }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("Examine")) {
+            } else if (userChoice.equalsIgnoreCase("Examine")) {
                 examineFunction();
-            } else if (userSelectedRoomStr.equalsIgnoreCase("Fight")) {
+            } else if (userChoice.equalsIgnoreCase("Fight")) {
                 if (currentRoom == 4) {
-                    finalBoss();
+                    if (finalBoss()){
+                        System.out.println("After a rough battle, you defeat the knight.");
+                        System.out.println("You stand on the second floor of the central tower with the dead knight in front of your feet. A spirit Ghost appears out of thin air and speaks to you:\n\n" +
+                                "Thank you adventurer, your efforts have freed the spirits of all those that perished in this castle. I am beyond thankful for your aid and we wish you good luck in your future endeavours.\n\n" +
+                                "The spirit disappears after thanking you. After taking a moment to recount recent events and take in what happened, you search the knight's body. You find a key that hopefully will unlock " +
+                                "the door in the foyer. You begin making your way down the central tower and back into the main castle to get back to the foyer.");
+
+                        roomState2[4][0] = true;
+
+                        currentRoom = 1;
+                        currentFloor = 1;
+                    } else {
+                        System.out.println("The knight emerges victorious\n\n GAME OVER");
+                        done = true;
+                    }
                 } else {
                     System.out.println("There is nothing to fight...");
                 }
@@ -290,8 +296,15 @@ public class CPTAssignment {
                 System.out.println("Invalid Direction");
             }
         }
+
+        return done;
     }
 
+    /**
+     *
+     *
+     *
+     */
     public static void initializeArrays() {
         // hasPotions, Alchemy ingredients
         roomState1[4] = new boolean[]{false, false};
@@ -368,6 +381,11 @@ public class CPTAssignment {
         roomDirections2[4] = new int[]{-1, -1, -1, -1};
     }
 
+    /**
+     *
+     *
+     *
+     */
     public static void examineFunction() {
         String userAction = "";
         int userDialogueChooser;
