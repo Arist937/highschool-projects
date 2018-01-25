@@ -14,18 +14,19 @@ public class CPTAssignment {
     static int[][] roomDirections2 = new int[5][4];
     static boolean[][] roomState2 = new boolean[5][4];
 
-    static boolean done = false;
     static int currentFloor = 1;
     static int currentRoom = 1;
     static int nextRoom = -1;
     static String userSelectedRoomStr = "";
+    static boolean done = false;
 
     static Scanner scanner = new Scanner(System.in);
 
 
     public static void main(String[] args) {
-
         initializeArrays();
+
+        while(!welcomeScreen());
 
         System.out.println("You find yourself in a castle, unaware of your past and without any memory of who you are. " +
                 "Behind you lies the doors to leave, but they are locked, unable to be opened. " +
@@ -34,6 +35,26 @@ public class CPTAssignment {
         while (done == false) {
             movement();
         }
+    }
+
+    public static boolean welcomeScreen(){
+        String welcomeScreenInput;
+        boolean isGameStarted = false;
+
+        System.out.println("Welcome to my Game! Type \"instructions\" for some help with the controls and \"start\" when you are ready!");
+        welcomeScreenInput = scanner.nextLine();
+
+        if(welcomeScreenInput.equalsIgnoreCase("instructions")){
+            System.out.println("A very important tool in this game is the keyword \"examine\". Try to use it every room to make use of whats within each and every room. When you are done examining, type \"finish\" to return. When in a room with " +
+                    "something to fight, simply type the keyword \"fight\" and it will begin. Lastly, type the keyword \"stairs\" when you are in a room that contains stairs in order to move to the next floor.");
+        } else if (welcomeScreenInput.equalsIgnoreCase("start")){
+            System.out.println("Have fun!");
+            isGameStarted = true;
+        } else {
+            System.out.println("Invalid Option");
+        }
+
+        return isGameStarted;
     }
 
     public static void finalBoss() {
