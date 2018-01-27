@@ -69,8 +69,6 @@ public class CPTAssignment {
         roomState2[2] = new boolean[]{false, false};
         // hasMetGhost, hasArmor, hasDrunkSpicyStew, hasAngeredGhost
         roomState2[3] = new boolean[]{false, false, false, false};
-        // hasKey
-        roomState2[4] = new boolean[]{false};
 
         // currentRoom, currentFloor nextRoom, booksRead
         gameState = new int[]{1, 1, -1, 0};
@@ -352,17 +350,6 @@ public class CPTAssignment {
                 } else {
                     System.out.println("There are no stairs...");
                 }
-            } else if (userChoice.equalsIgnoreCase("door")) {
-                if (gameState[0] == 1) {
-                    if (roomState2[4][0] == true) {
-                        System.out.println("You unlock the door and finally leave the castle. You take a step outside only to notice destruction everywhere. The entire world has become a wasteland and it seems that there is nothing left in this world for you");
-                        done = true;
-                    } else {
-                        System.out.println("It's locked.");
-                    }
-                } else {
-                    System.out.println("There is no door...");
-                }
             } else if (userChoice.equalsIgnoreCase("Examine")) {
                 examineFunction();
             } else {
@@ -398,12 +385,10 @@ public class CPTAssignment {
                         System.out.println("You stand on the second floor of the central tower with the dead knight in front of your feet. A spirit Ghost appears out of thin air and speaks to you:\n\n" +
                                 "Thank you adventurer, your efforts have freed the spirits of all those that perished in this castle. I am beyond thankful for your aid and we wish you good luck in your future endeavours.\n\n" +
                                 "The spirit disappears after thanking you. After taking a moment to recount recent events and take in what happened, you search the knight's body. You find a key that hopefully will unlock " +
-                                "the door in the foyer. You begin making your way down the central tower and back into the main castle to get back to the foyer.");
-
-                        roomState2[4][0] = true;
-
-                        gameState[0] = 1;
-                        gameState[1] = 1;
+                                "the door in the foyer. You begin making your way down the central tower and back into the main castle to get back to the foyer.\n\n" +
+                                "As you arrive at the foyer, you quickly unlock the door and step outside. After adjusting to the blinding light, you quickly realise that the castle was in the middle of nowhere. However, now" +
+                                "that you are free, perhaps you will find the answers in your future travels...");
+                        done = true;
                     } else {
                         System.out.println("The knight emerges victorious\n\n GAME OVER");
                         done = true;
