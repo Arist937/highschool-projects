@@ -152,7 +152,8 @@ public class CPTAssignment {
 
         // if user inputs instructions, give instructions
         if (welcomeScreenInput.equalsIgnoreCase("instructions")) {
-            System.out.println("A very important tool in this game is the keyword \"examine\". Try to use it every room " +
+            System.out.println("To move in the game, type \"n\", \"e\", \"s\", or \"w\" to move north, east, south or west. A very important tool in " +
+                    "this game is the keyword \"examine\". Try to use it every room " +
                     "to make use of whats within each and every room. When given options to examine, simply type out the option again to examine." +
                     "When you are done examining, type \"finish\" to return. When in a room with " +
                     "something to fight, simply type the keyword \"fight\" and it will begin. Lastly, type the keyword \"stairs\" " +
@@ -507,12 +508,16 @@ public class CPTAssignment {
                         userAction = scanner.nextLine();
 
                         if (userAction.equalsIgnoreCase("yes")) {
-
+                            // tests whether player already crafted potions or not
                             if (roomState1[4][0] == true) {
                                 System.out.println("You already crafted potions");
-                            } else if (roomState1[4][1] == true) {
+                            }
+                            // tests whether user has gotten alchemy ingredients or not
+                            else if (roomState1[4][1] == true) {
+                                // tests whether user has knowledge of alchemy
                                 if (roomState1[11][3] == true) {
                                     System.out.println("You craft a health potion and a strength potion");
+                                    // stores that the player has crafted a potion
                                     roomState1[4][0] = true;
                                 } else {
                                     System.out.println("You don't have the knowledge to craft any potions. Perhaps you should try the library");
@@ -532,6 +537,7 @@ public class CPTAssignment {
                             userAction = scanner.nextLine();
 
                             if (userAction.equalsIgnoreCase("yes")) {
+                                // gives player alchemy ingredients
                                 roomState1[4][1] = true;
                                 System.out.println("You take the alchemy ingredients");
                             } else {
@@ -569,21 +575,29 @@ public class CPTAssignment {
                             userDialogueChooser = scanner.nextInt();
                             scanner.nextLine();
 
+                            // tests whether the user cooked before or not
                             if (roomState1[9][1] == true) {
                                 System.out.println("You've already cooked before. You no longer have the ingredients to cook anymore.");
-                            } else if (userDialogueChooser == 4) {
+                            }
+                            else if (userDialogueChooser == 4) {
                                 System.out.println("You don't cook anything");
-                            } else if (roomState1[9][0] == false) {
+                            }
+                            // tests if user has gotten the cooking ingredients or not
+                            else if (roomState1[9][0] == false) {
                                 System.out.println("You have not yet made the necessary preparations to start cooking");
                             } else if (userDialogueChooser == 1) {
                                 System.out.println("You cook a spicy stew");
+                                // changes hasCookedStew to true
                                 roomState1[9][1] = true;
+                                // changes hasCookedSpicyStew to true
                                 roomState1[9][2] = true;
                             } else if (userDialogueChooser == 2) {
                                 System.out.println("You cook a stew");
+                                // changes hasCookedStew to true
                                 roomState1[9][1] = true;
                             } else if (userDialogueChooser == 3) {
                                 System.out.println("You cook some curry");
+                                // changes hasCookedStew to true
                                 roomState1[9][1] = true;
                             }
                         } catch (InputMismatchException e) {
@@ -591,6 +605,7 @@ public class CPTAssignment {
                             scanner.nextLine();
                         }
                     } else if (userAction.equalsIgnoreCase("Cooking Ingredients")) {
+                        // checks if user has already gotten the cooking ingredients
                         if (roomState1[9][0] == true) {
                             System.out.println("There are no more cooking ingredients");
                         } else {
@@ -600,6 +615,7 @@ public class CPTAssignment {
                             userAction = scanner.nextLine();
 
                             if (userAction.equalsIgnoreCase("yes")) {
+                                // sets that the user has taken the cooking ingredients
                                 roomState1[9][0] = true;
                                 System.out.println("You take the cooking ingredients");
                             } else {
@@ -618,6 +634,7 @@ public class CPTAssignment {
                 userAction = "";
 
                 while (!userAction.equalsIgnoreCase("finish")) {
+                    // tests if user has read more than 3 books
                     if (gameState[3] >= 3) {
                         System.out.println("You've read too many books, your head is starting to hurt.");
                         break;
@@ -630,22 +647,31 @@ public class CPTAssignment {
 
                         if (userAction.equalsIgnoreCase("A Game at Dinner")) {
                             System.out.println("You gain the knowledge of alchemy");
+                            // player has knowledge of alchemy to true
                             roomState1[11][3] = true;
+                            // increases number of books read
                             gameState[3]++;
                         } else if (userAction.equalsIgnoreCase("Fire and darkness")) {
                             System.out.println("You feel that you have become better with swords");
+                            // player has knowledge of better using swords to true
                             roomState1[11][0] = true;
+                            // increases number of books read
                             gameState[3]++;
                         } else if (userAction.equalsIgnoreCase("Hallgerd's Tale")) {
                             System.out.println("The book teaches you how to efficiently use armor");
+                            // player has knowledge of better using armor to true
                             roomState1[11][1] = true;
+                            // increases number of books read
                             gameState[3]++;
                         } else if (userAction.equalsIgnoreCase("Twin Secrets")) {
                             System.out.println("You have gained the knowledge of Enchantment");
+                            // player has knowledge of enchanting to true
                             roomState1[11][2] = true;
+                            // increases number of books read
                             gameState[3]++;
                         } else if (userAction.equalsIgnoreCase("The book of fate") || userAction.equalsIgnoreCase("The Posting of the Hunt") || userAction.equalsIgnoreCase("Touching the Sky") || userAction.equalsIgnoreCase("The Betrayed")) {
                             System.out.println("Reading the book was a waste of time. You fail to learn anything of importance.");
+                            // increases number of books read
                             gameState[3]++;
                         } else if (!userAction.equalsIgnoreCase("finish")) {
                             System.out.println("You can't examine that");
@@ -670,6 +696,7 @@ public class CPTAssignment {
 
                         if (userAction.equalsIgnoreCase("yes")) {
                             System.out.println("You pray at the altar and receive a blessing. You feel invigorated and stronger");
+                            // player gets blessed
                             roomState1[13][0] = true;
                         } else {
                             System.out.println("You don't pray.");
@@ -699,18 +726,25 @@ public class CPTAssignment {
                         userAction = scanner.nextLine();
 
                         if (userAction.equalsIgnoreCase("yes")) {
+                            // tests for whether or not player has knowledge of enchanting
                             if (!roomState1[11][2]) {
                                 System.out.println("You do not have the knowledge to enchant items yet");
-                            } else if (!roomState1[2][0]) {
+                            }
+                            // tests whether or not the user has runes necessary for enchanting
+                            else if (!roomState1[2][0]) {
                                 System.out.println("You do not have the necessary runes to begin enchanting yet");
-                            } else {
+                            }
+                            // if the conditions above are met, player can enchant items
+                            else {
                                 while (!userAction.equalsIgnoreCase("finish")) {
+                                    // tests if the player has items to enchant or not
                                     if ((!roomState2[0][0] && !roomState2[1][0] && !roomState2[2][0] && !roomState2[3][1])) {
                                         System.out.println("You don't have anything to enchant");
                                         break;
                                     } else {
                                         System.out.print("Select item to enchant: ");
 
+                                        // if statements to only print out options that the user has
                                         if (roomState2[0][0] && !roomState1[2][1]) {
                                             System.out.print("Shield   ");
                                         }
@@ -728,37 +762,45 @@ public class CPTAssignment {
                                         userAction = scanner.nextLine();
 
                                         if (userAction.equalsIgnoreCase("Shield")) {
+                                            // tests if the user has the item
                                             if (!roomState2[0][0]) {
                                                 System.out.println("Invalid Option");
                                             } else {
                                                 System.out.println("You enchant your shield");
+                                                // replaces normal item with enchanted item
                                                 roomState1[2][1] = true;
                                                 roomState2[0][0] = false;
                                             }
                                         }
                                         if (userAction.equalsIgnoreCase("Sword")) {
+                                            // tests if the user has the item
                                             if (!roomState2[1][0]) {
                                                 System.out.println("Invalid Option");
                                             } else {
                                                 System.out.println("You enchant your sword");
+                                                // replaces normal item with enchanted item
                                                 roomState1[2][2] = true;
                                                 roomState2[1][0] = false;
                                             }
                                         }
                                         if (userAction.equalsIgnoreCase("Helmet")) {
+                                            // tests if the user has the item
                                             if (!roomState2[2][0]) {
                                                 System.out.println("Invalid Option");
                                             } else {
                                                 System.out.println("You enchant your helmet");
+                                                // replaces normal item with enchanted item
                                                 roomState1[2][3] = true;
                                                 roomState2[2][0] = false;
                                             }
                                         }
                                         if (userAction.equalsIgnoreCase("Armor")) {
+                                            // tests if the user has the item
                                             if (!roomState2[3][1]) {
                                                 System.out.println("Invalid Option");
                                             } else {
                                                 System.out.println("You enchant your armor");
+                                                // replaces normal item with enchanted item
                                                 roomState1[2][4] = true;
                                                 roomState2[3][1] = false;
                                             }
@@ -779,6 +821,7 @@ public class CPTAssignment {
                             userAction = scanner.nextLine();
 
                             if (userAction.equalsIgnoreCase("yes")) {
+                                // stores that the user has the runes
                                 roomState1[2][0] = true;
                                 System.out.println("You take the runes");
                             } else {
@@ -807,6 +850,7 @@ public class CPTAssignment {
                     userAction = scanner.nextLine();
 
                     if (userAction.equalsIgnoreCase("Plate of Food")) {
+                        // checks if the player ate the food already
                         if (roomState1[8][0] == true) {
                             System.out.println("You have already eaten the plate of food");
                         } else {
@@ -816,6 +860,7 @@ public class CPTAssignment {
 
                             if (userAction.equalsIgnoreCase("yes")) {
                                 System.out.println("You eat the plate of food. Something in it makes you feel sick.");
+                                // stores that the player ate the plate of food
                                 roomState1[8][0] = true;
                             } else {
                                 System.out.println("You don't eat the food");
@@ -848,6 +893,7 @@ public class CPTAssignment {
                     if (userAction.equalsIgnoreCase("The Ghost")) {
                         System.out.println("A ghastly looking ghost that resembles a person. You can barely make it out. It speaks to you: \n");
 
+                        // if user has not attempted the riddle yet
                         if (roomState2[0][1] == false) {
                             System.out.println("Hello traveller. If you want my help, solve this riddle for me: From the trunk of a willow and the scraped hide of a cow I am made. Suffering the fierce savagery of war I, with my own body, always save my bearer's body, Unless death takes the man's life. What fierce soldier endures such a fate Or receives so many deadly wounds in war?\n" +
                                     "1. Castle\n" +
@@ -861,12 +907,15 @@ public class CPTAssignment {
 
                                 if (userDialogueChooser == 3) {
                                     System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this shield. It will aid you with your fight with the knight in the central tower. I recommend heading to the other towers where you may find valuable information.");
+                                    // sets that the player successfully completed the riddle
                                     roomState2[0][0] = true;
+                                    // sets attempted riddle to true
                                     roomState2[0][1] = true;
                                 } else if (userDialogueChooser > 5) {
                                     System.out.println("What...? Try again");
                                 } else {
                                     System.out.println("That is incorrect. Unfortunately I cannot aid you on this journey.");
+                                    // sets attempted riddle to true
                                     roomState2[0][1] = true;
                                 }
                             } catch (InputMismatchException e) {
@@ -909,12 +958,15 @@ public class CPTAssignment {
 
                                 if (userDialogueChooser == 1) {
                                     System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this sword. It will aid you with your fight with the knight in the central tower. I recommend heading to the other towers where you may find valuable information.");
+                                    // sets that the player successfully completed the riddle
                                     roomState2[1][0] = true;
+                                    // sets attempted riddle to true
                                     roomState2[1][1] = true;
                                 } else if (userDialogueChooser > 5) {
                                     System.out.println("What...? Try again");
                                 } else {
                                     System.out.println("That is incorrect. Unfortunately I cannot aid you on this journey.");
+                                    // sets attempted riddle to true
                                     roomState2[1][1] = true;
                                 }
                             } catch (InputMismatchException e) {
@@ -957,12 +1009,15 @@ public class CPTAssignment {
 
                                 if (userDialogueChooser == 5) {
                                     System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this helmet. It will aid you with your fight with the knight in the central tower. I recommend heading to the other towers where you may find valuable information.");
+                                    // sets that the player successfully completed the riddle
                                     roomState2[2][0] = true;
+                                    // sets attempted riddle to true
                                     roomState2[2][1] = true;
                                 } else if (userDialogueChooser > 5) {
                                     System.out.println("What...? Try again");
                                 } else {
                                     System.out.println("That is incorrect. Unfortunately I cannot aid you on this journey.");
+                                    // sets attempted riddle to true
                                     roomState2[2][1] = true;
                                 }
                             } catch (InputMismatchException e) {
@@ -992,16 +1047,21 @@ public class CPTAssignment {
                     if (userAction.equalsIgnoreCase("The Ghost")) {
                         System.out.println("A ghastly looking ghost that resembles a person. You can barely make it out. It speaks to you: \n");
 
+                        // checks if the user angered the ghost or failed to give the correct stew
                         if (roomState2[3][3] == true) {
                             System.out.println("You failed my test. Get out of my face");
                             break;
-                        } else if (roomState2[3][0] == false) {
+                        }
+                        // checks if the user met the ghost or not
+                        else if (roomState2[3][0] == false) {
+                            // checks if the user has the stew
                             if (roomState1[9][1] == false) {
                                 System.out.println("Hello traveller. If you want my help, cook a meal for me in the kitchen down below. I would really like a spicy stew right now.\n\n" +
                                         "1. Can you even eat the stew? You're a Ghost!\n" +
                                         "2. Okay, I'll go make that stew for you\n" +
                                         "3. I'm not your servant. I'm not making anything for you.");
 
+                                // sets has met ghost to true
                                 roomState2[3][0] = true;
 
                                 try {
@@ -1015,7 +1075,8 @@ public class CPTAssignment {
                                         System.out.println("Thank you!");
                                         break;
                                     } else if (userDialogueChooser == 3) {
-                                        System.out.println("Suit yourself idiot");
+                                        System.out.println("Suit yourself");
+                                        // sets angered ghost to true
                                         roomState2[3][3] = true;
                                         break;
                                     } else {
@@ -1025,7 +1086,9 @@ public class CPTAssignment {
                                     System.out.println("That is not a valid dialogue option");
                                     scanner.nextLine();
                                 }
-                            } else if (roomState1[9][1] == true) {
+                            }
+                            // if user already has the stew
+                            else if (roomState1[9][1] == true) {
                                 System.out.println("Hello traveller. If you want my help, cook a meal for me in the kitchen down below. I would really like a spicy stew right now.\n\n" +
                                         "1. Can you even eat the stew? You're a Ghost!\n" +
                                         "2. Actually, I already have a stew right here\n" +
@@ -1042,28 +1105,36 @@ public class CPTAssignment {
                                         System.out.println("Why do you care? Just go make the damn stew!");
                                         break;
                                     } else if (userDialogueChooser == 2) {
+                                        // if player cooked the spicy stew
                                         if (roomState1[9][2] == true) {
                                             System.out.println("This is exactly what I wanted! Thanks! Here is a set of armor to aid you on your journey.");
+                                            // sets received armor to true
                                             roomState2[3][1] = true;
-                                        } else {
+                                        }
+                                        // if user didn't cook spicy stew
+                                        else {
                                             System.out.println("Bah! This isn't what I wanted! Get out of here, I'm not gonna help you.");
+                                            // sets angered ghost to true
                                             roomState2[3][3] = true;
                                         }
                                         break;
                                     } else if (userDialogueChooser == 3) {
                                         System.out.println("Suit yourself");
+                                        // sets angered ghost to true
                                         roomState2[3][3] = true;
                                         break;
                                     } else if (userDialogueChooser == 4) {
                                         System.out.println("How dare you...\n\n" +
                                                 "You eat the stew... ");
-
+                                        // if the player cooked spicy stew
                                         if (roomState1[9][2] == true) {
                                             System.out.println("The Stew invigorates you and makes you stronger!");
+                                            // set player ate spicy stew to true
                                             roomState2[3][2] = true;
                                         } else {
                                             System.out.println("The stew doesn't do anything.");
                                         }
+                                        // set angered ghost to true
                                         roomState2[3][3] = true;
                                     } else {
                                         System.out.println("What..?");
@@ -1073,7 +1144,9 @@ public class CPTAssignment {
                                     scanner.nextLine();
                                 }
                             }
-                        } else if (roomState2[3][0] == true) {
+                        }
+                        // if user met the ghost before
+                        else if (roomState2[3][0] == true) {
                             System.out.println("Welcome back! Do you have my stew?\n");
 
                             if (roomState1[9][1] == true) {
@@ -1095,22 +1168,29 @@ public class CPTAssignment {
                                         System.out.println("How dare you...\n\n" +
                                                 "You eat the stew... ");
 
+                                        // if the stew is spicy stew
                                         if (roomState1[9][2] == true) {
                                             System.out.println("The Stew invigorates you and makes you stronger!");
+                                            // sets that you ate the stew
                                             roomState2[3][2] = true;
-                                        } else {
+                                        }
+                                        // if the stew is not a spicy stew and you ate it
+                                        else {
                                             System.out.println("The stew doesn't do anything.");
                                         }
                                         roomState2[3][3] = true;
                                     } else if (userDialogueChooser == 3) {
                                         System.out.println("You're scum!");
+                                        // sets angered ghost to true
                                         roomState2[3][3] = true;
                                     }
                                 } catch (InputMismatchException e) {
                                     System.out.println("That is not a valid dialogue option");
                                     scanner.nextLine();
                                 }
-                            } else {
+                            }
+                            // if you met the ghost and you don't have the stew yet
+                            else {
                                 System.out.println("Oh, you don't have the stew yet. Be Quick!");
                             }
                         }
