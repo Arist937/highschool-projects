@@ -93,7 +93,7 @@ public class CPTAssignment {
                         "You make your way into the alchemy room. To the west lies a hallway and the enchanting room is south of here.",
                         "You make your way into the courtyard. To the east lies the central tower and you can return into the castle through the west. Near the entrance of the central tower, you notice a skeleton that seemed to have been crawling for life in its final moments.",
                         "You find yourself in the central tower. There is a set of stairs leading to the top and to the west, you can find courtyard",
-                        "You make your way into a hallway. To the north, it leads into another hallway and to the west lies a dining room. The courtyard is to the east.",
+                        "You make your way into a hallway. To the north, it leads into another hallway, to the west lies a dining room and to the south is the foyer. The courtyard is to the east.",
                         "You make your way into a dining room. To the south lies the southwestern tower and the kitchen is to the north. A hallway lies to the east",
                         "You find yourself in a kitchen. To the south lies the dining room, the Northwestern Tower to the north and a hallway to the east",
                         "You make your way into the Northwestern Tower. There is a set of stairs leading to the top and to the south lies the kitchen.",
@@ -906,7 +906,8 @@ public class CPTAssignment {
                                 scanner.nextLine();
 
                                 if (userDialogueChooser == 3) {
-                                    System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this shield. It will aid you with your fight with the knight in the central tower. I recommend heading to the other towers where you may find valuable information.");
+                                    System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this shield. It will aid you with your fight with the knight in the central tower." +
+                                            "Make sure to explore the rooms outside of the towers as well, you cannot defeat the knight with just the help of the four ghosts.");
                                     // sets that the player successfully completed the riddle
                                     roomState2[0][0] = true;
                                     // sets attempted riddle to true
@@ -925,7 +926,7 @@ public class CPTAssignment {
                         } else if (roomState2[0][0] == true && roomState2[0][1] == true) {
                             System.out.println("Congratulations on solving my riddle. May that shield serve you well!");
                         } else {
-                            System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Try the other towers, you may find valuable information.");
+                            System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Make sure to explore the rooms outside of the towers as well, you cannot defeat the knight with just the help of the four ghosts.");
                         }
                     } else if (!userAction.equalsIgnoreCase("finish")) {
                         System.out.println("You can't examine that");
@@ -957,7 +958,8 @@ public class CPTAssignment {
                                 scanner.nextLine();
 
                                 if (userDialogueChooser == 1) {
-                                    System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this sword. It will aid you with your fight with the knight in the central tower. I recommend heading to the other towers where you may find valuable information.");
+                                    System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this sword. It will aid you with your fight with the knight in the central tower." +
+                                            "Make sure to explore the rooms outside of the towers as well, you cannot defeat the knight with just the help of the four ghosts.");
                                     // sets that the player successfully completed the riddle
                                     roomState2[1][0] = true;
                                     // sets attempted riddle to true
@@ -976,7 +978,7 @@ public class CPTAssignment {
                         } else if (roomState2[1][0] == true && roomState2[1][1] == true) {
                             System.out.println("Congratulations on solving my riddle. May that sword serve you well!");
                         } else {
-                            System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Try the other towers, you may find valuable information.");
+                            System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Make sure to explore the rooms outside of the towers as well, you cannot defeat the knight with just the help of the four ghosts.");
                         }
                     } else if (!userAction.equalsIgnoreCase("finish")) {
                         System.out.println("You can't examine that");
@@ -1008,7 +1010,8 @@ public class CPTAssignment {
                                 scanner.nextLine();
 
                                 if (userDialogueChooser == 5) {
-                                    System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this helmet. It will aid you with your fight with the knight in the central tower. I recommend heading to the other towers where you may find valuable information.");
+                                    System.out.println("Congratulations Traveller! That is the correct answer. To aid you in your journey, take this helmet. It will aid you with your fight with the knight in the central tower." +
+                                            "Make sure to explore the rooms outside of the towers as well, you cannot defeat the knight with just the help of the four ghosts.");
                                     // sets that the player successfully completed the riddle
                                     roomState2[2][0] = true;
                                     // sets attempted riddle to true
@@ -1027,7 +1030,7 @@ public class CPTAssignment {
                         } else if (roomState2[2][0] == true && roomState2[2][1] == true) {
                             System.out.println("Congratulations on solving my riddle. May that helmet serve you well!");
                         } else {
-                            System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Try the other towers, you may find valuable information.");
+                            System.out.println("I'm sorry, since you were unable to solve my riddle, I cannot aid you on this journey. Make sure to explore the rooms outside of the towers as well, you cannot defeat the knight with just the help of the four ghosts.");
                         }
                     } else if (!userAction.equalsIgnoreCase("finish")) {
                         System.out.println("You can't examine that");
