@@ -182,7 +182,7 @@ public class CPTAssignment {
         // playerHealth, playerDamage
         double[] playerStats = {20, 0.5};
         // bossHealth, bossDamage
-        double[] bossStats = {30, 7};
+        double[] bossStats = {30, 5.5};
         boolean isBossDead = false;
 
         // if player got shield, decrease boss damage by 1
