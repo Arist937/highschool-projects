@@ -1,4 +1,4 @@
-package unit4;
+package finalproject;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -428,7 +428,7 @@ public class CPTAssignment {
                                 "Thank you adventurer, your efforts have freed the spirits of all those that perished in this castle. I am beyond thankful for your aid and we wish you good luck in your future endeavours.\n\n" +
                                 "The spirit disappears after thanking you. After taking a moment to recount recent events and take in what happened, you search the knight's body. You find a key that hopefully will unlock " +
                                 "the door in the foyer. You begin making your way down the central tower and back into the main castle to get back to the foyer.\n\n" +
-                                "As you arrive at the foyer, you quickly unlock the door and step outside. After adjusting to the blinding light, you quickly realise that the castle was in the middle of nowhere. However, now" +
+                                "As you arrive at the foyer, you quickly unlock the door and step outside. After adjusting to the blinding light, you quickly realise that the castle was in the middle of nowhere. However, now " +
                                 "that you are free, perhaps you will find the answers in your future travels...");
                         done = true;
                     } else {
@@ -578,8 +578,7 @@ public class CPTAssignment {
                             // tests whether the user cooked before or not
                             if (roomState1[9][1] == true) {
                                 System.out.println("You've already cooked before. You no longer have the ingredients to cook anymore.");
-                            }
-                            else if (userDialogueChooser == 4) {
+                            } else if (userDialogueChooser == 4) {
                                 System.out.println("You don't cook anything");
                             }
                             // tests if user has gotten the cooking ingredients or not
