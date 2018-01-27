@@ -3,6 +3,13 @@ package unit4;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * A program CPTAssignment.java that contains a game where you are a player stuck in a castle and you must explore it to
+ * find answers
+ *
+ * @author: A. Xu
+ */
+
 public class CPTAssignment {
     // global arrays for the first floor
     static String[] roomNames1;
@@ -167,8 +174,8 @@ public class CPTAssignment {
      * @return whether or not the boss has been defeated
      */
     public static boolean finalBoss() {
-        // playerHealth, playerDamage, damageResistance
-        double[] playerStats = {20, 0.5, 0};
+        // playerHealth, playerDamage
+        double[] playerStats = {20, 0.5};
         // bossHealth, bossDamage
         double[] bossStats = {30, 7};
         boolean isBossDead = false;
@@ -250,10 +257,6 @@ public class CPTAssignment {
             playerStats[0] = playerStats[0] + 5;
         }
 
-        System.out.println(playerStats[0]);
-        System.out.println(playerStats[1]);
-        System.out.println(bossStats[1]);
-
         System.out.println("You and the knight engage in combat...");
 
         // keep subtracting damage from health for both the player and boss to determine winner
@@ -276,7 +279,6 @@ public class CPTAssignment {
 
     /**
      * A method playGame that starts the gameplay
-     *
      */
     public static void playGame() {
         // declare variables
@@ -284,7 +286,7 @@ public class CPTAssignment {
         boolean done = false;
 
         // when game is not yet completed, continue running this code to play the game
-        while(!done) {
+        while (!done) {
             // print out description of room depending on floor
             if (gameState[1] == 1) {
                 System.out.println(roomDescriptions1[gameState[0]]);
@@ -295,38 +297,42 @@ public class CPTAssignment {
             // user input
             userSelectedRoomStr = scanner.nextLine();
 
-            // if-elif-else structure for user to move north, east, south or west or do another action
-            if (userSelectedRoomStr.equalsIgnoreCase("n")) {
-                gameState[2] = roomDirections1[gameState[0]][0];
+            if(gameState[1] == 1) {
+                // if-elif-else structure for user to move north, east, south or west or do another action
+                if (userSelectedRoomStr.equalsIgnoreCase("n")) {
+                    gameState[2] = roomDirections1[gameState[0]][0];
 
-                if (gameState[2] != -1) {
-                    gameState[0] = gameState[2];
-                } else {
-                    System.out.println("You cannot go there");
-                }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("e")) {
-                gameState[2] = roomDirections1[gameState[0]][1];
+                    if (gameState[2] != -1) {
+                        gameState[0] = gameState[2];
+                    } else {
+                        System.out.println("You cannot go there");
+                    }
+                } else if (userSelectedRoomStr.equalsIgnoreCase("e")) {
+                    gameState[2] = roomDirections1[gameState[0]][1];
 
-                if (gameState[2] != -1) {
-                    gameState[0] = gameState[2];
-                } else {
-                    System.out.println("You cannot go there");
-                }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("s")) {
-                gameState[2] = roomDirections1[gameState[0]][2];
+                    if (gameState[2] != -1) {
+                        gameState[0] = gameState[2];
+                    } else {
+                        System.out.println("You cannot go there");
+                    }
+                } else if (userSelectedRoomStr.equalsIgnoreCase("s")) {
+                    gameState[2] = roomDirections1[gameState[0]][2];
 
-                if (gameState[2] != -1) {
-                    gameState[0] = gameState[2];
-                } else {
-                    System.out.println("You cannot go there");
-                }
-            } else if (userSelectedRoomStr.equalsIgnoreCase("w")) {
-                gameState[2] = roomDirections1[gameState[0]][3];
+                    if (gameState[2] != -1) {
+                        gameState[0] = gameState[2];
+                    } else {
+                        System.out.println("You cannot go there");
+                    }
+                } else if (userSelectedRoomStr.equalsIgnoreCase("w")) {
+                    gameState[2] = roomDirections1[gameState[0]][3];
 
-                if (gameState[2] != -1) {
-                    gameState[0] = gameState[2];
+                    if (gameState[2] != -1) {
+                        gameState[0] = gameState[2];
+                    } else {
+                        System.out.println("You cannot go there");
+                    }
                 } else {
-                    System.out.println("You cannot go there");
+                    done = otherActions(userSelectedRoomStr, done);
                 }
             } else {
                 done = otherActions(userSelectedRoomStr, done);
@@ -380,7 +386,7 @@ public class CPTAssignment {
                 System.out.println("Invalid Direction");
             }
         }
-        // same as above bur for floor 2
+        // same as above but for floor 2
         else if (gameState[1] == 2) {
             if (userChoice.equalsIgnoreCase("stairs")) {
                 if (gameState[0] == 0) {
@@ -666,8 +672,12 @@ public class CPTAssignment {
 
                 while (!userAction.equalsIgnoreCase("finish")) {
                     System.out.println("What would you like to examine?");
-                    System.out.println("Enchanting Table   Runes   Candles");
 
+                    if (roomState1[2][0]) {
+                        System.out.println("Enchanting Table   Candles");
+                    } else {
+                        System.out.println("Enchanting Table   Runes   Candles");
+                    }
                     userAction = scanner.nextLine();
 
                     if (userAction.equalsIgnoreCase("Enchanting Table")) {
@@ -676,7 +686,7 @@ public class CPTAssignment {
                         userAction = scanner.nextLine();
 
                         if (userAction.equalsIgnoreCase("yes")) {
-                            if(!roomState1[11][2]) {
+                            if (!roomState1[11][2]) {
                                 System.out.println("You do not have the knowledge to enchant items yet");
                             } else if (!roomState1[2][0]) {
                                 System.out.println("You do not have the necessary runes to begin enchanting yet");
@@ -697,7 +707,7 @@ public class CPTAssignment {
                                         if (roomState2[2][0] && !roomState1[2][3]) {
                                             System.out.print("Helmet   ");
                                         }
-                                        if (roomState2[3][1] && !roomState2[2][4]) {
+                                        if (roomState2[3][1] && !roomState1[2][4]) {
                                             System.out.print("Armor   ");
                                         }
 
@@ -748,7 +758,7 @@ public class CPTAssignment {
                         }
                     } else if (userAction.equalsIgnoreCase("Runes")) {
                         if (roomState1[2][0] == true) {
-                            System.out.println("There are no more cooking ingredients");
+                            System.out.println("There are no more runes");
                         } else {
 
                             System.out.println("A bunch of runes, would you like to take them?");
