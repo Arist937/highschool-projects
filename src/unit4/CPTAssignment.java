@@ -89,16 +89,16 @@ public class CPTAssignment {
                 {"You make your way into the southwestern tower. There is a set of stairs leading to the top and the Dining room lies north.",
                         "You find yourself in the Foyer of a castle. In the north, there is a Hallway and to the east lies the enchanting room",
                         "You find yourself in the enchanting room. To the north, there is an alchemy room, to the south, there is the southeastern tower and to the west, there is the foyer of the castle",
-                        "You find yourself in the southeastern tower of the castle. To the north, there is an enchanting room.",
+                        "You find yourself in the southeastern tower of the castle. There is a set of stairs leading to the top and to the north, there is an enchanting room.",
                         "You make your way into the alchemy room. To the west lies a hallway and the enchanting room is south of here.",
                         "You make your way into the courtyard. To the east lies the central tower and you can return into the castle through the west. Near the entrance of the central tower, you notice a skeleton that seemed to have been crawling for life in its final moments.",
                         "You find yourself in the central tower. There is a set of stairs leading to the top and to the west, you can find courtyard",
                         "You make your way into a hallway. To the north, it leads into another hallway and to the west lies a dining room. The courtyard is to the east.",
-                        "You make your way into a dining room. To the south lies the southwestern tower and the kitchen is to the north",
+                        "You make your way into a dining room. To the south lies the southwestern tower and the kitchen is to the north. A hallway lies to the east",
                         "You find yourself in a kitchen. To the south lies the dining room, the Northwestern Tower to the north and a hallway to the east",
                         "You make your way into the Northwestern Tower. There is a set of stairs leading to the top and to the south lies the kitchen.",
-                        "You find yourself in a library. To the south is a hallway and the chapel is to the east",
-                        "You make your way into a hallway. There lies a library to the north, a kitchen to the west and the alchemy room to the east",
+                        "You find yourself in a library. To the south is a hallway and the chapel is to the east. There are many books to read here.",
+                        "You make your way into a hallway. There lies a library to the north, a kitchen to the west and the alchemy room to the east. To the south, there is another hallway.",
                         "You are in the chapel. To the west is the library and to the north is the Northeastern Tower",
                         "You find yourself in the northeastern tower of the castle. There is a set of stairs leading to the top and to the south lies the chapel."};
 
@@ -152,8 +152,12 @@ public class CPTAssignment {
 
         // if user inputs instructions, give instructions
         if (welcomeScreenInput.equalsIgnoreCase("instructions")) {
-            System.out.println("A very important tool in this game is the keyword \"examine\". Try to use it every room to make use of whats within each and every room. When you are done examining, type \"finish\" to return. When in a room with " +
-                    "something to fight, simply type the keyword \"fight\" and it will begin. Lastly, type the keyword \"stairs\" when you are in a room that contains stairs in order to go up or down");
+            System.out.println("A very important tool in this game is the keyword \"examine\". Try to use it every room " +
+                    "to make use of whats within each and every room. When given options to examine, simply type out the option again to examine." +
+                    "When you are done examining, type \"finish\" to return. When in a room with " +
+                    "something to fight, simply type the keyword \"fight\" and it will begin. Lastly, type the keyword \"stairs\" " +
+                    "when you are in a room that contains stairs in order to go up or down. When confronted with a yes or no question, " +
+                    "simply type \"yes\" or \"no\". Finally, when the options are numbered, type in the corresponding number to pick that option.");
         }
         // start game if user enters start
         else if (welcomeScreenInput.equalsIgnoreCase("start")) {
@@ -297,6 +301,7 @@ public class CPTAssignment {
             // user input
             userSelectedRoomStr = scanner.nextLine();
 
+            // n, e, s, w movement only available on first floor
             if (gameState[1] == 1) {
                 // if-elif-else structure for user to move north, east, south or west or do another action
                 if (userSelectedRoomStr.equalsIgnoreCase("n")) {
@@ -334,7 +339,9 @@ public class CPTAssignment {
                 } else {
                     done = otherActions(userSelectedRoomStr, done);
                 }
-            } else {
+            }
+            // if on the second floor, go straight to otherActions
+            else {
                 done = otherActions(userSelectedRoomStr, done);
             }
         }
