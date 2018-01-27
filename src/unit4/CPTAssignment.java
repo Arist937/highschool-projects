@@ -242,9 +242,9 @@ public class CPTAssignment {
             playerStats[1] = playerStats[1] + 1;
         }
 
-        // if player ate the plate of food on the dining table, -10 health
+        // if player ate the plate of food on the dining table, -5 health
         if (roomState1[8][0]) {
-            playerStats[0] = playerStats[0] - 10;
+            playerStats[0] = playerStats[0] - 5;
         }
 
         // if player receives blessing, +5 health
@@ -297,7 +297,7 @@ public class CPTAssignment {
             // user input
             userSelectedRoomStr = scanner.nextLine();
 
-            if(gameState[1] == 1) {
+            if (gameState[1] == 1) {
                 // if-elif-else structure for user to move north, east, south or west or do another action
                 if (userSelectedRoomStr.equalsIgnoreCase("n")) {
                     gameState[2] = roomDirections1[gameState[0]][0];
@@ -558,24 +558,30 @@ public class CPTAssignment {
                                 "3. Curry\n" +
                                 "4. Nevermind");
 
-                        userDialogueChooser = scanner.nextInt();
-                        scanner.nextLine();
-                        if (roomState1[9][1] == true) {
-                            System.out.println("You've already cooked before. You no longer have the ingredients to cook anymore.");
-                        } else if (userDialogueChooser == 4) {
-                            System.out.println("You don't cook anything");
-                        } else if (roomState1[9][0] == false) {
-                            System.out.println("You have not yet made the necessary preparations to start cooking");
-                        } else if (userDialogueChooser == 1) {
-                            System.out.println("You cook a spicy stew");
-                            roomState1[9][1] = true;
-                            roomState1[9][2] = true;
-                        } else if (userDialogueChooser == 2) {
-                            System.out.println("You cook a stew");
-                            roomState1[9][1] = true;
-                        } else if (userDialogueChooser == 3) {
-                            System.out.println("You cook some curry");
-                            roomState1[9][1] = true;
+                        try {
+                            userDialogueChooser = scanner.nextInt();
+                            scanner.nextLine();
+
+                            if (roomState1[9][1] == true) {
+                                System.out.println("You've already cooked before. You no longer have the ingredients to cook anymore.");
+                            } else if (userDialogueChooser == 4) {
+                                System.out.println("You don't cook anything");
+                            } else if (roomState1[9][0] == false) {
+                                System.out.println("You have not yet made the necessary preparations to start cooking");
+                            } else if (userDialogueChooser == 1) {
+                                System.out.println("You cook a spicy stew");
+                                roomState1[9][1] = true;
+                                roomState1[9][2] = true;
+                            } else if (userDialogueChooser == 2) {
+                                System.out.println("You cook a stew");
+                                roomState1[9][1] = true;
+                            } else if (userDialogueChooser == 3) {
+                                System.out.println("You cook some curry");
+                                roomState1[9][1] = true;
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Not a valid option");
+                            scanner.nextLine();
                         }
                     } else if (userAction.equalsIgnoreCase("Cooking Ingredients")) {
                         if (roomState1[9][0] == true) {
