@@ -27,7 +27,7 @@ public class CPTAssignment {
         // call method to initialize arrays
         initializeArrays();
 
-
+        // run welcome screen until it returns true
         while (!welcomeScreen()) ;
 
         // Starting dialogue to begin game
@@ -73,9 +73,11 @@ public class CPTAssignment {
         // currentRoom, currentFloor nextRoom, booksRead
         gameState = new int[]{1, 1, -1, 0};
 
+        // room names of floor 1
         roomNames1 = new String[]{"Southwest Tower", "Foyer", "Enchanting Room", "Southeast Tower", "Alchemy Room",
                 "Courtyard", "Central Tower", "Hallway A", "Dining Room", "Kitchen", "Northwest Tower", "Library",
                 "Hallway B", "Chapel", "Northeast Tower"};
+        // room names of floor 1
         roomDescriptions1 = new String[]
                 {"You make your way into the southwestern tower. There is a set of stairs leading to the top and the Dining room lies north.",
                         "You find yourself in the Foyer of a castle. In the north, there is a Hallway and to the east lies the enchanting room",
@@ -110,7 +112,9 @@ public class CPTAssignment {
         roomDirections1[13] = new int[]{14, -1, -1, 11};
         roomDirections1[14] = new int[]{-1, -1, 13, -1};
 
+        // roomNames of floor 2
         roomNames2 = new String[]{"top floor of the southwestern tower", "top floor of the southeastern tower", "Bedroom A", "Bedroom B"};
+        // roomNames of floor 2
         roomDescriptions2 = new String[]
                 {"You are on the top floor of the southwestern tower. You see a ghost in front of you. There is also a set of stairs leading down to the bottom of the tower.",
                         "You are on the top floor of the southeastern tower. You see a ghost in front of you. There is also a set of stairs leading down to the bottom of the tower.",
@@ -132,19 +136,25 @@ public class CPTAssignment {
      * @return whether the game has begun or not
      */
     public static boolean welcomeScreen() {
+        // declare variables
         String welcomeScreenInput;
         boolean isGameStarted = false;
 
         System.out.println("Welcome to my Game! Type \"instructions\" for some help with the controls and \"start\" when you are ready!");
         welcomeScreenInput = scanner.nextLine();
 
+        // if user inputs instructions, give instructions
         if (welcomeScreenInput.equalsIgnoreCase("instructions")) {
             System.out.println("A very important tool in this game is the keyword \"examine\". Try to use it every room to make use of whats within each and every room. When you are done examining, type \"finish\" to return. When in a room with " +
                     "something to fight, simply type the keyword \"fight\" and it will begin. Lastly, type the keyword \"stairs\" when you are in a room that contains stairs in order to go up or down");
-        } else if (welcomeScreenInput.equalsIgnoreCase("start")) {
+        }
+        // start game if user enters start
+        else if (welcomeScreenInput.equalsIgnoreCase("start")) {
             System.out.println("Have fun!");
             isGameStarted = true;
-        } else {
+        }
+        // default to invalid option if user enters neither start or instructions
+        else {
             System.out.println("Invalid Option");
         }
 
@@ -161,8 +171,8 @@ public class CPTAssignment {
         double[] playerStats = {20, 0.5, 0};
         // bossHealth, bossDamage
         double[] bossStats = {30, 7};
-
         boolean isBossDead = false;
+
         // if player got shield, decrease boss damage by 1
         if (roomState2[0][0]) {
             bossStats[1] = bossStats[1] - 1;
@@ -246,13 +256,17 @@ public class CPTAssignment {
 
         System.out.println("You and the knight engage in combat...");
 
+        // keep subtracting damage from health for both the player and boss to determine winner
         while (isBossDead == false) {
             bossStats[0] = bossStats[0] - playerStats[1];
             playerStats[0] = playerStats[0] - bossStats[1];
 
+            // if player wins, isBossDead = true
             if (bossStats[0] <= 0) {
                 isBossDead = true;
-            } else if (playerStats[0] <= 0) {
+            }
+            // if player loses, isBossDead remains false
+            else if (playerStats[0] <= 0) {
                 break;
             }
         }
@@ -265,18 +279,23 @@ public class CPTAssignment {
      *
      */
     public static void playGame() {
+        // declare variables
         String userSelectedRoomStr = "";
         boolean done = false;
 
+        // when game is not yet completed, continue running this code to play the game
         while(!done) {
+            // print out description of room depending on floor
             if (gameState[1] == 1) {
                 System.out.println(roomDescriptions1[gameState[0]]);
             } else if (gameState[1] == 2) {
                 System.out.println(roomDescriptions2[gameState[0]]);
             }
 
+            // user input
             userSelectedRoomStr = scanner.nextLine();
 
+            // if-elif-else structure for user to move north, east, south or west or do another action
             if (userSelectedRoomStr.equalsIgnoreCase("n")) {
                 gameState[2] = roomDirections1[gameState[0]][0];
 
@@ -326,6 +345,7 @@ public class CPTAssignment {
         boolean done = isGameDone;
 
         if (gameState[1] == 1) {
+            // structure for player to go up the stairs
             if (userChoice.equalsIgnoreCase("stairs")) {
                 if (gameState[0] == 0) {
                     System.out.println("You go up the stairs");
@@ -350,12 +370,18 @@ public class CPTAssignment {
                 } else {
                     System.out.println("There are no stairs...");
                 }
-            } else if (userChoice.equalsIgnoreCase("Examine")) {
+            }
+            // if user enters examine, the player examines rooms
+            else if (userChoice.equalsIgnoreCase("Examine")) {
                 examineFunction();
-            } else {
+            }
+            // if none of the above are met, user has entered invalid input
+            else {
                 System.out.println("Invalid Direction");
             }
-        } else if (gameState[1] == 2) {
+        }
+        // same as above bur for floor 2
+        else if (gameState[1] == 2) {
             if (userChoice.equalsIgnoreCase("stairs")) {
                 if (gameState[0] == 0) {
                     System.out.println("You go down the stairs");
@@ -378,7 +404,9 @@ public class CPTAssignment {
                 }
             } else if (userChoice.equalsIgnoreCase("Examine")) {
                 examineFunction();
-            } else if (userChoice.equalsIgnoreCase("Fight")) {
+            }
+            // if user enters fight at the top of the central tower
+            else if (userChoice.equalsIgnoreCase("Fight")) {
                 if (gameState[0] == 4) {
                     if (finalBoss()) {
                         System.out.println("After a rough battle, you defeat the knight.");
@@ -408,10 +436,13 @@ public class CPTAssignment {
      * A method examineFunction that allows the player to examine and interact with rooms
      */
     public static void examineFunction() {
+        // declare variables
         String userAction = "";
         int userDialogueChooser;
 
+        // examine functions for floor 1
         if (gameState[1] == 1) {
+            // examine function for room 5
             if (gameState[0] == 5) {
                 userAction = "";
 
@@ -441,7 +472,9 @@ public class CPTAssignment {
                         System.out.println("You can't examine that");
                     }
                 }
-            } else if (gameState[0] == 4) {
+            }
+            // examine function for room 4
+            else if (gameState[0] == 4) {
                 userAction = "";
 
                 while (!userAction.equalsIgnoreCase("finish")) {
@@ -496,7 +529,9 @@ public class CPTAssignment {
                         System.out.println("You can't examine that");
                     }
                 }
-            } else if (gameState[0] == 9) {
+            }
+            // examine function for room 9
+            else if (gameState[0] == 9) {
                 userAction = "";
 
                 while (!userAction.equalsIgnoreCase("finish")) {
@@ -558,7 +593,9 @@ public class CPTAssignment {
                         System.out.println("You can't examine that");
                     }
                 }
-            } else if (gameState[0] == 11) {
+            }
+            // examine function for room 11
+            else if (gameState[0] == 11) {
                 userAction = "";
 
                 while (!userAction.equalsIgnoreCase("finish")) {
@@ -596,7 +633,9 @@ public class CPTAssignment {
                         }
                     }
                 }
-            } else if (gameState[0] == 13) {
+            }
+            // examine function for room 13
+            else if (gameState[0] == 13) {
                 userAction = "";
 
                 while (!userAction.equalsIgnoreCase("finish")) {
@@ -620,7 +659,9 @@ public class CPTAssignment {
                         System.out.println("You can't examine that");
                     }
                 }
-            } else if (gameState[0] == 2) {
+            }
+            // examine function for room 2
+            else if (gameState[0] == 2) {
                 userAction = "";
 
                 while (!userAction.equalsIgnoreCase("finish")) {
@@ -727,7 +768,9 @@ public class CPTAssignment {
                         System.out.println("You can't examine that");
                     }
                 }
-            } else if (gameState[0] == 8) {
+            }
+            // examine function for room 8
+            else if (gameState[0] == 8) {
                 userAction = "";
 
                 while (!userAction.equalsIgnoreCase("finish")) {
@@ -766,7 +809,10 @@ public class CPTAssignment {
             } else {
                 System.out.println("There is nothing to examine");
             }
-        } else if (gameState[1] == 2) {
+        }
+        // beginning of examine function on floor 2
+        else if (gameState[1] == 2) {
+            // examine function for room 0
             if (gameState[0] == 0) {
                 userAction = "";
 
@@ -813,7 +859,9 @@ public class CPTAssignment {
                         System.out.println("You can't examine that");
                     }
                 }
-            } else if (gameState[0] == 1) {
+            }
+            // examine function for room 1
+            else if (gameState[0] == 1) {
                 userAction = "";
 
                 while (!userAction.equalsIgnoreCase("finish")) {
@@ -859,7 +907,9 @@ public class CPTAssignment {
                         System.out.println("You can't examine that");
                     }
                 }
-            } else if (gameState[0] == 2) {
+            }
+            // examine function for room 2
+            else if (gameState[0] == 2) {
                 userAction = "";
 
                 while (!userAction.equalsIgnoreCase("finish")) {
@@ -905,7 +955,9 @@ public class CPTAssignment {
                         System.out.println("You can't examine that");
                     }
                 }
-            } else if (gameState[0] == 3) {
+            }
+            // examine function for room 3
+            else if (gameState[0] == 3) {
                 userAction = "";
 
                 while (!userAction.equalsIgnoreCase("finish")) {
